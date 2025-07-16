@@ -1,6 +1,10 @@
 #pragma once
 #include "Shapes/Shape.h"
 
+#include "Shapes/shape.h"
+
+class RegularPoly :	public shape
+{
 class RegularPoly : public shape {
 private:
     Point Center;           // Center of the polygon
@@ -9,7 +13,9 @@ private:
     double initialAngle;    // Angle of the first point
     Point Edge_Point; //Point on the shape
 public:
-    RegularPoly(Point Center, Point Edge_Point, int sides, GfxInfo shapeGfx);
+	RegularPoly(Point P1, Point, GfxInfo shapeGfxInfo);
+	virtual ~RegularPoly();
+	virtual void Draw(GUI* pUI) const;
 
     virtual void Draw(GUI* pUI) const override; // Draw the shape
 };
