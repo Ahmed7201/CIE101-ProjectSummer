@@ -89,7 +89,8 @@ public:
 	void ClearDrawArea() const;	//Clears the drawing area
 
 	// -- shapes Drawing functions
-	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
+	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;
+	void DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const;
 
 	void DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const;  //Draw a line
 	void DrawCircle(Point Center, int Radius, GfxInfo CircGfxInfo) const;  //Draw a circle
