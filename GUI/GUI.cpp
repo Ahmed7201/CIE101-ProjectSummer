@@ -214,7 +214,7 @@ int GUI::getCrntPenWidth() const		//get current pen width
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
-void GUI::DrawCircle(Point Center, int Radius, GfxInfo CircGfxInfo) const
+void GUI::DrawCircle(Point Center, double Radius, GfxInfo CircGfxInfo) const
 {
 	color DrawingClr;
 	if (CircGfxInfo.isSelected)	//shape is selected
