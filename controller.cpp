@@ -22,6 +22,7 @@ operationType controller::GetUseroperation() const
 operation* controller::createOperation(operationType OpType)
 {
 	operation* pOp = nullptr;
+
 	
 	//According to operation Type, create the corresponding operation object
 	switch (OpType)
