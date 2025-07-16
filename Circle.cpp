@@ -17,7 +17,7 @@ void Circle::SetRadius(int r)
 {
 	Radius = r;
 }
-int Circle::GetRadius() const
+double Circle::GetRadius() const
 {
 	return Radius;
 }

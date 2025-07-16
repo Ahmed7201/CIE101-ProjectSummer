@@ -93,7 +93,7 @@ public:
 	void DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const;
 
 	void DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const;  //Draw a line
-	void DrawCircle(Point Center, int Radius, GfxInfo CircGfxInfo) const;  //Draw a circle
+	void DrawCircle(Point Center, double Radius, GfxInfo CircGfxInfo) const;  //Draw a circle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo) const;  //Draw a triangle
 	void DrawPolygon(Point vertices,int numSides, GfxInfo ShpGfxInfo);
 
