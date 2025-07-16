@@ -18,19 +18,19 @@ void opAddCircle::Execute()
 	pUI->ClearStatusBar();
 
 	//Preapre all rectangle parameters
-	GfxInfo RectGfxInfo;
+	GfxInfo CircGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface
-	RectGfxInfo.DrawClr = pUI->getCrntDrawColor();
-	RectGfxInfo.FillClr = pUI->getCrntFillColor();
-	RectGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	CircGfxInfo.DrawClr = pUI->getCrntDrawColor();
+	CircGfxInfo.FillClr = pUI->getCrntFillColor();
+	CircGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
 
-	RectGfxInfo.isFilled = false;	//default is not filled
-	RectGfxInfo.isSelected = false;	//defualt is not selected
+	CircGfxInfo.isFilled = false;	//default is not filled
+	CircGfxInfo.isSelected = false;	//defualt is not selected
 
 	//Create a circle with the above parameters
-	Circle* C = new Circle(P1, RectGfxInfo);
+	Circle* C = new Circle(P1, CircGfxInfo);
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
