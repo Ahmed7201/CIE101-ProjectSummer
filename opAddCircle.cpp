@@ -1,4 +1,5 @@
 #include "opAddCircle.h"
+#include "Circle.h"
 #include "controller.h"	
 #include "GUI/GUI.h"	
 
@@ -9,15 +10,16 @@ opAddCircle::~opAddCircle()
 //Execute the operation	
 void opAddCircle::Execute()
 {
-	Point P1;
+	Point Center;
+	Point Edge_Point; // This point will be used to determine the radius of the circle
 	GUI* pUI = pControl->GetUI();
 	pUI->PrintMessage("New Circle: Click at center");
-	pUI->GetPointClicked(P1.x, P1.y);
-	string msg = "Center is at (" + to_string(P1.x) + ", " + to_string(P1.y) + " )";
+	pUI->GetPointClicked(Center.x, Center.y);
+	string msg = "Center is at (" + to_string(Center.x) + ", " + to_string(Center.y) + " )";
 
 	pUI->ClearStatusBar();
 
-	//Preapre all rectangle parameters
+	//Preapre all circle parameters
 	GfxInfo CircGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface
@@ -30,12 +32,12 @@ void opAddCircle::Execute()
 	CircGfxInfo.isSelected = false;	//defualt is not selected
 
 	//Create a circle with the above parameters
-	Circle* C = new Circle(P1, CircGfxInfo);
+	Circle* C = new Circle(Center,Edge_Point, CircGfxInfo);
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
 
-	//Add the rectangle to the list of shapes
+	//Add the circle to the list of shapes
 	pGr->Addshape(C);
 
 

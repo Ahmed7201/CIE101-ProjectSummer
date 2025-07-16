@@ -91,6 +91,10 @@ public:
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 
+	void DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const;  //Draw a line
+	void DrawCircle(Point Center, int Radius, GfxInfo CircGfxInfo) const;  //Draw a circle
+	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo) const;  //Draw a triangle
+
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar

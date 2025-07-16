@@ -214,6 +214,24 @@ int GUI::getCrntPenWidth() const		//get current pen width
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
+void GUI::DrawCircle(Point Center, int Radius, GfxInfo CircGfxInfo) const
+{
+	color DrawingClr;
+	if (CircGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = CircGfxInfo.DrawClr;
+	pWind->SetPen(DrawingClr, CircGfxInfo.BorderWdth);	//Set Drawing color & width
+	drawstyle style;
+	if (CircGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(CircGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	pWind->DrawCircle(Center.x, Center.y, Radius, style);
+}
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 {
