@@ -1,6 +1,5 @@
 #ifndef DEFS_H
 #define DEFS_H
-//I love C++ and Toosa;
 //bolbol;
 // ahned
 //This file contais some global constants and definitions to be used in the project.
