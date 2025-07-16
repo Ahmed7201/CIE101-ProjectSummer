@@ -239,6 +239,30 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 }
 
 
+void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
+{
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+
+}
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()
 {
