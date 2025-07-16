@@ -1,7 +1,7 @@
 #ifndef DEFS_H
 #define DEFS_H
 
-
+//bolbol
 //This file contais some global constants and definitions to be used in the project.
 enum operationType //The operations supported (you can add more if needed)
 {
