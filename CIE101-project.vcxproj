@@ -167,7 +167,9 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="opAddCircle.cpp" />
+    <ClCompile Include="opAddRegularPoly.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
+    <ClCompile Include="RegularPoly.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
@@ -197,8 +199,10 @@
     <ClInclude Include="controller.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="opAddCircle.h" />
+    <ClInclude Include="opAddRegularPoly.h" />
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\operation.h" />
+    <ClInclude Include="RegularPoly.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Shape.h" />
