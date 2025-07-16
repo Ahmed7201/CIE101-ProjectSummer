@@ -1,5 +1,5 @@
 #include "opAddRegularPoly.h"
-#include "..\shapes\RegularPoly.h"
+#include "RegularPoly.h"
 
 #include "controller.h"
 
