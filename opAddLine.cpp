@@ -1,4 +1,5 @@
 #include "opAddLine.h"
+#include"Line.h"
 #include"controller.h"
 #include"GUI/GUI.h"
 
@@ -34,13 +35,13 @@ void opAddLine::Execute()
 	LineGfxInfo.isSelected = false;	//defualt is not selected
 
 	//Create a circle with the above parameters
-	Line* C = new Line(Start_Point, End_Point, LineGfxInfo);
+	Line* L = new Line(Start_Point, End_Point, LineGfxInfo);
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
 
 	//Add the circle to the list of shapes
-	pGr->Addshape(C);
+	pGr->Addshape(L);
 
 
 }
