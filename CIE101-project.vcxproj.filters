@@ -129,6 +129,10 @@
     </ClCompile>
     <ClCompile Include="opAddSquare.cpp" />
     <ClCompile Include="Square.cpp" />
+    <ClCompile Include="opAddTriangle.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -218,6 +222,10 @@
     </ClInclude>
     <ClInclude Include="opAddSquare.h" />
     <ClInclude Include="Square.h" />
+    <ClInclude Include="opAddTriangle.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">
