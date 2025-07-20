@@ -2,6 +2,7 @@
 #include "operations\opAddRect.h"
 #include "opAddSquare.h"
 #include "opAddCircle.h"
+#include "opAddLine.h"
 
 //Constructor
 controller::controller()
