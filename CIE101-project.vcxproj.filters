@@ -127,6 +127,8 @@
     <ClCompile Include="opAddCircle.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="opAddSquare.cpp" />
+    <ClCompile Include="Square.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -214,6 +216,8 @@
     <ClInclude Include="opAddCircle.h">
       <Filter>Operations</Filter>
     </ClInclude>
+    <ClInclude Include="opAddSquare.h" />
+    <ClInclude Include="Square.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

@@ -17,7 +17,9 @@ public:
 	virtual ~shape() {}
 	void SetSelected(bool s);	//select/unselect the shape
 	bool IsSelected() const;	//check whether fig is selected
-
+	
+	static double CalcRadius(Point center, Point edge);
+	
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
 	
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color

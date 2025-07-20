@@ -8,6 +8,12 @@ shape::shape(GfxInfo shapeGfxInfo)
 void shape::SetSelected(bool s)
 {	ShpGfxInfo.isSelected = s; }
 
+double shape::CalcRadius(Point center, Point edge)
+{
+	double radius = sqrt(pow(center.x - edge.x, 2) + pow(center.y - edge.y, 2));
+	return radius;
+}
+
 bool shape::IsSelected() const
 {	return ShpGfxInfo.isSelected; }
 
