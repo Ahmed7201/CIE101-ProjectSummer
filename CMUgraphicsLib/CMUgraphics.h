@@ -258,6 +258,7 @@ class window {
     // Valid drawstyles are FRAME, FILLED, and INVERTED.
   	void DrawTriangle(const int iX1, const int iY1, const int iX2, const int iY2, const int iX3, const int iY3, const drawstyle dsStyle = FILLED);
   	
+
   	// Works the same as DrawTriangle, but takes a pointer (or an array) of X and Y values
   	// The number of elements in ipX and ipY must be the same, and iVertices must be 
   	// no greater than the number of elements in the two arrays, or your program may

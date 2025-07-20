@@ -216,6 +216,30 @@ int GUI::getCrntPenWidth() const		//get current pen width
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
+void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const
+{
+	color DrawingClr;
+	if (LineGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = LineGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, LineGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (LineGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(LineGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+
+}
+
+
 void GUI::DrawCircle(Point Center, double Radius, GfxInfo CircGfxInfo) const
 {
 	color DrawingClr;
@@ -275,7 +299,7 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 		style = FILLED;
 		pWind->SetBrush(SquareGfxInfo.FillClr);
 	}
-	else
+	else 
 		style = FRAME;
 
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);

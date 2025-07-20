@@ -166,8 +166,10 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="GUI\GUI.cpp" />
     <ClCompile Include="controller.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="opAddCircle.cpp" />
+    <ClCompile Include="opAddLine.cpp" />
     <ClCompile Include="opAddSquare.cpp" />
     <ClCompile Include="opAddTriangle.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
@@ -202,7 +204,9 @@
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="opAddCircle.h" />
+    <ClInclude Include="opAddLine.h" />
     <ClInclude Include="opAddSquare.h" />
     <ClInclude Include="opAddTriangle.h" />
     <ClInclude Include="operations\opAddRect.h" />
