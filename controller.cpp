@@ -36,7 +36,7 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case DRAW_LINE:
-			///create AddLineoperation here
+			pOp = new opAddLine(this);
 
 			break;
 
