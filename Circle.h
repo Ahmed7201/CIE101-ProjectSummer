@@ -14,6 +14,7 @@ public:
         void SetRadius(int r); //Set the radius of the circle
         double GetRadius() const; //Get the radius of the circle
         Point GetCenter() const; //Get the center of the circle
+       
 
 };
 

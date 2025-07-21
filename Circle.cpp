@@ -1,6 +1,7 @@
 #include "Circle.h"
 Circle::Circle(Point P1,Point P2, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
+	
 	Center = P1;
 	Edge_Point = P2; // Point on the circumference of the circle
 	Radius =sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2)); ; // Default radius
