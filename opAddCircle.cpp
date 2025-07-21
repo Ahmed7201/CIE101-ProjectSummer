@@ -15,6 +15,7 @@ void opAddCircle::Execute()
 	GUI* pUI = pControl->GetUI();
 	pUI->PrintMessage("New Circle: Click at center");
 	pUI->GetPointClicked(Center.x, Center.y);
+	
 	string msg = "Center is at (" + to_string(Center.x) + ", " + to_string(Center.y) + " )";
 
 	pUI->ClearStatusBar();

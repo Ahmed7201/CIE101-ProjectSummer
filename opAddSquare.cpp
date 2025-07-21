@@ -16,6 +16,7 @@ void opAddSquare::Execute()
 	GUI* pUI = pControl->GetUI();
 	pUI->PrintMessage("New Square: Click at center");
 	pUI->GetPointClicked(P1.x, P1.y);
+	pUI->GetPointClicked(P2.x, P2.y);
 	string msg = "Center is at (" + to_string(P1.x) + ", " + to_string(P1.y) + " )";
 
 	pUI->ClearStatusBar();
