@@ -1,6 +1,5 @@
 #include "GUI.h"
 
-
 GUI::GUI()
 {
 
@@ -159,6 +158,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\Menu_Rect.jpg";
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_Rect.jpg";
 	
+
 
 	//TODO: Prepare images for each menu icon and add it to the list
 
