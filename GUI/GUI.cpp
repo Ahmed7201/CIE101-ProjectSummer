@@ -98,7 +98,8 @@ operationType GUI::GetUseroperation() const
 		case ICON_OVAL: return Draw_Oval;
 		case ICON_REG_POLYGON: return Draw_Regular_Polygon;
 		case ICON_COLOR_PAL: return Draw_Color_Palette;
-
+		case ICON_DRAW_CLR: return CHNG_DRAW_CLR;
+		case ICON_FILL_CLR: return CHNG_FILL_CLR;
 
 
 		case ICON_Select: return Select;
