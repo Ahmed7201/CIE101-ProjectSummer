@@ -65,11 +65,6 @@ operation* controller::createOperation(operationType OpType)
 		case CHNG_FILL_CLR:
 			pOp = new opFillColor(this);
 			break;
-
-
-
-
-
 		case Draw_Color_Palette:
 			pOp = new opColorPalete(this);
 			break;
