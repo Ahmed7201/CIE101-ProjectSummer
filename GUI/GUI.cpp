@@ -31,7 +31,7 @@ GUI::GUI()
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
 	//Change the title
-	pWind->ChangeTitle("- - - - - - - - - - PAINT ^Shape_Studio ^ PLAY - - - - - - - - - -");
+	pWind->ChangeTitle("- - - - - - - - - - ^ ZAG Shape_Studio ZAG ^ - - - - - - - - - -");
 	CreateDrawToolBar();
 	CreateStatusBar();
 	
