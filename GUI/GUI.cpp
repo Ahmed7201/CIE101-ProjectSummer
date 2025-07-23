@@ -35,7 +35,7 @@ GUI::GUI()
 	CreateDrawToolBar();
 	CreateStatusBar();
 	
-	DrawColorPalette();
+	
 }
 
 

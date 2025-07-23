@@ -28,7 +28,7 @@ void opAddTriangle::Execute()
 	pUI->GetPointClicked(P2.x, P2.y);
 	pUI->ClearStatusBar();
 	//Read 3nd corner and store in point P3
-	msg += " ... Click at Third corner";
+	msg += " is at (" + to_string(P2.x) + ", " + to_string(P2.y) +") " "... Click at Third corner";
 	pUI->PrintMessage(msg);
 	pUI->GetPointClicked(P3.x, P3.y);
 	pUI->ClearStatusBar();
