@@ -38,6 +38,13 @@ class GUI
 		ICON_SQUARE,	//Square icon in menu
 		ICON_OVAL,		//Oval icon in menu
 		ICON_REG_POLYGON,	//Regular Polygon icon in menu
+
+
+
+
+		ICON_Select,		//Select icon in menu
+
+
 		ICON_COLOR_PAL,
 		ICON_DRAW_CLR,
 		ICON_FILL_CLR,

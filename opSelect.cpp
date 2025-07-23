@@ -4,8 +4,6 @@
 
 opSelect::opSelect(controller* pCont) : operation(pCont)
 {
-	selectedShape = nullptr; // Initialize selectedShape to nullptr
-	
 }
 opSelect::~opSelect()
 {
@@ -16,16 +14,15 @@ void opSelect::Execute()
 	Point clickedPoint;
 	GUI* pUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
-	// Clear the status bar
-	pUI->ClearStatusBar();
+	pUI->GetPointClicked(clickedPoint.x, clickedPoint.y); // Get the point clicked by the user
 	// Get the shape at the clicked point
-	selectedShape = pGraph->Getshape(clickedPoint.x,clickedPoint.y);
+	shape* selectedShape = pGraph->Getshape(clickedPoint.x,clickedPoint.y);
 	if (selectedShape)
 	{
 		if(selectedShape->IsSelected()==false)
 		{
 			selectedShape->SetSelected(true); // Select the shape
-			pUI->PrintMessage("Shape selected");
+			pUI->PrintMessage("Shape selected ");
 		}
 		
 	}

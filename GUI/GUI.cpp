@@ -98,6 +98,10 @@ operationType GUI::GetUseroperation() const
 		case ICON_OVAL: return Draw_Oval;
 		case ICON_REG_POLYGON: return Draw_Regular_Polygon;
 		case ICON_COLOR_PAL: return Draw_Color_Palette;
+
+
+
+		case ICON_Select: return Select;
 		case ICON_EXIT: return EXIT;
         
 		default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -171,6 +175,12 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_COLOR_PAL] = "images\\MenuIcons\\Menu_ColorPal.jpg";
 	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_ColorPal.jpg";
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_ColorPal.jpg";
+
+
+
+	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
+	
+
 
 	//TODO: Prepare images for each menu icon and add it to the list
 

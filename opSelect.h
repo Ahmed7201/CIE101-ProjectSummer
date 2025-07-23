@@ -4,9 +4,6 @@
 class opSelect :
     public operation
 {
-    private:
-		Point P1; // The point to select
-		shape* selectedShape; // Pointer to the selected shape
 public:
     opSelect(controller* pCont);
         virtual void Execute() override; // Execute the operation

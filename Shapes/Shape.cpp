@@ -25,4 +25,8 @@ void shape::ChngFillClr(color Fclr)
 	ShpGfxInfo.isFilled = true;
 	ShpGfxInfo.FillClr = Fclr; 
 }
+GfxInfo shape::GetGfxInfo()const
+{
+	return ShpGfxInfo;
+} // Return the shape's graphical info
 
