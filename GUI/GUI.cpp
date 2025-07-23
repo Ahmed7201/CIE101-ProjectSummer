@@ -24,7 +24,6 @@ GUI::GUI()
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use it for highlight only
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
-	StatusBarRedPa = RED;
 
 
 	//Create the output window
