@@ -6,6 +6,7 @@
 #include"opAddTriangle.h"
 #include "opSelect.h"
 #include "opDrawColor.h"
+#include "opFillColor.h"
 
 #include "opColorPalete.h"
 
@@ -60,6 +61,10 @@ operation* controller::createOperation(operationType OpType)
 
 		case CHNG_DRAW_CLR:
 			pOp = new opDrawColor(this);
+			break;
+		case CHNG_FILL_CLR:
+			pOp = new opFillColor(this);
+			break;
 
 
 
