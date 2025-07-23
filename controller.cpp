@@ -7,7 +7,6 @@
 #include "opSelect.h"
 #include "opDrawColor.h"
 #include "opFillColor.h"
-
 #include "opColorPalete.h"
 
 //Constructor
