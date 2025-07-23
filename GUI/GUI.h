@@ -90,6 +90,8 @@ public:
 	color CreateColorPalette();
 	void DrawColorPalette();
 	
+	void SetDrawColor(color newColor); // <-- NEW FUNCTION
+
 	
 	
 

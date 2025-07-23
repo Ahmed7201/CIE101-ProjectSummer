@@ -242,9 +242,6 @@ color GUI::CreateColorPalette()
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
 void GUI::ClearDrawArea() const
 {
 	pWind->SetPen(BkGrndColor, 1);
@@ -395,6 +392,14 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 	pWind->DrawSquare(P1.x, P1.y, side, style);
 
 
+}
+
+
+
+
+void GUI::SetDrawColor(color newColor)
+{
+	DrawColor = newColor;
 }
 
 
