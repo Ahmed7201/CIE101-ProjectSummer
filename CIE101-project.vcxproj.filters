@@ -150,6 +150,8 @@
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
     <ClCompile Include="opDrawColor.cpp" />
+    <ClCompile Include="opSelect.cpp" />
+    <ClCompile Include="opFillColor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -263,6 +265,8 @@
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
     <ClInclude Include="opDrawColor.h" />
+    <ClInclude Include="opSelect.h" />
+    <ClInclude Include="opFillColor.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

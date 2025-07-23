@@ -103,7 +103,7 @@ operationType GUI::GetUseroperation() const
 
 		case ICON_Select: return Select;
 		case ICON_EXIT: return EXIT;
-
+        
 		default: return EMPTY;	//A click on empty place in desgin toolbar
 		}
 	}
@@ -173,7 +173,8 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\Menu_Oval.jpg";
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
 	MenuIconImages[ICON_COLOR_PAL] = "images\\MenuIcons\\Menu_ColorPal.jpg";
-
+	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_ColorPal.jpg";
+	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_ColorPal.jpg";
 
 
 
@@ -417,7 +418,10 @@ void GUI::SetDrawColor(color newColor)
 {
 	DrawColor = newColor;
 }
-
+void GUI::SetFillColor(color newColor)
+{
+	FillColor = newColor;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()

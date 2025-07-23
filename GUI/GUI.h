@@ -47,7 +47,8 @@ class GUI
 
 
 		ICON_COLOR_PAL,
-		//TODO: Add more icons names here
+		ICON_DRAW_CLR,
+		ICON_FILL_CLR,
 
 		ICON_EXIT,		//Exit icon
 
@@ -98,7 +99,8 @@ public:
 	color CreateColorPalette();
 	void DrawColorPalette();
 	
-	void SetDrawColor(color newColor); // <-- NEW FUNCTION
+	void SetDrawColor(color newColor); 
+	void SetFillColor(color newColor);  
 
 	
 	
