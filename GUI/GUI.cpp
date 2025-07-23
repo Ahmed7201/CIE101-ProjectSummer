@@ -1,4 +1,6 @@
 #include "GUI.h"
+#include "../operations/operation.h"
+#include "..//controller.h"
 
 GUI::GUI()
 {
@@ -8,8 +10,9 @@ GUI::GUI()
 	wx = 5;
 	wy = 5;
 
-
+	
 	StatusBarHeight = 50;
+	StatusBarWidth = 1300;
 	ToolBarHeight = 50;
 	MenuIconWidth = 80;
 
@@ -20,15 +23,17 @@ GUI::GUI()
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use it for highlight only
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
+	StatusBarRedPa = RED;
 
 
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
 	//Change the title
-	pWind->ChangeTitle("- - - - - - - - - - PAINT ^ ^ PLAY - - - - - - - - - -");
-
+	pWind->ChangeTitle("- - - - - - - - - - PAINT ^Ahmed ^ PLAY - - - - - - - - - -");
 	CreateDrawToolBar();
 	CreateStatusBar();
+	
+	DrawColorPalette();
 }
 
 
@@ -121,6 +126,7 @@ window* GUI::CreateWind(int w, int h, int x, int y) const
 	pW->SetBrush(BkGrndColor);
 	pW->SetPen(BkGrndColor, 1);
 	pW->DrawRectangle(0, ToolBarHeight, w, h);
+
 	return pW;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -129,6 +135,8 @@ void GUI::CreateStatusBar() const
 	pWind->SetPen(StatusBarColor, 1);
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
+
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearStatusBar() const
@@ -173,7 +181,66 @@ void GUI::CreateDrawToolBar()
 	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 
 }
+
+
+void GUI::DrawColorPalette()
+{
+	
+	pWind->SetPen(BLACK, 1);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(StatusBarWidth, height - StatusBarHeight, StatusBarWidth + 45, height, FILLED);
+	pWind->SetBrush(BLACK);
+	pWind->DrawRectangle(StatusBarWidth + 45, height - StatusBarHeight, StatusBarWidth + 90, height, FILLED);
+	pWind->SetBrush(GREEN);
+	pWind->DrawRectangle(StatusBarWidth + 90, height - StatusBarHeight, StatusBarWidth + 135, height, FILLED);
+	pWind->SetBrush(BLUE);
+	pWind->DrawRectangle(StatusBarWidth + 135, height - StatusBarHeight, StatusBarWidth + 180, height, FILLED);
+	pWind->SetBrush(YELLOW);
+	pWind->DrawRectangle(StatusBarWidth + 180, height - StatusBarHeight, StatusBarWidth + 225, height, FILLED);
+	pWind->SetBrush(RED);
+	pWind->DrawRectangle(StatusBarWidth + 225, height - StatusBarHeight, width, height, FILLED);
+}
+
+color GUI::CreateColorPalette()
+{
+	color COL;
+	int x, y;
+	pWind->WaitMouseClick(x, y);
+	if ((y > height - StatusBarHeight) && (y < height))
+	{
+		if ((x > StatusBarWidth) && (x < StatusBarWidth + 45))
+		{
+			COL = WHITE;
+		}
+		else if ((x > StatusBarWidth + 45) && (x < StatusBarWidth + 90))
+		{
+			COL = BLACK;
+		}
+		else if ((x > StatusBarWidth + 90) && (x < StatusBarWidth + 135))
+		{
+			COL = GREEN;
+		}
+		else if ((x > StatusBarWidth + 135) && (x < StatusBarWidth + 180))
+		{
+			COL = BLUE;
+		}
+		else if ((x > StatusBarWidth + 180) && (x < StatusBarWidth + 225))
+		{
+			COL = YELLOW;
+		}
+		else if ((x > StatusBarWidth + 225) && (x < width))
+		{
+			COL = RED;
+		}
+	}
+	return COL;
+}
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -196,7 +263,7 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
-color GUI::getCrntDrawColor() const	//get current drwawing color
+color GUI::getCrntDrawColor() const //get current drwawing color
 {
 	return DrawColor;
 }

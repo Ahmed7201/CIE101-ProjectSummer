@@ -53,6 +53,7 @@ class GUI
 	int	width, height,	//Window width and height
 		wx, wy,			//Window starting coordinates
 		StatusBarHeight,	//Status Bar Height
+		StatusBarWidth,
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
 
@@ -64,6 +65,7 @@ class GUI
 	color BkGrndColor;		//Background color
 	color StatusBarColor;	//Status bar color
 	int PenWidth;			//width of the pen that draws shapes
+	color StatusBarRedPa;
 
 	/// Add more members if needed
 
@@ -85,6 +87,11 @@ public:
 	void CreateDrawToolBar();	//creates Draw mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
 
+	color CreateColorPalette();
+	
+	
+	
+
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
 
@@ -96,11 +103,13 @@ public:
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo) const;  //Draw a triangle
 	void DrawPolygon(Point vertices,int numSides, GfxInfo ShpGfxInfo);
 
+	
+	
 
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
-
+	void DrawColorPalette();
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
