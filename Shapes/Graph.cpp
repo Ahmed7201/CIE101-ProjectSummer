@@ -67,7 +67,7 @@ shape* Graph::Getshape(int x, int y) const
 			return shapesList[i];
 		}
 	}
-	return nullptr;
+	
 
 	///Add your code here to search for a shape given a point x,y	
 
