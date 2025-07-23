@@ -65,7 +65,7 @@ class GUI
 	color BkGrndColor;		//Background color
 	color StatusBarColor;	//Status bar color
 	int PenWidth;			//width of the pen that draws shapes
-	color StatusBarRedPa;
+	
 
 	/// Add more members if needed
 
@@ -88,6 +88,7 @@ public:
 	void CreateStatusBar() const;	//create the status bar
 
 	color CreateColorPalette();
+	void DrawColorPalette();
 	
 	
 	
@@ -109,7 +110,6 @@ public:
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
-	void DrawColorPalette();
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width

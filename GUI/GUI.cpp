@@ -13,7 +13,7 @@ GUI::GUI()
 
 	
 	StatusBarHeight = 50;
-	StatusBarWidth = 1300;
+	StatusBarWidth = 0;
 	ToolBarHeight = 50;
 	MenuIconWidth = 80;
 
@@ -185,7 +185,7 @@ void GUI::CreateDrawToolBar()
 
 
 void GUI::DrawColorPalette()
-{
+{	
 	
 	pWind->SetPen(BLACK, 1);
 	pWind->SetBrush(WHITE);
@@ -200,6 +200,7 @@ void GUI::DrawColorPalette()
 	pWind->DrawRectangle(StatusBarWidth + 180, height - StatusBarHeight, StatusBarWidth + 225, height, FILLED);
 	pWind->SetBrush(RED);
 	pWind->DrawRectangle(StatusBarWidth + 225, height - StatusBarHeight, width, height, FILLED);
+	
 }
 
 color GUI::CreateColorPalette()
