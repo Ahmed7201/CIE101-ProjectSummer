@@ -173,6 +173,7 @@
     <ClCompile Include="opAddSquare.cpp" />
     <ClCompile Include="opAddTriangle.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
+    <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="opAddTriangle.h" />
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\operation.h" />
+    <ClInclude Include="opSelect.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Shape.h" />
