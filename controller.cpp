@@ -7,6 +7,8 @@
 #include "opSelect.h"
 #include "opDrawColor.h"
 
+#include "opColorPalete.h"
+
 //Constructor
 controller::controller()
 {
@@ -54,9 +56,18 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Select:
 			pOp = new opSelect(this);
+			break;
 
 		case CHNG_DRAW_CLR:
 			pOp = new opDrawColor(this);
+
+
+
+
+
+		case Draw_Color_Palette:
+			pOp = new opColorPalete(this);
+			break;
 
 		case EXIT:
 			///create Exitoperation here
