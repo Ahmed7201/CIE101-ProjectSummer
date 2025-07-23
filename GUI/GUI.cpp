@@ -35,7 +35,7 @@ GUI::GUI()
 	CreateDrawToolBar();
 	CreateStatusBar();
 	
-	DrawColorPalette();
+	
 }
 
 
@@ -177,7 +177,7 @@ void GUI::CreateDrawToolBar()
 
 
 
-	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Rect.jpg";
+	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
 	
 
 
@@ -197,60 +197,94 @@ void GUI::CreateDrawToolBar()
 
 
 void GUI::DrawColorPalette()
-{	
-	
+{
 	pWind->SetPen(BLACK, 1);
 	pWind->SetBrush(WHITE);
-	pWind->DrawRectangle(StatusBarWidth, height - StatusBarHeight, StatusBarWidth + 45, height, FILLED);
+	pWind->DrawRectangle(StatusBarWidth, height - StatusBarHeight, StatusBarWidth + 108, height, FILLED);
 	pWind->SetBrush(BLACK);
-	pWind->DrawRectangle(StatusBarWidth + 45, height - StatusBarHeight, StatusBarWidth + 90, height, FILLED);
+	pWind->DrawRectangle(StatusBarWidth + 108, height - StatusBarHeight, StatusBarWidth + 216, height, FILLED);
 	pWind->SetBrush(GREEN);
-	pWind->DrawRectangle(StatusBarWidth + 90, height - StatusBarHeight, StatusBarWidth + 135, height, FILLED);
+	pWind->DrawRectangle(StatusBarWidth + 216, height - StatusBarHeight, StatusBarWidth + 324, height, FILLED);
 	pWind->SetBrush(BLUE);
-	pWind->DrawRectangle(StatusBarWidth + 135, height - StatusBarHeight, StatusBarWidth + 180, height, FILLED);
+	pWind->DrawRectangle(StatusBarWidth + 324, height - StatusBarHeight, StatusBarWidth + 432, height, FILLED);
 	pWind->SetBrush(YELLOW);
-	pWind->DrawRectangle(StatusBarWidth + 180, height - StatusBarHeight, StatusBarWidth + 225, height, FILLED);
+	pWind->DrawRectangle(StatusBarWidth + 432, height - StatusBarHeight, StatusBarWidth + 540, height, FILLED);
 	pWind->SetBrush(RED);
-	pWind->DrawRectangle(StatusBarWidth + 225, height - StatusBarHeight, width, height, FILLED);
+	pWind->DrawRectangle(StatusBarWidth + 540, height - StatusBarHeight, StatusBarWidth + 648, height, FILLED);
+	pWind->SetBrush(DARKGREEN);
+	pWind->DrawRectangle(StatusBarWidth + 648, height - StatusBarHeight, StatusBarWidth + 756, height, FILLED);
+	pWind->SetBrush(MAGENTA);
+	pWind->DrawRectangle(StatusBarWidth + 756, height - StatusBarHeight, StatusBarWidth + 864, height, FILLED);
+	pWind->SetBrush(CYAN);
+	pWind->DrawRectangle(StatusBarWidth + 864, height - StatusBarHeight, StatusBarWidth + 972, height, FILLED);
+	pWind->SetBrush(ORANGE);
+	pWind->DrawRectangle(StatusBarWidth + 972, height - StatusBarHeight, StatusBarWidth + 1080, height, FILLED);
+	pWind->SetBrush(PURPLE);
+	pWind->DrawRectangle(StatusBarWidth + 1080, height - StatusBarHeight, StatusBarWidth + 1188, height, FILLED);
+	pWind->SetBrush(GRAY);
+	pWind->DrawRectangle(StatusBarWidth + 1188, height - StatusBarHeight, width, height, FILLED);
 	
 }
 
 color GUI::CreateColorPalette()
 {
-	color COL;
-	int x, y;
-	DrawColorPalette();
-	pWind->WaitMouseClick(x, y);
-	if ((y > height - StatusBarHeight) && (y < height))
-	{
-		if ((x > StatusBarWidth) && (x < StatusBarWidth + 45))
-		{
-			COL = WHITE;
-		}
-		else if ((x > StatusBarWidth + 45) && (x < StatusBarWidth + 90))
-		{
-			COL = BLACK;
-		}
-		else if ((x > StatusBarWidth + 90) && (x < StatusBarWidth + 135))
-		{
-			COL = GREEN;
-		}
-		else if ((x > StatusBarWidth + 135) && (x < StatusBarWidth + 180))
-		{
-			COL = BLUE;
-		}
-		else if ((x > StatusBarWidth + 180) && (x < StatusBarWidth + 225))
-		{
-			COL = YELLOW;
-		}
-		else if ((x > StatusBarWidth + 225) && (x < width))
-		{
-			COL = RED;
-		}
-		
-	}
-	ClearStatusBar();
-	return COL;
+    color CLR;
+    int x, y;
+    DrawColorPalette();
+    pWind->WaitMouseClick(x, y);
+    if ((y > height - StatusBarHeight) && (y < height))
+    {
+        if ((x >= StatusBarWidth) && (x < StatusBarWidth + 108))
+        {
+			CLR = WHITE;
+        }
+        else if ((x >= StatusBarWidth + 108) && (x < StatusBarWidth + 216))
+        {
+            CLR = BLACK;
+        }
+        else if ((x >= StatusBarWidth + 216) && (x < StatusBarWidth + 324))
+        {
+            CLR = GREEN;
+        }
+        else if ((x >= StatusBarWidth + 324) && (x < StatusBarWidth + 432))
+        {
+            CLR = BLUE;
+        }
+        else if ((x >= StatusBarWidth + 432) && (x < StatusBarWidth + 540))
+        {
+            CLR = YELLOW;
+        }
+        else if ((x >= StatusBarWidth + 540) && (x < StatusBarWidth + 648))
+        {
+            CLR = RED;
+        }
+        else if ((x >= StatusBarWidth + 648) && (x < StatusBarWidth + 756))
+        {
+            CLR = DARKGREEN;
+        }
+        else if ((x >= StatusBarWidth + 756) && (x < StatusBarWidth + 864))
+        {
+            CLR = MAGENTA;
+        }
+        else if ((x >= StatusBarWidth + 864) && (x < StatusBarWidth + 972))
+        {
+            CLR = CYAN;
+        }
+        else if ((x >= StatusBarWidth + 972) && (x < StatusBarWidth + 1080))
+        {
+            CLR = ORANGE;
+        }
+        else if ((x >= StatusBarWidth + 1080) && (x < StatusBarWidth + 1188))
+        {
+            CLR = PURPLE;
+        }
+        else if ((x >= StatusBarWidth + 1188) && (x < width))
+        {
+            CLR = GRAY;
+        }
+    }
+    ClearStatusBar();
+    return CLR;
 }
 
 
