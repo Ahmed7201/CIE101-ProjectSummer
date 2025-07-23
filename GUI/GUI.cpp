@@ -95,6 +95,10 @@ operationType GUI::GetUseroperation() const
 		case ICON_SQUARE: return Draw_SQUARE;
 		case ICON_OVAL: return Draw_Oval;
 		case ICON_REG_POLYGON: return Draw_Regular_Polygon;
+
+
+
+		case ICON_Select: return Select;
 		case ICON_EXIT: return EXIT;
 
 		default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -165,6 +169,11 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\Menu_Oval.jpg";
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
+
+
+
+
+	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
 	
 
 

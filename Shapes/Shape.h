@@ -17,6 +17,9 @@ public:
 	virtual ~shape() {}
 	void SetSelected(bool s);	//select/unselect the shape
 	bool IsSelected() const;	//check whether fig is selected
+
+	GfxInfo GetGfxInfo() const; //get the shape's graphical info
+
 	
 	static double CalcRadius(Point center, Point edge);
 	

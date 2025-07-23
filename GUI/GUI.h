@@ -39,6 +39,12 @@ class GUI
 		ICON_OVAL,		//Oval icon in menu
 		ICON_REG_POLYGON,	//Regular Polygon icon in menu
 
+
+
+
+		ICON_Select,		//Select icon in menu
+
+
 		//TODO: Add more icons names here
 
 		ICON_EXIT,		//Exit icon
