@@ -177,7 +177,7 @@ void GUI::CreateDrawToolBar()
 
 
 
-	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Rect.jpg";
+	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
 	
 
 
