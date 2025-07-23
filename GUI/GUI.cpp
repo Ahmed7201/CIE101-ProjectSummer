@@ -97,7 +97,6 @@ operationType GUI::GetUseroperation() const
 		case ICON_SQUARE: return Draw_SQUARE;
 		case ICON_OVAL: return Draw_Oval;
 		case ICON_REG_POLYGON: return Draw_Regular_Polygon;
-		case ICON_COLOR_PAL: return Draw_Color_Palette;
 		case ICON_DRAW_CLR: return CHNG_DRAW_CLR;
 		case ICON_FILL_CLR: return CHNG_FILL_CLR;
 
@@ -173,9 +172,8 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\Menu_Oval.jpg";
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
-	MenuIconImages[ICON_COLOR_PAL] = "images\\MenuIcons\\Menu_ColorPal.jpg";
-	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Rect.jpg";
-	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Rect.jpg";
+	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Pen.jpg";
+	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
 
 
 

@@ -29,8 +29,8 @@ void opAddSquare::Execute()
 	SquareGfxInfo.FillClr = pUI->getCrntFillColor();
 	SquareGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
-
-	SquareGfxInfo.isFilled = false;	//default is not filled
+	SquareGfxInfo.isFilled = true;
+		
 	SquareGfxInfo.isSelected = false;	//defualt is not selected
 
 	//Create a Square with the above parameters

@@ -46,7 +46,7 @@ class GUI
 		ICON_Select,		//Select icon in menu
 
 
-		ICON_COLOR_PAL,
+		
 		ICON_DRAW_CLR,
 		ICON_FILL_CLR,
 
