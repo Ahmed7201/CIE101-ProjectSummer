@@ -4,6 +4,8 @@
 #include "opAddCircle.h"
 #include "opAddLine.h"
 #include"opAddTriangle.h"
+#include "opSelect.h"
+#include "opDrawColor.h"
 
 //Constructor
 controller::controller()
@@ -50,6 +52,11 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddTriangle(this);
 
 			break;
+		case Select:
+			pOp = new opSelect(this);
+
+		case CHNG_DRAW_CLR:
+			pOp = new opDrawColor(this);
 
 		case EXIT:
 			///create Exitoperation here
