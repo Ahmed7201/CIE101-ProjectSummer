@@ -883,6 +883,88 @@ void window::DrawRectangle(const int iX1, const int iY1, const int iX2, const in
 	}
 }
 
+
+
+void window::DrawSquare(const int iX1, const int iY1, const int iSideLength, const drawstyle dsStyle, const int iRoundWidth, const int iRoundHeight) {
+
+	HRGN rgnTemp;
+	int iX2 = iX1 + iSideLength;
+	int iY2 = iY1 + iSideLength;
+
+	ProcessMessage(); // Kludge
+	if ((iRoundWidth == 0) && (iRoundHeight == 0)) {
+
+		switch (dsStyle) {
+
+		case FILLED:
+			ChangeDrawStyle(FILLED);
+			if (Rectangle(dcActive, iX1, iY1, iX2, iY2) != TRUE) {
+				cout << "Fatal Error: Failed to draw filled style in DrawSquare!" << endl;
+			}
+			RestoreDrawStyle();
+			break;
+
+		case FRAME:
+			ChangeDrawStyle(FRAME);
+			if (Rectangle(dcActive, iX1, iY1, iX2, iY2) != TRUE) {
+				cout << "Fatal Error: Failed to draw frame style in DrawSquare!" << endl;
+			}
+			RestoreDrawStyle();
+			break;
+
+		case INVERTED:
+			ChangeDrawStyle(INVERTED);
+			if (Rectangle(dcActive, iX1, iY1, iX2, iY2) != TRUE) {
+				cout << "Fatal Error: Failed to draw inverted style in DrawSquare!" << endl;
+			}
+			RestoreDrawStyle();
+			break;
+
+		default:
+			cout << "Fatal Error: You have tried to use an invalid or unimplemented drawstyle!" << endl;
+			break;
+		}
+
+	}
+	else {
+
+		switch (dsStyle) {
+
+		case FILLED:
+			ChangeDrawStyle(FILLED);
+			if (RoundRect(dcActive, iX1, iY1, iX2, iY2, iRoundWidth, iRoundHeight) != TRUE) {
+				cout << "Fatal Error: Failed to draw filled style in DrawSquare (rounded)!" << endl;
+			}
+			RestoreDrawStyle();
+			break;
+
+		case FRAME:
+			ChangeDrawStyle(FRAME);
+			if (RoundRect(dcActive, iX1, iY1, iX2, iY2, iRoundWidth, iRoundHeight) != TRUE) {
+				cout << "Fatal Error: Failed to draw frame style in DrawSquare (rounded)!" << endl;
+			}
+			RestoreDrawStyle();
+			break;
+
+		case INVERTED:
+			rgnTemp = CreateRoundRectRgn(iX1, iY1, iX2, iY2, iRoundWidth, iRoundHeight);
+			if (InvertRgn(dcActive, rgnTemp) != TRUE) {
+				cout << "Fatal Error: Failed to draw inverted style in DrawSquare (rounded)!" << endl;
+			}
+			DeleteObject(rgnTemp);
+			break;
+
+		default:
+			cout << "Fatal Error: You have tried to use an invalid or unimplemented drawstyle!" << endl;
+			break;
+		}
+	}
+}
+
+
+
+
+
 void window::DrawTriangle(const int iX1, const int iY1, const int iX2, const int iY2, const int iX3, const int iY3, const drawstyle dsStyle) {
 
 	HRGN rgnTemp;

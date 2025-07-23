@@ -1,6 +1,7 @@
 #include "GUI.h"
 #include "../operations/operation.h"
 #include "..//controller.h"
+#include <algorithm>
 
 GUI::GUI()
 {
@@ -390,7 +391,9 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 	else 
 		style = FRAME;
 
-	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	int side = (abs(P2.x - P1.x), abs(P2.y - P1.y));
+	pWind->DrawSquare(P1.x, P1.y, side, style);
+
 
 }
 

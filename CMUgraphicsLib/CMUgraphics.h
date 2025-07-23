@@ -254,6 +254,8 @@ class window {
   	// iWidth and iHeight, to adjust the size of the fillets
   	void DrawRectangle(const int iX1, const int iY1, const int iX2, const int iY2, const drawstyle dsStyle = FILLED, const int iWidth = 0, const int iHeight = 0);
 
+    void DrawSquare(const int iX1, const int iY1, const int iSideLength, const drawstyle dsStyle = FILLED, const int iRoundWidth = 0, const int iRoundHeight = 0);
+
     // Draws a triangle with vertices (iX1, iY1), (iX2, iY2), and (iX3, iY3)
     // Valid drawstyles are FRAME, FILLED, and INVERTED.
   	void DrawTriangle(const int iX1, const int iY1, const int iX2, const int iY2, const int iX3, const int iY3, const drawstyle dsStyle = FILLED);
