@@ -13,7 +13,7 @@ GUI::GUI()
 
 	
 	StatusBarHeight = 50;
-	StatusBarWidth = 1300;
+	StatusBarWidth = 0;
 	ToolBarHeight = 50;
 	MenuIconWidth = 80;
 
@@ -24,7 +24,6 @@ GUI::GUI()
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use it for highlight only
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
-	StatusBarRedPa = RED;
 
 
 	//Create the output window
@@ -185,7 +184,7 @@ void GUI::CreateDrawToolBar()
 
 
 void GUI::DrawColorPalette()
-{
+{	
 	
 	pWind->SetPen(BLACK, 1);
 	pWind->SetBrush(WHITE);
@@ -200,6 +199,7 @@ void GUI::DrawColorPalette()
 	pWind->DrawRectangle(StatusBarWidth + 180, height - StatusBarHeight, StatusBarWidth + 225, height, FILLED);
 	pWind->SetBrush(RED);
 	pWind->DrawRectangle(StatusBarWidth + 225, height - StatusBarHeight, width, height, FILLED);
+	
 }
 
 color GUI::CreateColorPalette()
