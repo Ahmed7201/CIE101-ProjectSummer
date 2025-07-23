@@ -24,6 +24,8 @@ GUI::GUI()
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use it for highlight only
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
+	
+
 
 
 	//Create the output window
@@ -95,6 +97,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_SQUARE: return Draw_SQUARE;
 		case ICON_OVAL: return Draw_Oval;
 		case ICON_REG_POLYGON: return Draw_Regular_Polygon;
+		case ICON_COLOR_PAL: return Draw_Color_Palette;
 
 
 
@@ -169,6 +172,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\Menu_Oval.jpg";
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
+	MenuIconImages[ICON_COLOR_PAL] = "images\\MenuIcons\\Menu_ColorPal.jpg";
 
 
 
@@ -215,6 +219,7 @@ color GUI::CreateColorPalette()
 {
 	color COL;
 	int x, y;
+	DrawColorPalette();
 	pWind->WaitMouseClick(x, y);
 	if ((y > height - StatusBarHeight) && (y < height))
 	{
@@ -242,7 +247,9 @@ color GUI::CreateColorPalette()
 		{
 			COL = RED;
 		}
+		
 	}
+	ClearStatusBar();
 	return COL;
 }
 
@@ -250,9 +257,6 @@ color GUI::CreateColorPalette()
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 void GUI::ClearDrawArea() const
 {
@@ -404,6 +408,14 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 	pWind->DrawSquare(P1.x, P1.y, side, style);
 
 
+}
+
+
+
+
+void GUI::SetDrawColor(color newColor)
+{
+	DrawColor = newColor;
 }
 
 

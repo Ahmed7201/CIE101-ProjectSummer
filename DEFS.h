@@ -11,6 +11,7 @@ enum operationType //The operations supported (you can add more if needed)
 	Draw_Oval,		//Draw Oval
 	Draw_SQUARE,		//Draw Square
 	Draw_Regular_Polygon,	//Draw Regular Polygon
+	Draw_Color_Palette,
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
 	CHNG_BK_CLR,	//Change background color

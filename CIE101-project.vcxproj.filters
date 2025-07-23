@@ -149,6 +149,7 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
+    <ClCompile Include="opDrawColor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -261,6 +262,7 @@
     <ClInclude Include="Circle.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
+    <ClInclude Include="opDrawColor.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">
