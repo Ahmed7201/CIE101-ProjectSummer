@@ -26,3 +26,13 @@ Point Circle::GetCenter() const
 {
 	return Center;
 }
+bool Circle::isInside(int x, int y) const
+{
+	// Check if the point (x,y) is inside the circle using the distance formula
+	double distance = sqrt(pow(x - Center.x, 2) + pow(y - Center.y, 2));
+	return distance <= Radius;
+}
+string Circle::GetShapeType() const
+{
+	return "Circle"; // Return the shape type
+}

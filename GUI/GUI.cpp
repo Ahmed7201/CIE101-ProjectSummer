@@ -409,6 +409,10 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 
 
 }
+color GUI::getHighlightColor()const
+{
+	return HighlightColor;
+}
 
 
 

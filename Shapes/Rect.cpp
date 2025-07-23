@@ -18,3 +18,12 @@ void Rect::Draw(GUI* pUI) const
 	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
 
 }
+bool Rect::isInside(int x, int y) const
+{
+	//Check if the point (x,y) is inside the rectangle
+	return (x >= Corner1.x && x <= Corner2.x && y >= Corner1.y && y <= Corner2.y);
+}
+string Rect::GetShapeType() const
+{
+	return "Rectangle"; // Return the shape type
+}

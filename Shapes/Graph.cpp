@@ -30,13 +30,44 @@ void Graph::Draw(GUI* pUI) const
 	for (int i=0;i<shapeCount; i++)
 		shapesList[i]->Draw(pUI);
 }
+void Graph::UnselectAllShapes(GUI* pUI) {
+	if (selectedShape) {
+		selectedShape->SetSelected(false);
+		selectedShape->Draw(pUI); // Redraw to remove highlight
+		selectedShape = nullptr;
+	}
+	for (int i = 0; i < shapeCount; i++) {
+		if (shapesList[i] && shapesList[i] != selectedShape && shapesList[i]->IsSelected()) {
+			shapesList[i]->SetSelected(false);
+			shapesList[i]->Draw(pUI);
+		}
+	}
+}
+void Graph::SetSelectedShape(shape* shape)
+{
+	// Set the currently selected shape
+	selectedShape = shape;
+	if (selectedShape) {
+		selectedShape->SetSelected(true);
+	}
+}
+shape* Graph::GetSelectedShape() const
+{
+	// Return the currently selected shape
+	return selectedShape;
+}
 
 
 shape* Graph::Getshape(int x, int y) const
 {
 	//If a shape is found return a pointer to it.
 	//if this point (x,y) does not belong to any shape return NULL
-
+	for (int i = shapeCount - 1; i >= 0; i--) {
+		if (shapesList[i] && shapesList[i]->isInside(x, y)) {
+			return shapesList[i];
+		}
+	}
+	return nullptr;
 
 	///Add your code here to search for a shape given a point x,y	
 

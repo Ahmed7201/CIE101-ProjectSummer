@@ -25,6 +25,10 @@ void shape::ChngFillClr(color Fclr)
 	ShpGfxInfo.isFilled = true;
 	ShpGfxInfo.FillClr = Fclr; 
 }
+void shape::SetGfxInfo(GfxInfo gfxInfo)
+{
+	ShpGfxInfo = gfxInfo; // Set the shape's graphical info
+} // Set the shape's graphical info
 GfxInfo shape::GetGfxInfo()const
 {
 	return ShpGfxInfo;

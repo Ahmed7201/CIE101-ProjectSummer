@@ -17,8 +17,14 @@ public:
 	virtual ~shape() {}
 	void SetSelected(bool s);	//select/unselect the shape
 	bool IsSelected() const;	//check whether fig is selected
+	virtual bool isInside(int x, int y) const=0; //check whether a point is inside the shape
+	void SetGfxInfo(GfxInfo gfxInfo);  //set the shape's graphical info
+
 
 	GfxInfo GetGfxInfo() const; //get the shape's graphical info
+
+	virtual string GetShapeType() const = 0; // Added to get the shape type
+	
 
 	
 	static double CalcRadius(Point center, Point edge);
