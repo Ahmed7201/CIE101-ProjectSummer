@@ -38,7 +38,7 @@ class GUI
 		ICON_SQUARE,	//Square icon in menu
 		ICON_OVAL,		//Oval icon in menu
 		ICON_REG_POLYGON,	//Regular Polygon icon in menu
-
+		ICON_COLOR_PAL,
 		//TODO: Add more icons names here
 
 		ICON_EXIT,		//Exit icon
