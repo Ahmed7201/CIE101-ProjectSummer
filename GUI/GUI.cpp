@@ -443,7 +443,7 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 
 
 }
-color GUI::getHighlightColor()const
+color GUI::GetHighlightColor()const
 {
 	return HighlightColor;
 }

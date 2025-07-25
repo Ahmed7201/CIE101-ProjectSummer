@@ -36,7 +36,7 @@ void opSelect::Execute() {
             // Highlight the shape
             GfxInfo gfxInfo = clickedShape->GetGfxInfo();
             color originalColor = gfxInfo.DrawClr; // Store original color
-            gfxInfo.DrawClr = pUI->getHighlightColor(); // Apply highlight
+            gfxInfo.DrawClr = pUI->GetHighlightColor(); // Apply highlight
             clickedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
             clickedShape->Draw(pUI); // Redraw with highlight
             // Display shape info
