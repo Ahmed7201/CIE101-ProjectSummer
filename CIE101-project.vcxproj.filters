@@ -152,6 +152,8 @@
     <ClCompile Include="opDrawColor.cpp" />
     <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="opFillColor.cpp" />
+    <ClCompile Include="opColorPalete.cpp" />
+    <ClCompile Include="opAddOval.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -267,6 +269,8 @@
     <ClInclude Include="opDrawColor.h" />
     <ClInclude Include="opSelect.h" />
     <ClInclude Include="opFillColor.h" />
+    <ClInclude Include="opColorPalete.h" />
+    <ClInclude Include="opAddOval.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

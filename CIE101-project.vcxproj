@@ -170,6 +170,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="opAddCircle.cpp" />
     <ClCompile Include="opAddLine.cpp" />
+    <ClCompile Include="opAddOval.cpp" />
     <ClCompile Include="opAddSquare.cpp" />
     <ClCompile Include="opAddTriangle.cpp" />
     <ClCompile Include="opColorPalete.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="Line.h" />
     <ClInclude Include="opAddCircle.h" />
     <ClInclude Include="opAddLine.h" />
+    <ClInclude Include="opAddOval.h" />
     <ClInclude Include="opAddSquare.h" />
     <ClInclude Include="opAddTriangle.h" />
     <ClInclude Include="opColorPalete.h" />

@@ -9,5 +9,5 @@ void opDrawColor::Execute()
 {
     GUI* pUI = pControl->GetUI();
     color selectedColor = pUI->CreateColorPalette();
-    pUI->SetDrawColor(selectedColor);  // Apply general pen color change
+    pUI->SetDrawColor(selectedColor); 
 }
