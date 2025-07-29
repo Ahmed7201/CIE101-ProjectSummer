@@ -17,6 +17,7 @@ void opSelect::Execute() {
     // Get the shape at the clicked point
     shape* clickedShape = pGraph->Getshape(clickedPoint.x, clickedPoint.y);
 
+
     if (clickedShape) {
         // Check if the shape is already selected
         bool isCurrentlySelected = clickedShape->IsSelected();
@@ -24,6 +25,9 @@ void opSelect::Execute() {
             // Unselect the shape
             clickedShape->SetSelected(false);
             pGraph->SetSelectedShape(nullptr);
+			GfxInfo gfxInfo = clickedShape->GetGfxInfo();
+			gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
+			clickedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
             clickedShape->Draw(pUI); // Redraw to remove highlight
             pUI->PrintMessage("Shape unselected");
         }
@@ -52,4 +56,5 @@ void opSelect::Execute() {
         pGraph->UnselectAllShapes(pUI);
         pUI->PrintMessage("No shape found, all shapes unselected");
     }
+	pControl->UpdateInterface(); // Refresh the interface to reflect changes
 }

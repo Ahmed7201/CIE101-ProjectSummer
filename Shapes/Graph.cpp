@@ -33,12 +33,18 @@ void Graph::Draw(GUI* pUI) const
 void Graph::UnselectAllShapes(GUI* pUI) {
 	if (selectedShape) {
 		selectedShape->SetSelected(false);
+		GfxInfo gfxInfo = selectedShape->GetGfxInfo();
+		gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
+		selectedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
 		selectedShape->Draw(pUI); // Redraw to remove highlight
 		selectedShape = nullptr;
 	}
 	for (int i = 0; i < shapeCount; i++) {
 		if (shapesList[i] && shapesList[i] != selectedShape && shapesList[i]->IsSelected()) {
 			shapesList[i]->SetSelected(false);
+			GfxInfo gfxInfo = shapesList[i]->GetGfxInfo();
+			gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
+			shapesList[i]->SetGfxInfo(gfxInfo); // Update GfxInfo
 			shapesList[i]->Draw(pUI);
 		}
 	}
