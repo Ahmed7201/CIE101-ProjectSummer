@@ -14,8 +14,8 @@ void Oval::Draw(GUI* pUI) const
 }
 bool Oval::isInside(int x, int y) const
 {
-	double distance = sqrt(pow(x - Center.x, 2) + pow(y - Center.y, 2));
-	return distance <= Radius_Oval;
+	double Distance = sqrt(pow(x - Center.x, 2) + pow(y - Center.y, 2));
+	return Distance <= Radius_Oval;
 }
 string Oval::GetShapeType() const
 {
