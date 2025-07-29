@@ -4,6 +4,7 @@
 #include "opAddCircle.h"
 #include "opAddLine.h"
 #include"opAddTriangle.h"
+#include "opAddOval.h"
 #include "opSelect.h"
 #include "opDrawColor.h"
 #include "opFillColor.h"
@@ -53,6 +54,9 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);
 
+			break;
+		case Draw_Oval:
+			pOp = new opAddOval(this);
 			break;
 		case Select:
 			pOp = new opSelect(this);

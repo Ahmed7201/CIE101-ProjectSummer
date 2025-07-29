@@ -394,6 +394,24 @@ void GUI::DrawCircle(Point Center, double Radius, GfxInfo CircGfxInfo) const
 		style = FRAME;
 	pWind->DrawCircle(Center.x, Center.y, Radius, style);
 }
+void GUI::DrawOval(Point P1, Point P2, GfxInfo ShpGfxInfo) const
+{
+	color DrawingClr;
+	if (ShpGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = ShpGfxInfo.DrawClr;
+	pWind->SetPen(DrawingClr, ShpGfxInfo.BorderWdth);	//Set Drawing color & width
+	drawstyle style;
+	if (ShpGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(ShpGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
+}
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 {
