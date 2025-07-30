@@ -62,6 +62,21 @@ shape* Graph::GetSelectedShape() const
 	// Return the currently selected shape
 	return selectedShape;
 }
+void Graph::RemoveShape(shape* pShape)
+{
+	for (int i = 0;i < shapeCount;i++)
+	{
+		if (shapesList[i] == pShape)
+		{
+			for (int j = i;j < shapeCount;j++)
+			{
+				shapesList[j] = shapesList[j + 1];
+			}
+			shapeCount--;
+			
+		}
+	}
+}
 
 
 shape* Graph::Getshape(int x, int y) const

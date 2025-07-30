@@ -9,6 +9,7 @@
 #include "opDrawColor.h"
 #include "opFillColor.h"
 #include "opColorPalete.h"
+#include "opDelete.h"
 
 //Constructor
 controller::controller()
@@ -60,6 +61,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Select:
 			pOp = new opSelect(this);
+			break;
+		case Delete:
+			pOp = new opDelete(this);
 			break;
 
 		case CHNG_DRAW_CLR:
