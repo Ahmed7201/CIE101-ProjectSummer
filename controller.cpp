@@ -10,6 +10,7 @@
 #include "opFillColor.h"
 #include "opColorPalete.h"
 #include "opDelete.h"
+#include "opRotate_90.h"
 
 //Constructor
 controller::controller()
@@ -64,6 +65,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Delete:
 			pOp = new opDelete(this);
+			break;
+		case ROTATE:
+			pOp = new opRotate_90(this);
 			break;
 
 		case CHNG_DRAW_CLR:

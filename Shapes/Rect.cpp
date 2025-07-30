@@ -27,3 +27,29 @@ string Rect::GetShapeType() const
 {
 	return "Rectangle"; // Return the shape type
 }
+void Rect::Rotate(double degrees)
+{
+	const double M_PI = 3.14159265358979323846; // Define Pi constant
+	// Convert degrees to radians
+	double radians = degrees *  M_PI / 180.0;
+
+	// Calculate the center of the rectangle
+	double centerX = (Corner1.x + Corner2.x) / 2.0;
+	double centerY = (Corner1.y + Corner2.y) / 2.0;
+
+	// Rotate each corner around the center
+	// TopLeft
+	double x = Corner1.x - centerX;
+	double y = Corner1.y - centerY;
+	Corner1.x = centerX + (x * cos(radians) - y * sin(radians));
+	Corner1.y = centerY + (x * sin(radians) + y * cos(radians));
+
+	// BottomRight
+	x = Corner2.x - centerX;
+	y = Corner2.y - centerY;
+	Corner2.x = centerX + (x * cos(radians) - y * sin(radians));
+	Corner2.y = centerY + (x * sin(radians) + y * cos(radians));
+}
+
+
+	

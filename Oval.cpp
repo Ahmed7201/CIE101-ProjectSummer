@@ -21,3 +21,24 @@ string Oval::GetShapeType() const
 {
 	return "Oval";
 }
+void Oval::Rotate(double degrees)
+{
+	// Use a constant for pi since M_PI might not be defined
+	const double PI = 3.14159265358979323846;
+	// Convert degrees to radians
+	double radians = degrees * PI / 180.0;
+
+	// Calculate the initial angle of Edge_Point relative to Center
+	double dx = Edge_Point.x - Center.x;
+	double dy = Edge_Point.y - Center.y;
+	double currentAngle = atan2(dy, dx);
+
+	// Calculate the new angle (add the rotation angle)
+	double newAngle = currentAngle + radians;
+
+	// Update Edge_Point with the new position based on Radius_Oval
+	Edge_Point.x = Center.x + Radius_Oval * cos(newAngle);
+	Edge_Point.y = Center.y + Radius_Oval * sin(newAngle);
+}
+
+

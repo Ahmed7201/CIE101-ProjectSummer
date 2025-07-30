@@ -12,6 +12,7 @@ public:
     virtual void Draw(GUI* pUI) const;
     virtual bool isInside(int x, int y) const override;
     virtual string GetShapeType() const override;
+	virtual void Rotate( double degrees) override; // Rotate the oval by a given angle
 
 };
 

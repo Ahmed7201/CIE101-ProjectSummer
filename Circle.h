@@ -16,4 +16,5 @@ public:
     Point GetCenter() const; // Get the center of the circle  
     virtual bool isInside(int x, int y) const override;  
     virtual string GetShapeType() const override;  
+	virtual void Rotate(double degrees) override; // Rotate the circle by a given angle
 }; // Add missing semicolon here

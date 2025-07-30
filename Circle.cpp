@@ -36,3 +36,5 @@ string Circle::GetShapeType() const
 {
 	return "Circle"; // Return the shape type
 }
+void Circle::Rotate(double degrees)
+{}

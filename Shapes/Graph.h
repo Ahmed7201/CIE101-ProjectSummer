@@ -27,4 +27,5 @@ public:
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void load(ifstream& inputfile);	//Load all shapes from a file
 	void RemoveShape(shape* pShape);
+	void RotateSelectedShape(shape* pShape); // Rotate the selected shape by a given angle
 };

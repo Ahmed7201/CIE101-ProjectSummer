@@ -77,7 +77,11 @@ void Graph::RemoveShape(shape* pShape)
 		}
 	}
 }
-
+void Graph::RotateSelectedShape(shape* pShape) {
+	if (selectedShape) {
+		selectedShape->Rotate(90.0); // Rotate the selected shape by 90 degrees
+	}
+}
 
 shape* Graph::Getshape(int x, int y) const
 {

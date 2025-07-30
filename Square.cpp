@@ -1,4 +1,5 @@
 #include "Square.h"
+#include<algorithm>
 
 Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -28,3 +29,5 @@ string Square::GetShapeType() const
 {
 	return "Square";
 }
+void Square::Rotate(double degrees)
+{}
