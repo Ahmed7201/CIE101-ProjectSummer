@@ -33,12 +33,18 @@ void Graph::Draw(GUI* pUI) const
 void Graph::UnselectAllShapes(GUI* pUI) {
 	if (selectedShape) {
 		selectedShape->SetSelected(false);
+		GfxInfo gfxInfo = selectedShape->GetGfxInfo();
+		gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
+		selectedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
 		selectedShape->Draw(pUI); // Redraw to remove highlight
 		selectedShape = nullptr;
 	}
 	for (int i = 0; i < shapeCount; i++) {
 		if (shapesList[i] && shapesList[i] != selectedShape && shapesList[i]->IsSelected()) {
 			shapesList[i]->SetSelected(false);
+			GfxInfo gfxInfo = shapesList[i]->GetGfxInfo();
+			gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
+			shapesList[i]->SetGfxInfo(gfxInfo); // Update GfxInfo
 			shapesList[i]->Draw(pUI);
 		}
 	}
@@ -56,6 +62,21 @@ shape* Graph::GetSelectedShape() const
 	// Return the currently selected shape
 	return selectedShape;
 }
+void Graph::RemoveShape(shape* pShape)
+{
+	for (int i = 0;i < shapeCount;i++)
+	{
+		if (shapesList[i] == pShape)
+		{
+			for (int j = i;j < shapeCount;j++)
+			{
+				shapesList[j] = shapesList[j + 1];
+			}
+			shapeCount--;
+			
+		}
+	}
+}
 
 
 shape* Graph::Getshape(int x, int y) const
@@ -67,7 +88,7 @@ shape* Graph::Getshape(int x, int y) const
 			return shapesList[i];
 		}
 	}
-	return nullptr;
+	
 
 	///Add your code here to search for a shape given a point x,y	
 

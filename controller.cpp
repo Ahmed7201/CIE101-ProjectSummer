@@ -4,10 +4,12 @@
 #include "opAddCircle.h"
 #include "opAddLine.h"
 #include"opAddTriangle.h"
+#include "opAddOval.h"
 #include "opSelect.h"
 #include "opDrawColor.h"
 #include "opFillColor.h"
 #include "opColorPalete.h"
+#include "opDelete.h"
 
 //Constructor
 controller::controller()
@@ -54,8 +56,14 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddTriangle(this);
 
 			break;
+		case Draw_Oval:
+			pOp = new opAddOval(this);
+			break;
 		case Select:
 			pOp = new opSelect(this);
+			break;
+		case Delete:
+			pOp = new opDelete(this);
 			break;
 
 		case CHNG_DRAW_CLR:

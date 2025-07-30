@@ -99,6 +99,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_REG_POLYGON: return Draw_Regular_Polygon;
 		case ICON_DRAW_CLR: return CHNG_DRAW_CLR;
 		case ICON_FILL_CLR: return CHNG_FILL_CLR;
+		case ICON_Delete: return Delete;
 
 
 		case ICON_Select: return Select;
@@ -174,6 +175,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
 	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
+	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Rect.jpg";
 
 
 
@@ -394,6 +396,24 @@ void GUI::DrawCircle(Point Center, double Radius, GfxInfo CircGfxInfo) const
 		style = FRAME;
 	pWind->DrawCircle(Center.x, Center.y, Radius, style);
 }
+void GUI::DrawOval(Point P1, Point P2, GfxInfo ShpGfxInfo) const
+{
+	color DrawingClr;
+	if (ShpGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = ShpGfxInfo.DrawClr;
+	pWind->SetPen(DrawingClr, ShpGfxInfo.BorderWdth);	//Set Drawing color & width
+	drawstyle style;
+	if (ShpGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(ShpGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
+}
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 {
@@ -443,7 +463,7 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 
 
 }
-color GUI::getHighlightColor()const
+color GUI::GetHighlightColor()const
 {
 	return HighlightColor;
 }
