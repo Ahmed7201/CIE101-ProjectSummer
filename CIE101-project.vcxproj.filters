@@ -149,13 +149,30 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
-    <ClCompile Include="opDrawColor.cpp" />
-    <ClCompile Include="opSelect.cpp" />
-    <ClCompile Include="opFillColor.cpp" />
-    <ClCompile Include="opColorPalete.cpp" />
-    <ClCompile Include="opAddOval.cpp" />
-    <ClCompile Include="Oval.cpp" />
-    <ClCompile Include="opDelete.cpp" />
+    <ClCompile Include="opDelete.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opAddOval.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opColorPalete.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opDrawColor.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opFillColor.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opRotate_90.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opSelect.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="Oval.cpp">
+      <Filter>Shapes&amp;Graph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -268,13 +285,30 @@
     <ClInclude Include="Circle.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
-    <ClInclude Include="opDrawColor.h" />
-    <ClInclude Include="opSelect.h" />
-    <ClInclude Include="opFillColor.h" />
-    <ClInclude Include="opColorPalete.h" />
-    <ClInclude Include="opAddOval.h" />
-    <ClInclude Include="Oval.h" />
-    <ClInclude Include="opDelete.h" />
+    <ClInclude Include="opDelete.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opAddOval.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opColorPalete.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opDrawColor.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opFillColor.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opRotate_90.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opSelect.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="Oval.h">
+      <Filter>Shapes&amp;Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">
