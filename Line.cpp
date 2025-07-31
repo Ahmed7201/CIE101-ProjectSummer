@@ -79,6 +79,14 @@ shape* Line::Clone()
     // Cloning is not implemented for Line
     return new Line(point1, point2, ShpGfxInfo);
 }
+void Line::Move(int dx, int dy)
+{
+    // Move the line by dx, dy
+    point1.x += dx;
+    point1.y += dy;
+    point2.x += dx;
+    point2.y += dy;
+}
 void Line::Save(ofstream& OutFile)
 {
     // Save the line parameters to the file

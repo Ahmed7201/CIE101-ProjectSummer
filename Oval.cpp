@@ -46,6 +46,14 @@ shape* Oval::Clone()
 	// Cloning is not implemented for Oval
 	return new Oval(Center, Edge_Point, ShpGfxInfo);
 }
+void Oval::Move(int dx, int dy)
+{
+	// Move the oval by dx, dy
+	Center.x += dx;
+	Center.y += dy;
+	Edge_Point.x += dx;
+	Edge_Point.y += dy;
+}
 void Oval::Save(ofstream& OutFile)
 {
 	// Save the oval parameters to the file

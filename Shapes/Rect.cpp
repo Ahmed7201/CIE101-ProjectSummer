@@ -56,6 +56,14 @@ shape* Rect::Clone()
 	// Cloning is not implemented for Rect
 	return new Rect(Corner1, Corner2, ShpGfxInfo); 
 }
+void Rect::Move(int dx, int dy)
+{
+	// Move the rectangle by dx, dy
+	Corner1.x += dx;
+	Corner1.y += dy;
+	Corner2.x += dx;
+	Corner2.y += dy;
+}
 void Rect::Save(ofstream& OutFile) 
 {
 	// Save the rectangle parameters to the file
