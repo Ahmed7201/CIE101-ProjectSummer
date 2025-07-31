@@ -36,7 +36,7 @@ void Graph::UnselectAllShapes(GUI* pUI) {
 		GfxInfo gfxInfo = selectedShape->GetGfxInfo();
 		gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
 		selectedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
-		selectedShape->Draw(pUI); // Redraw to remove highlight
+		
 		selectedShape = nullptr;
 	}
 	for (int i = 0; i < shapeCount; i++) {
@@ -45,7 +45,7 @@ void Graph::UnselectAllShapes(GUI* pUI) {
 			GfxInfo gfxInfo = shapesList[i]->GetGfxInfo();
 			gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
 			shapesList[i]->SetGfxInfo(gfxInfo); // Update GfxInfo
-			shapesList[i]->Draw(pUI);
+			
 		}
 	}
 }

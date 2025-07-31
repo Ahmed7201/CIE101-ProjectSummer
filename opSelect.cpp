@@ -28,7 +28,7 @@ void opSelect::Execute() {
 			GfxInfo gfxInfo = clickedShape->GetGfxInfo();
 			gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
 			clickedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
-            clickedShape->Draw(pUI); // Redraw to remove highlight
+          
             pUI->PrintMessage("Shape unselected");
         }
         else {
@@ -42,7 +42,7 @@ void opSelect::Execute() {
             color originalColor = gfxInfo.DrawClr; // Store original color
             gfxInfo.DrawClr = pUI->GetHighlightColor(); // Apply highlight
             clickedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
-            clickedShape->Draw(pUI); // Redraw with highlight
+           
             // Display shape info
             string info = "Selected: " + clickedShape->GetShapeType() +
                 " at (" + to_string(clickedPoint.x) + "," + to_string(clickedPoint.y) +
