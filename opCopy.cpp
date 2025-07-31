@@ -15,15 +15,9 @@ void opCopy::Execute()
 	// Get the currently selected shape
 	shape* clickedShape = pGraph->GetSelectedShape();
 	if (clickedShape) {
-		// Clone the selected shape
-		shape* clonedShape = clickedShape->Clone();
-		if (clonedShape) {
-			// Add the cloned shape to the graph
-			pGraph->Addshape(clonedShape);
-			pUI->PrintMessage("Shape copied successfully");
-		} else {
-			pUI->PrintMessage("Error: Could not clone the shape");
-		}
+		// Add the cloned shape to the graph
+	    pGraph->CopySelectedShape(clickedShape);
+		pUI->PrintMessage("Shape copied successfully");
 	} else {
 		pUI->PrintMessage("No shape selected to copy");
 	}

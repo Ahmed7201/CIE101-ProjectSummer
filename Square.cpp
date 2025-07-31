@@ -36,6 +36,14 @@ shape* Square::Clone()
 	// Cloning is not implemented for Square
 	return new Square(Corner1, Corner2, ShpGfxInfo);
 }
+void Square::Move(int dx, int dy)
+{
+	// Move the square by dx, dy
+	Corner1.x += dx;
+	Corner1.y += dy;
+	Corner2.x += dx;
+	Corner2.y += dy;
+}
 void Square::Save(ofstream& OutFile)
 {
 	// Save the square parameters to the file

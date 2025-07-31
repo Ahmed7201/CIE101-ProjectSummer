@@ -24,6 +24,7 @@ public:
 	void UnselectAllShapes(GUI* pUI); // Added to manage selection
 	shape* GetSelectedShape() const; // Get the currently selected shape
 	void SetSelectedShape(shape* shape); // Added to set the selected shape
+	void CopySelectedShape(shape* pShape); // Copy the selected shape
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void load(ifstream& inputfile);	//Load all shapes from a file
 	void RemoveShape(shape* pShape);

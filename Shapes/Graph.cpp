@@ -105,6 +105,14 @@ shape* Graph::Getshape(int x, int y) const
 
 	return nullptr;
 }
+void Graph::CopySelectedShape(shape* pShape)
+{
+	if (selectedShape && shapeCount < maxShapeCount) {
+		shape* newShape = selectedShape->Clone();      // Deep copy
+		shapesList[shapeCount++] = newShape;           // Add to shape list
+		
+	}
+}
 void Graph::Save(ofstream& outfile)
 {
 	// Save the number of shapes

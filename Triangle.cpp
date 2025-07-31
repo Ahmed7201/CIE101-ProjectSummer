@@ -72,6 +72,16 @@ shape* Triangle::Clone()
 	// Cloning is not implemented for Triangle
 	return new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
 }
+void Triangle::Move(int dx, int dy)
+{
+	// Move the triangle by dx, dy
+	Corner1.x += dx;
+	Corner1.y += dy;
+	Corner2.x += dx;
+	Corner2.y += dy;
+	Corner3.x += dx;
+	Corner3.y += dy;
+}
 void Triangle::Save(ofstream& OutFile)
 {
 	// Save the triangle parameters to the file

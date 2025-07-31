@@ -44,6 +44,16 @@ shape* Circle::Clone()
 	// Cloning is not implemented for Circle
 	return new Circle(Center, Edge_Point, ShpGfxInfo);
 }
+void Circle::Move(int dx, int dy)
+{
+	// Move the circle by dx, dy
+	Center.x += dx;
+	Center.y += dy;
+	Edge_Point.x += dx;
+	Edge_Point.y += dy;
+	// Update the radius based on the new edge point
+	Radius = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
+}
 void Circle::Save(ofstream& OutFile)
 {
 	// Save the circle parameters to the file
