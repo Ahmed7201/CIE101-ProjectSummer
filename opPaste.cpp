@@ -9,9 +9,10 @@ void opPaste::Execute() {
 	Point clickedPoint;
     Graph* pGraph = pControl->getGraph();
 	GUI* pUI = pControl->GetUI();
-	pUI->GetPointClicked(clickedPoint.x, clickedPoint.y); // Get the point where the user clicked
 	shape* clickedShape = pGraph->GetSelectedShape();
 	if (clickedShape) {
+		pUI->PrintMessage("Click at where you want to paste the copied shape : ");
+		pUI->GetPointClicked(clickedPoint.x, clickedPoint.y); // Get the point where the user clicked
 		// Add the cloned shape to the graph
 		pGraph->PasteCopiedShape(clickedPoint);
 		pUI->PrintMessage("Shape Pasted successfully");
