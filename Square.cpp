@@ -1,4 +1,5 @@
 #include "Square.h"
+#include<fstream>
 
 Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -30,3 +31,11 @@ string Square::GetShapeType() const
 }
 void Square::Rotate(double degrees)
 {}
+void Square::Load(ifstream& Infile)
+{
+	// Load the square parameters from the file
+	Infile >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y;
+	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	Infile >> ShpGfxInfo.isFilled;
+}

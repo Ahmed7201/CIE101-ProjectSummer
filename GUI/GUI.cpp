@@ -104,6 +104,7 @@ operationType GUI::GetUseroperation() const
 
 
 		case ICON_Select: return Select;
+		case ICON_LOAD: return LOAD;
 		case ICON_EXIT: return EXIT;
         
 		default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -183,6 +184,7 @@ void GUI::CreateDrawToolBar()
 
 
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Tri.jpg";
 	
 
 

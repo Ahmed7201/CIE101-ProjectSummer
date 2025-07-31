@@ -1,4 +1,5 @@
 #include "Line.h"
+#include <fstream>
 
 Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -72,4 +73,12 @@ void Line::Rotate(double degrees)
     y = point2.y - centerY;
     point2.x = centerX + (x * cos(radians) - y * sin(radians));
     point2.y = centerY + (x * sin(radians) + y * cos(radians));
+}
+void Line::Load(ifstream& Infile)
+{
+    // Load the line parameters from the file
+    Infile >> point1.x >> point1.y >> point2.x >> point2.y;
+    Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+    Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+    Infile >> ShpGfxInfo.isFilled;
 }

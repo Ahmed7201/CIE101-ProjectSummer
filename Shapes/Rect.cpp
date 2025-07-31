@@ -1,4 +1,5 @@
 #include "Rect.h"
+#include <fstream>
 
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
@@ -49,6 +50,14 @@ void Rect::Rotate(double degrees)
 	y = Corner2.y - centerY;
 	Corner2.x = centerX + (x * cos(radians) - y * sin(radians));
 	Corner2.y = centerY + (x * sin(radians) + y * cos(radians));
+}
+void Rect::Load(ifstream& Infile)
+{
+	// Load the rectangle parameters from the file
+	Infile >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y;
+	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	Infile >> ShpGfxInfo.isFilled;
 }
 
 

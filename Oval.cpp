@@ -1,4 +1,5 @@
 #include "Oval.h"
+#include<fstream>
 
 Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -39,6 +40,15 @@ void Oval::Rotate(double degrees)
 	// Update Edge_Point with the new position based on Radius_Oval
 	Edge_Point.x = Center.x + Radius_Oval * cos(newAngle);
 	Edge_Point.y = Center.y + Radius_Oval * sin(newAngle);
+}
+void Oval::Load(ifstream& Infile)
+{
+	// Load the oval parameters from the file
+	Infile >> Center.x >> Center.y >> Edge_Point.x >> Edge_Point.y;
+	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	Infile >> ShpGfxInfo.isFilled;
+	Radius_Oval = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
 }
 
 

@@ -173,6 +173,7 @@
     <ClCompile Include="Oval.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
+    <ClCompile Include="opLoad.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -309,6 +310,7 @@
     <ClInclude Include="Oval.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
+    <ClInclude Include="opLoad.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

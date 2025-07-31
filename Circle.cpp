@@ -1,4 +1,5 @@
 #include "Circle.h"
+#include <fstream>
 Circle::Circle(Point P1,Point P2, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
 	
@@ -38,3 +39,13 @@ string Circle::GetShapeType() const
 }
 void Circle::Rotate(double degrees)
 {}
+
+void Circle::Load(ifstream& Infile)
+{
+	// Load the circle parameters from the file
+	Infile >> Center.x >> Center.y >> Edge_Point.x >> Edge_Point.y;
+	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	Infile >> ShpGfxInfo.isFilled;
+	Radius = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
+}

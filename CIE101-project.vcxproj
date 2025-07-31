@@ -178,6 +178,7 @@
     <ClCompile Include="opDrawColor.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="opFillColor.cpp" />
+    <ClCompile Include="opLoad.cpp" />
     <ClCompile Include="opRotate_90.cpp" />
     <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="Oval.cpp" />
@@ -224,6 +225,7 @@
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="opFillColor.h" />
+    <ClInclude Include="opLoad.h" />
     <ClInclude Include="opRotate_90.h" />
     <ClInclude Include="opSelect.h" />
     <ClInclude Include="Oval.h" />

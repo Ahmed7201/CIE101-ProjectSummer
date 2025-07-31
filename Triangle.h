@@ -13,5 +13,6 @@ public:
 	virtual bool isInside(int x, int y) const override;
 	virtual string GetShapeType() const override; // Return the shape type
 	virtual void Rotate(double degrees) override; // Rotate the triangle by a given angle
+	virtual void Load(ifstream& Infile) override; // Load the triangle parameters from a file
 	
 };

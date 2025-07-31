@@ -1,4 +1,5 @@
 #include "Triangle.h"
+#include <fstream>
 
 Triangle::Triangle(Point P1, Point P2, Point P3, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
@@ -65,4 +66,12 @@ void Triangle::Rotate(double degrees)
 	y = Corner3.y - centerY;
 	Corner3.x = centerX + (x * cos(radians) - y * sin(radians));
 	Corner3.y = centerY + (x * sin(radians) + y * cos(radians));
+}
+void Triangle::Load(ifstream& Infile)
+{
+	// Load the triangle parameters from the file
+	Infile >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Corner3.x >> Corner3.y;
+	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	Infile >> ShpGfxInfo.isFilled;
 }

@@ -12,6 +12,7 @@
 #include "opDelete.h"
 #include "opRotate_90.h"
 
+#include "opLoad.h"
 //Constructor
 controller::controller()
 {
@@ -62,6 +63,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Select:
 			pOp = new opSelect(this);
+			break;
+		case LOAD:
+			pOp = new opLoad(this, "shapes.txt"); 
 			break;
 		case Delete:
 			pOp = new opDelete(this);
