@@ -51,6 +51,14 @@ void Rect::Rotate(double degrees)
 	Corner2.x = centerX + (x * cos(radians) - y * sin(radians));
 	Corner2.y = centerY + (x * sin(radians) + y * cos(radians));
 }
+void Rect::Save(ofstream& OutFile) 
+{
+	// Save the rectangle parameters to the file
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
+	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.isFilled << endl;
+}
 void Rect::Load(ifstream& Infile)
 {
 	// Load the rectangle parameters from the file

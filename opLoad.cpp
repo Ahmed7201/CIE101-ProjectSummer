@@ -28,43 +28,12 @@ void opLoad::Execute()
 		pUI->PrintMessage("Error: Could not open file " + filename);
 		return;
 	}
-	// Clear existing shapes in the controller
-	pUI->ClearDrawArea(); // Clear the drawing area
-	// Read shapes from the file
-	string shapeType;
-	while (Infile >> shapeType)
+	else 
 	{
-		shape* newShape = nullptr;
-		if (shapeType == "Rectangle")
-		{
-			newShape = new Rect(Point(), Point(), GfxInfo());
-		}
-		else if (shapeType == "Square")
-		{
-			newShape = new Square(Point(), Point(), GfxInfo());
-		}
-		else if (shapeType == "Triangle")
-		{
-			newShape = new Triangle(Point(), Point(), Point(), GfxInfo());
-		}
-		else if (shapeType == "Oval")
-		{
-			newShape = new Oval(Point(), Point(), GfxInfo());
-		}
-		else if (shapeType == "Circle")
-		{
-			newShape = new Circle(Point(), Point(), GfxInfo());
-		}
-		else if (shapeType == "Line")
-		{
-			newShape = new Line(Point(), Point(), GfxInfo());
-		}
-		if (newShape)
-		{
-			newShape->Load(Infile); // Load shape parameters from the file
-			pGraph->Addshape(newShape); // Add the shape to the controller
-		}
-	}
+		pUI->PrintMessage("Loading shapes from " + filename);
+		pGraph->load(Infile); // Load shapes from the file
+    }
+	
 	Infile.close(); // Close the file after reading
 	pUI->PrintMessage("Shapes loaded successfully from " + filename);
 	pControl->UpdateInterface(); // Refresh the interface to reflect loaded shapes

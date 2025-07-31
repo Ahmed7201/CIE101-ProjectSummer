@@ -17,5 +17,6 @@ public:
     virtual bool isInside(int x, int y) const override;  
     virtual string GetShapeType() const override;  
 	virtual void Rotate(double degrees) override; // Rotate the circle by a given angle
+	virtual void Save(ofstream& OutFile) override; // Save the circle parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the circle parameters from a file
 }; // Add missing semicolon here

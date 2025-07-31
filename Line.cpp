@@ -74,6 +74,14 @@ void Line::Rotate(double degrees)
     point2.x = centerX + (x * cos(radians) - y * sin(radians));
     point2.y = centerY + (x * sin(radians) + y * cos(radians));
 }
+void Line::Save(ofstream& OutFile)
+{
+    // Save the line parameters to the file
+    OutFile << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+    OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+    OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+    OutFile << ShpGfxInfo.isFilled << endl;
+}
 void Line::Load(ifstream& Infile)
 {
     // Load the line parameters from the file

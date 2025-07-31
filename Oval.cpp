@@ -41,6 +41,15 @@ void Oval::Rotate(double degrees)
 	Edge_Point.x = Center.x + Radius_Oval * cos(newAngle);
 	Edge_Point.y = Center.y + Radius_Oval * sin(newAngle);
 }
+void Oval::Save(ofstream& OutFile)
+{
+	// Save the oval parameters to the file
+	OutFile << Center.x << " " << Center.y << " " << Edge_Point.x << " " << Edge_Point.y << endl;
+	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.isFilled << endl;
+	OutFile << Radius_Oval << endl; // Save the radius of the oval
+}
 void Oval::Load(ifstream& Infile)
 {
 	// Load the oval parameters from the file

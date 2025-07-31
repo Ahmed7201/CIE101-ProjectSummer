@@ -67,6 +67,14 @@ void Triangle::Rotate(double degrees)
 	Corner3.x = centerX + (x * cos(radians) - y * sin(radians));
 	Corner3.y = centerY + (x * sin(radians) + y * cos(radians));
 }
+void Triangle::Save(ofstream& OutFile)
+{
+	// Save the triangle parameters to the file
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << Corner3.x << " " << Corner3.y << endl;
+	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.isFilled << endl;
+}
 void Triangle::Load(ifstream& Infile)
 {
 	// Load the triangle parameters from the file

@@ -31,6 +31,14 @@ string Square::GetShapeType() const
 }
 void Square::Rotate(double degrees)
 {}
+void Square::Save(ofstream& OutFile)
+{
+	// Save the square parameters to the file
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
+	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.isFilled << endl;
+}
 void Square::Load(ifstream& Infile)
 {
 	// Load the square parameters from the file

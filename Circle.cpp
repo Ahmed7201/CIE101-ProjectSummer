@@ -39,6 +39,15 @@ string Circle::GetShapeType() const
 }
 void Circle::Rotate(double degrees)
 {}
+void Circle::Save(ofstream& OutFile)
+{
+	// Save the circle parameters to the file
+	OutFile << Center.x << " " << Center.y << " " << Edge_Point.x << " " << Edge_Point.y << endl;
+	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.isFilled << endl;
+	OutFile << Radius << endl; // Save the radius of the circle
+}
 
 void Circle::Load(ifstream& Infile)
 {
