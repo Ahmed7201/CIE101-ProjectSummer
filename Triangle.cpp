@@ -70,7 +70,7 @@ void Triangle::Rotate(double degrees)
 shape* Triangle::Clone()
 {
 	// Cloning is not implemented for Triangle
-	return new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	return new Triangle(*this);
 }
 void Triangle::Move(int dx, int dy)
 {
@@ -97,4 +97,11 @@ void Triangle::Load(ifstream& Infile)
 	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
 	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
 	Infile >> ShpGfxInfo.isFilled;
+}
+Point Triangle::Getcenter() const
+{
+	// Calculate the centroid of the triangle
+	int centerX = (Corner1.x + Corner2.x + Corner3.x) / 3;
+	int centerY = (Corner1.y + Corner2.y + Corner3.y) / 3;
+	return Point{ centerX, centerY };
 }

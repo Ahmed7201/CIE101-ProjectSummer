@@ -21,4 +21,5 @@ public:
 	virtual void Move(int dx, int dy) override; // Move the circle by dx, dy
 	virtual void Save(ofstream& OutFile) override; // Save the circle parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the circle parameters from a file
+	virtual Point Getcenter() const override; // Get the center point of the circle
 }; // Add missing semicolon here

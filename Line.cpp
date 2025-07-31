@@ -77,7 +77,7 @@ void Line::Rotate(double degrees)
 shape* Line::Clone()
 {
     // Cloning is not implemented for Line
-    return new Line(point1, point2, ShpGfxInfo);
+    return new Line(*this);
 }
 void Line::Move(int dx, int dy)
 {
@@ -102,4 +102,11 @@ void Line::Load(ifstream& Infile)
     Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
     Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
     Infile >> ShpGfxInfo.isFilled;
+}
+Point Line::Getcenter() const
+{
+    // Calculate the center point of the line (midpoint)
+    int centerX = (point1.x + point2.x) / 2;
+    int centerY = (point1.y + point2.y) / 2;
+    return Point{ centerX, centerY };
 }

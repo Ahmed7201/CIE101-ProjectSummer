@@ -54,7 +54,7 @@ void Rect::Rotate(double degrees)
 shape* Rect::Clone()
 {
 	// Cloning is not implemented for Rect
-	return new Rect(Corner1, Corner2, ShpGfxInfo); 
+	return new Rect(*this); 
 }
 void Rect::Move(int dx, int dy)
 {
@@ -79,6 +79,14 @@ void Rect::Load(ifstream& Infile)
 	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
 	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
 	Infile >> ShpGfxInfo.isFilled;
+}
+Point Rect::Getcenter() const
+{
+	// Get the center point of the rectangle
+	Point center;
+	center.x = (Corner1.x + Corner2.x) / 2;
+	center.y = (Corner1.y + Corner2.y) / 2;
+	return center;
 }
 
 

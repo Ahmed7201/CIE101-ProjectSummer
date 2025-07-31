@@ -44,7 +44,7 @@ void Oval::Rotate(double degrees)
 shape* Oval::Clone()
 {
 	// Cloning is not implemented for Oval
-	return new Oval(Center, Edge_Point, ShpGfxInfo);
+	return new Oval(*this);
 }
 void Oval::Move(int dx, int dy)
 {
@@ -71,6 +71,11 @@ void Oval::Load(ifstream& Infile)
 	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
 	Infile >> ShpGfxInfo.isFilled;
 	Radius_Oval = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
+}
+Point Oval::Getcenter() const
+{
+	// Calculate the center point of the oval
+	return Center; // The center is already stored in the Center member variable
 }
 
 

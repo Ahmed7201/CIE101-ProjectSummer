@@ -24,6 +24,8 @@ public:
 	GfxInfo GetGfxInfo() const; //get the shape's graphical info
 
 	virtual string GetShapeType() const = 0; // Added to get the shape type
+
+	virtual Point Getcenter() const=0; // Get the center point of the shape
 	
 
 	

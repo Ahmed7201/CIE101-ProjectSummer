@@ -42,7 +42,7 @@ void Circle::Rotate(double degrees)
 shape* Circle::Clone()
 {
 	// Cloning is not implemented for Circle
-	return new Circle(Center, Edge_Point, ShpGfxInfo);
+	return new Circle(*this);
 }
 void Circle::Move(int dx, int dy)
 {
@@ -72,4 +72,9 @@ void Circle::Load(ifstream& Infile)
 	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
 	Infile >> ShpGfxInfo.isFilled;
 	Radius = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
+}
+Point Circle::Getcenter() const
+{
+	// Calculate the center point of the circle
+	return Center;
 }

@@ -6,12 +6,14 @@
 opPaste::opPaste(controller* pCont) : operation(pCont) {}
 
 void opPaste::Execute() {
+	Point clickedPoint;
     Graph* pGraph = pControl->getGraph();
 	GUI* pUI = pControl->GetUI();
+	pUI->GetPointClicked(clickedPoint.x, clickedPoint.y); // Get the point where the user clicked
 	shape* clickedShape = pGraph->GetSelectedShape();
 	if (clickedShape) {
 		// Add the cloned shape to the graph
-		pGraph->PasteCopiedShape(clickedShape);
+		pGraph->PasteCopiedShape(clickedPoint);
 		pUI->PrintMessage("Shape Pasted successfully");
 	}
 	else {

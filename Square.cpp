@@ -34,7 +34,7 @@ void Square::Rotate(double degrees)
 shape* Square::Clone()
 {
 	// Cloning is not implemented for Square
-	return new Square(Corner1, Corner2, ShpGfxInfo);
+	return new Square(*this);
 }
 void Square::Move(int dx, int dy)
 {
@@ -59,4 +59,11 @@ void Square::Load(ifstream& Infile)
 	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
 	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
 	Infile >> ShpGfxInfo.isFilled;
+}
+Point Square::Getcenter() const
+{
+	// Calculate the center point of the square
+	int centerX = (Corner1.x + Corner2.x) / 2;
+	int centerY = (Corner1.y + Corner2.y) / 2;
+	return Point{ centerX, centerY };
 }

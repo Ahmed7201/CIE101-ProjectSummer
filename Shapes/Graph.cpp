@@ -109,16 +109,20 @@ shape* Graph::Getshape(int x, int y) const
 void Graph::CopySelectedShape(shape* pShape)
 {
 	if (selectedShape && shapeCount < maxShapeCount) {
-		shape* newShape = selectedShape->Clone();      // Deep copy
-		shapesList[shapeCount++] = newShape;           // Add to shape list
 		
+		shape* newshape = selectedShape->Clone();      // Deep copy
 	}
 }
-void Graph::PasteCopiedShape(shape* pShape) {
+void Graph::PasteCopiedShape(Point P1) {
 	if (selectedShape && shapeCount < maxShapeCount) {
-		shape* newShape = selectedShape->Clone();
-		shapesList[shapeCount++] = newShape;  
-		newShape->Move(50, 50);
+		shape* newshape = selectedShape->Clone(); // Clone the copied shape
+		if (newshape) {
+			// Adjust position based on the paste point
+			Point originalPoint = newshape->Getcenter(); // Assume first point as reference
+			newshape->Move(P1.x - originalPoint.x, P1.y - originalPoint.y); // Move relative to original position
+			Addshape(newshape); // Add to shapesList
+		}
+	
 	}
 }
 

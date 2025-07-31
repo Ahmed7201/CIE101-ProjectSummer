@@ -29,6 +29,6 @@ public:
 	void load(ifstream& inputfile);	//Load all shapes from a file
 	void RemoveShape(shape* pShape);
 	void RotateSelectedShape(shape* pShape); // Rotate the selected shape by a given angle
-	void PasteCopiedShape(shape* pShape);
+	void PasteCopiedShape(Point P1);
 
 };
