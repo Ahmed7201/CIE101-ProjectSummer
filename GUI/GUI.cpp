@@ -178,15 +178,15 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
 	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
-	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Rect.jpg";
+	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Del.jpg";
 
-	MenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rect.jpg";
-	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Square.jpg";
-	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Square.jpg";
+	MenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
+	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
+	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
 
 
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
-	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Tri.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
 	
 
 
