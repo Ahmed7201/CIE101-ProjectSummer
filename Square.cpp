@@ -31,6 +31,11 @@ string Square::GetShapeType() const
 }
 void Square::Rotate(double degrees)
 {}
+shape* Square::Clone()
+{
+	// Cloning is not implemented for Square
+	return new Square(Corner1, Corner2, ShpGfxInfo);
+}
 void Square::Save(ofstream& OutFile)
 {
 	// Save the square parameters to the file

@@ -11,7 +11,7 @@
 #include "opColorPalete.h"
 #include "opDelete.h"
 #include "opRotate_90.h"
-
+#include "opCopy.h"
 #include "opLoad.h"
 //Constructor
 controller::controller()
@@ -66,6 +66,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case LOAD:
 			pOp = new opLoad(this, "shapes.txt"); 
+			break;
+		case COPY:
+			pOp = new opCopy(this); // Assuming you have an opCopy operation
 			break;
 		case Delete:
 			pOp = new opDelete(this);

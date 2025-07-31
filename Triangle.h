@@ -13,6 +13,7 @@ public:
 	virtual bool isInside(int x, int y) const override;
 	virtual string GetShapeType() const override; // Return the shape type
 	virtual void Rotate(double degrees) override; // Rotate the triangle by a given angle
+	virtual shape* Clone() override; // Cloning is not implemented for Triangle
 	virtual void Save(ofstream& OutFile) override; // Save the triangle parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the triangle parameters from a file
 	

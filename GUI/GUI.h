@@ -45,6 +45,7 @@ class GUI
 		ICON_LOAD,		//Load icon in menu
 		ICON_Delete,		//Delete icon in menu
 		ICON_ROTATE,		//Rotate icon in menu
+		ICON_COPY,		//Copy icon in menu
 
 
 		

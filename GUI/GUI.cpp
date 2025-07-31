@@ -101,6 +101,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_FILL_CLR: return CHNG_FILL_CLR;
 		case ICON_Delete: return Delete;
 		case ICON_ROTATE: return ROTATE;
+		case ICON_COPY: return COPY;
 
 
 		case ICON_Select: return Select;
@@ -180,6 +181,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Rect.jpg";
 
 	MenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rect.jpg";
+	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Square.jpg";
 
 
 

@@ -74,6 +74,11 @@ void Line::Rotate(double degrees)
     point2.x = centerX + (x * cos(radians) - y * sin(radians));
     point2.y = centerY + (x * sin(radians) + y * cos(radians));
 }
+shape* Line::Clone()
+{
+    // Cloning is not implemented for Line
+    return new Line(point1, point2, ShpGfxInfo);
+}
 void Line::Save(ofstream& OutFile)
 {
     // Save the line parameters to the file

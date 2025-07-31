@@ -67,6 +67,11 @@ void Triangle::Rotate(double degrees)
 	Corner3.x = centerX + (x * cos(radians) - y * sin(radians));
 	Corner3.y = centerY + (x * sin(radians) + y * cos(radians));
 }
+shape* Triangle::Clone()
+{
+	// Cloning is not implemented for Triangle
+	return new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+}
 void Triangle::Save(ofstream& OutFile)
 {
 	// Save the triangle parameters to the file

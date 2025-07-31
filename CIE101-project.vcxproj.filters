@@ -174,6 +174,7 @@
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
     <ClCompile Include="opLoad.cpp" />
+    <ClCompile Include="opCopy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -311,6 +312,7 @@
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
     <ClInclude Include="opLoad.h" />
+    <ClInclude Include="opCopy.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

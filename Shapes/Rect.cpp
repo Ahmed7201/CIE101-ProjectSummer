@@ -51,6 +51,11 @@ void Rect::Rotate(double degrees)
 	Corner2.x = centerX + (x * cos(radians) - y * sin(radians));
 	Corner2.y = centerY + (x * sin(radians) + y * cos(radians));
 }
+shape* Rect::Clone()
+{
+	// Cloning is not implemented for Rect
+	return new Rect(Corner1, Corner2, ShpGfxInfo); 
+}
 void Rect::Save(ofstream& OutFile) 
 {
 	// Save the rectangle parameters to the file

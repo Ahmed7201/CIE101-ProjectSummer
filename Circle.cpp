@@ -39,6 +39,11 @@ string Circle::GetShapeType() const
 }
 void Circle::Rotate(double degrees)
 {}
+shape* Circle::Clone()
+{
+	// Cloning is not implemented for Circle
+	return new Circle(Center, Edge_Point, ShpGfxInfo);
+}
 void Circle::Save(ofstream& OutFile)
 {
 	// Save the circle parameters to the file

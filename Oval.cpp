@@ -41,6 +41,11 @@ void Oval::Rotate(double degrees)
 	Edge_Point.x = Center.x + Radius_Oval * cos(newAngle);
 	Edge_Point.y = Center.y + Radius_Oval * sin(newAngle);
 }
+shape* Oval::Clone()
+{
+	// Cloning is not implemented for Oval
+	return new Oval(Center, Edge_Point, ShpGfxInfo);
+}
 void Oval::Save(ofstream& OutFile)
 {
 	// Save the oval parameters to the file
