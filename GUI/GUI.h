@@ -42,7 +42,7 @@ class GUI
 
 
 		ICON_Select,		//Select icon in menu
-		ICON_LOAD,		//Load icon in menu
+		
 		ICON_SendBack,
 		ICON_Delete,		//Delete icon in menu
 		ICON_ROTATE,		//Rotate icon in menu
@@ -52,6 +52,10 @@ class GUI
 		
 		ICON_DRAW_CLR,
 		ICON_FILL_CLR,
+
+		ICON_SAVE,		//Save icon in menu
+		ICON_LOAD,		//Load icon in menu
+
 
 		ICON_EXIT,		//Exit icon
 

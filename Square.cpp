@@ -25,10 +25,11 @@ bool Square::isInside(int x, int y) const
 	int side = abs(Corner2.x - Corner1.x); // Assuming square is axis-aligned
 	return (x >= Corner1.x && x <= Corner1.x + side && y >= Corner1.y && y <= Corner1.y + side);
 }
-string Square::GetShapeType() const
-{
+
+string Square::GetShapeType() const {
 	return "Square";
 }
+
 void Square::Rotate(double degrees)
 {}
 shape* Square::Clone()

@@ -106,6 +106,7 @@ operationType GUI::GetUseroperation() const
 
 		case ICON_SendBack: return SEND_BACK;
 		case ICON_Select: return Select;
+		case ICON_SAVE: return SAVE;
 		case ICON_LOAD: return LOAD;
 		case ICON_EXIT: return EXIT;
         
@@ -179,9 +180,8 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
 	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
+	MenuIconImages[ICON_SendBack] = "images\\MenuIcons\\Menu_SendBack.jpg";
 	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Del.jpg";
-	MenuIconImages[ICON_SendBack] = "images\\MenuIcons\\Menu_Rect.jpg";
-	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Rect.jpg";
 
 	MenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
 	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
@@ -189,6 +189,7 @@ void GUI::CreateDrawToolBar()
 
 
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Load.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
 	
 

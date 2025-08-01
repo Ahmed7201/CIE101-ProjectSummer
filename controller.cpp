@@ -15,12 +15,15 @@
 #include "opLoad.h"
 #include "opPaste.h"
 #include "opSendtoBack.h"
+#include "opSave.h"
 
 //Constructor
 controller::controller()
 {
 	pGraph = new Graph;
 	pGUI = new GUI;	//Create GUI object
+
+	
 }
 
 //==================================================================================//
@@ -67,9 +70,7 @@ operation* controller::createOperation(operationType OpType)
 		case Select:
 			pOp = new opSelect(this);
 			break;
-		case LOAD:
-			pOp = new opLoad(this, "shapes.txt"); 
-			break;
+		
 		case COPY:
 			pOp = new opCopy(this); 
 			break;
@@ -93,8 +94,14 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opColorPalete(this);
 			break;
 		case SEND_BACK:
-			return new opSendtoBack(this);
-
+			pOp = new opSendtoBack(this);
+			break;
+		case SAVE:
+			pOp = new opSave(this);
+			break;
+		case LOAD:
+			pOp = new opLoad(this, "testtriangleagain3.txt");
+			break;
 
 		case EXIT:
 			///create Exitoperation here
@@ -112,6 +119,7 @@ operation* controller::createOperation(operationType OpType)
 //							Interface Management Functions							//
 //==================================================================================//
 
+
 //Draw all shapes on the user interface
 void controller::UpdateInterface() const
 {	
@@ -127,6 +135,10 @@ Graph* controller::getGraph() const
 {
 	return pGraph;
 }
+
+
+
+
 
 
 
@@ -147,6 +159,7 @@ void controller::Run()
 {
 	operationType OpType;
 	do
+
 	{
 		//1. Ask the GUI to read the required operation from the user
 		OpType = GetUseroperation();

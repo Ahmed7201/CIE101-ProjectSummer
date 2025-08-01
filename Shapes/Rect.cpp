@@ -64,6 +64,7 @@ void Rect::Move(int dx, int dy)
 	Corner2.x += dx;
 	Corner2.y += dy;
 }
+
 void Rect::Save(ofstream& OutFile) 
 {
 	// Save the rectangle parameters to the file

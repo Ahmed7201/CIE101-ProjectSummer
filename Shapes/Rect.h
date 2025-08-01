@@ -16,6 +16,8 @@ public:
 	virtual void Rotate(double degrees) override; // Rotate the rectangle by a given angle
 	virtual shape* Clone() override ; // Cloning is not implemented for Rect
 	virtual void Move(int dx, int dy) override; // Move the rectangle by dx, dy
+	
+
 	virtual void Save(ofstream& OutFile) override; // Save the rectangle parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the rectangle parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the rectangle

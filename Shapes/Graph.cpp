@@ -147,9 +147,12 @@ void Graph::Save(ofstream& outfile)
 {
 	// Save the number of shapes
 	outfile << shapeCount << endl;
-	// Save each shape
+
+	// Save each shape type and data
 	for (int i = 0; i < shapeCount; i++) {
-		shapesList[i]->Save(outfile);
+		string shapeType = shapesList[i]->GetShapeType();
+		outfile << shapeType << endl;                 // Write type first
+		shapesList[i]->Save(outfile);                 // Then write shape data
 	}
 }
 void Graph::load(ifstream& inputfile)
@@ -165,6 +168,7 @@ void Graph::load(ifstream& inputfile)
 		string shapeType;
 		while (inputfile >> shapeType)
 		{
+
 			shape* newShape = nullptr;
 			if (shapeType == "Rectangle")
 			{
@@ -196,6 +200,6 @@ void Graph::load(ifstream& inputfile)
 				Addshape(newShape); // Add the shape to the controller
 			}
 		}
-		
+
 	}
 }

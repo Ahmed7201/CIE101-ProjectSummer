@@ -84,20 +84,46 @@ void Triangle::Move(int dx, int dy)
 }
 void Triangle::Save(ofstream& OutFile)
 {
-	// Save the triangle parameters to the file
-	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << Corner3.x << " " << Corner3.y << endl;
-	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
-	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	
+	OutFile << Corner1.x << " " << Corner1.y << " "
+		<< Corner2.x << " " << Corner2.y << " "
+		<< Corner3.x << " " << Corner3.y << endl;
+
+	OutFile << (int)ShpGfxInfo.DrawClr.ucRed << " "
+		<< (int)ShpGfxInfo.DrawClr.ucGreen << " "
+		<< (int)ShpGfxInfo.DrawClr.ucBlue << endl;
+
+	OutFile << (int)ShpGfxInfo.FillClr.ucRed << " "
+		<< (int)ShpGfxInfo.FillClr.ucGreen << " "
+		<< (int)ShpGfxInfo.FillClr.ucBlue << endl;
+
 	OutFile << ShpGfxInfo.isFilled << endl;
 }
-void Triangle::Load(ifstream& Infile)
-{
-	// Load the triangle parameters from the file
-	Infile >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Corner3.x >> Corner3.y;
-	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
-	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
-	Infile >> ShpGfxInfo.isFilled;
-}
+
+	void Triangle::Load(ifstream & Infile)
+	{
+		// Load the triangle corner points
+		Infile >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Corner3.x >> Corner3.y;
+
+		// Explicit casting from int to unsigned char
+		int r, g, b;
+
+		// Draw Color
+		Infile >> r >> g >> b;
+		ShpGfxInfo.DrawClr.ucRed = static_cast<unsigned char>(r);
+		ShpGfxInfo.DrawClr.ucGreen = static_cast<unsigned char>(g);
+		ShpGfxInfo.DrawClr.ucBlue = static_cast<unsigned char>(b);
+
+		// Fill Color
+		Infile >> r >> g >> b;
+		ShpGfxInfo.FillClr.ucRed = static_cast<unsigned char>(r);
+		ShpGfxInfo.FillClr.ucGreen = static_cast<unsigned char>(g);
+		ShpGfxInfo.FillClr.ucBlue = static_cast<unsigned char>(b);
+
+		// Fill flag
+		Infile >> ShpGfxInfo.isFilled;
+	}
+
 Point Triangle::Getcenter() const
 {
 	// Calculate the centroid of the triangle
