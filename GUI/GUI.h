@@ -44,6 +44,7 @@ class GUI
 
 
 		ICON_Select,		//Select icon in menu
+		ICON_SendBack,
 		ICON_Delete,		//Delete icon in menu
 
 

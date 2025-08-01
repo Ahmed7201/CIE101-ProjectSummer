@@ -100,8 +100,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_DRAW_CLR: return CHNG_DRAW_CLR;
 		case ICON_FILL_CLR: return CHNG_FILL_CLR;
 		case ICON_Delete: return Delete;
-
-
+		case ICON_SendBack: return SEND_BACK;
 		case ICON_Select: return Select;
 		case ICON_EXIT: return EXIT;
         
@@ -175,6 +174,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
 	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
+	MenuIconImages[ICON_SendBack] = "images\\MenuIcons\\Menu_Rect.jpg";
 	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Rect.jpg";
 
 

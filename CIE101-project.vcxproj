@@ -179,6 +179,7 @@
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="opFillColor.cpp" />
     <ClCompile Include="opSelect.cpp" />
+    <ClCompile Include="opSendtoBack.cpp" />
     <ClCompile Include="Oval.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
@@ -224,6 +225,7 @@
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="opFillColor.h" />
     <ClInclude Include="opSelect.h" />
+    <ClInclude Include="opSendtoBack.h" />
     <ClInclude Include="Oval.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Graph.h" />

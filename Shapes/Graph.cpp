@@ -77,6 +77,23 @@ void Graph::RemoveShape(shape* pShape)
 		}
 	}
 }
+void Graph::SendToBack(shape* pShape) {
+	for (int i = 0; i < shapeCount; ++i) {
+		if (shapesList[i]->IsSelected()) {
+			pShape = shapesList[i]; // pointer to the selected shape
+
+			// this is start from the i of the selected object then goes back like the car and each one meet behind it she put it in the place she is in now and looping
+			for (int j = i; j > 0; --j) {
+				shapesList[j] = shapesList[j - 1];
+			}
+
+			// this is to make the selected on the zero place after shigting all of them to the righttt
+			shapesList[0] = selectedShape;
+
+			break; 
+		}
+	}
+};
 
 
 shape* Graph::Getshape(int x, int y) const

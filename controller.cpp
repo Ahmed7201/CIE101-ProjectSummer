@@ -10,6 +10,7 @@
 #include "opFillColor.h"
 #include "opColorPalete.h"
 #include "opDelete.h"
+#include "opSendtoBack.h"
 
 //Constructor
 controller::controller()
@@ -75,6 +76,9 @@ operation* controller::createOperation(operationType OpType)
 		case Draw_Color_Palette:
 			pOp = new opColorPalete(this);
 			break;
+		case SEND_BACK:
+			return new opSendtoBack(this);
+
 
 		case EXIT:
 			///create Exitoperation here
