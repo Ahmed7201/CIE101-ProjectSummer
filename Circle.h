@@ -16,4 +16,10 @@ public:
     Point GetCenter() const; // Get the center of the circle  
     virtual bool isInside(int x, int y) const override;  
     virtual string GetShapeType() const override;  
+	virtual void Rotate(double degrees) override; // Rotate the circle by a given angle
+	virtual shape* Clone() override; // Cloning is not implemented for Circle
+	virtual void Move(int dx, int dy) override; // Move the circle by dx, dy
+	virtual void Save(ofstream& OutFile) override; // Save the circle parameters to a file
+	virtual void Load(ifstream& Infile) override; // Load the circle parameters from a file
+	virtual Point Getcenter() const override; // Get the center point of the circle
 }; // Add missing semicolon here

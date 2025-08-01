@@ -1,7 +1,5 @@
 #pragma once
 
-
-
 #include "..\CMUgraphicsLib\CMUgraphics.h"
 #include "..\Defs.h"
 
@@ -44,9 +42,12 @@ class GUI
 
 
 		ICON_Select,		//Select icon in menu
+		ICON_LOAD,		//Load icon in menu
 		ICON_SendBack,
 		ICON_Delete,		//Delete icon in menu
-
+		ICON_ROTATE,		//Rotate icon in menu
+		ICON_COPY,		//Copy icon in menu
+		ICON_PASTE,
 
 		
 		ICON_DRAW_CLR,

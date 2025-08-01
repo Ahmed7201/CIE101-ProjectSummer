@@ -1,4 +1,5 @@
 #include "Line.h"
+#include <fstream>
 
 Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -49,4 +50,63 @@ bool Line::isInside(int x, int y) const
 string Line::GetShapeType() const
 {
 	return "Line"; // Return the shape type as a string
+}
+void Line::Rotate(double degrees)
+{
+    // Use a constant for pi since M_PI might not be defined
+    const double PI = 3.14159265358979323846;
+    // Convert degrees to radians
+    double radians = degrees * PI / 180.0;
+
+    // Calculate the center of the line (midpoint of point1 and point2)
+    double centerX = (point1.x + point2.x) / 2.0;
+    double centerY = (point1.y + point2.y) / 2.0;
+
+    // Rotate point1 around the center
+    double x = point1.x - centerX;
+    double y = point1.y - centerY;
+    point1.x = centerX + (x * cos(radians) - y * sin(radians));
+    point1.y = centerY + (x * sin(radians) + y * cos(radians));
+
+    // Rotate point2 around the center
+    x = point2.x - centerX;
+    y = point2.y - centerY;
+    point2.x = centerX + (x * cos(radians) - y * sin(radians));
+    point2.y = centerY + (x * sin(radians) + y * cos(radians));
+}
+shape* Line::Clone()
+{
+    // Cloning is not implemented for Line
+    return new Line(*this);
+}
+void Line::Move(int dx, int dy)
+{
+    // Move the line by dx, dy
+    point1.x += dx;
+    point1.y += dy;
+    point2.x += dx;
+    point2.y += dy;
+}
+void Line::Save(ofstream& OutFile)
+{
+    // Save the line parameters to the file
+    OutFile << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+    OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+    OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+    OutFile << ShpGfxInfo.isFilled << endl;
+}
+void Line::Load(ifstream& Infile)
+{
+    // Load the line parameters from the file
+    Infile >> point1.x >> point1.y >> point2.x >> point2.y;
+    Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+    Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+    Infile >> ShpGfxInfo.isFilled;
+}
+Point Line::Getcenter() const
+{
+    // Calculate the center point of the line (midpoint)
+    int centerX = (point1.x + point2.x) / 2;
+    int centerY = (point1.y + point2.y) / 2;
+    return Point{ centerX, centerY };
 }

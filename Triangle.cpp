@@ -1,4 +1,5 @@
 #include "Triangle.h"
+#include <fstream>
 
 Triangle::Triangle(Point P1, Point P2, Point P3, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
@@ -36,4 +37,71 @@ string Triangle::GetShapeType() const
 {
 	return "Triangle"; // Return the shape type
 }
+void Triangle::Rotate(double degrees)
+{
+	// Use a constant for pi since M_PI might not be defined
+	const double PI = 3.14159265358979323846;
+	// Convert degrees to radians
+	double radians = degrees * PI / 180.0;
 
+	// Calculate the centroid (center of rotation)
+	double centerX = (Corner1.x + Corner2.x + Corner3.x) / 3.0;
+	double centerY = (Corner1.y + Corner2.y + Corner3.y) / 3.0;
+
+	// Rotate each corner around the centroid
+	// Corner1
+	double x = Corner1.x - centerX;
+	double y = Corner1.y - centerY;
+	Corner1.x = centerX + (x * cos(radians) - y * sin(radians));
+	Corner1.y = centerY + (x * sin(radians) + y * cos(radians));
+
+	// Corner2
+	x = Corner2.x - centerX;
+	y = Corner2.y - centerY;
+	Corner2.x = centerX + (x * cos(radians) - y * sin(radians));
+	Corner2.y = centerY + (x * sin(radians) + y * cos(radians));
+
+	// Corner3
+	x = Corner3.x - centerX;
+	y = Corner3.y - centerY;
+	Corner3.x = centerX + (x * cos(radians) - y * sin(radians));
+	Corner3.y = centerY + (x * sin(radians) + y * cos(radians));
+}
+shape* Triangle::Clone()
+{
+	// Cloning is not implemented for Triangle
+	return new Triangle(*this);
+}
+void Triangle::Move(int dx, int dy)
+{
+	// Move the triangle by dx, dy
+	Corner1.x += dx;
+	Corner1.y += dy;
+	Corner2.x += dx;
+	Corner2.y += dy;
+	Corner3.x += dx;
+	Corner3.y += dy;
+}
+void Triangle::Save(ofstream& OutFile)
+{
+	// Save the triangle parameters to the file
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << Corner3.x << " " << Corner3.y << endl;
+	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.isFilled << endl;
+}
+void Triangle::Load(ifstream& Infile)
+{
+	// Load the triangle parameters from the file
+	Infile >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Corner3.x >> Corner3.y;
+	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	Infile >> ShpGfxInfo.isFilled;
+}
+Point Triangle::Getcenter() const
+{
+	// Calculate the centroid of the triangle
+	int centerX = (Corner1.x + Corner2.x + Corner3.x) / 3;
+	int centerY = (Corner1.y + Corner2.y + Corner3.y) / 3;
+	return Point{ centerX, centerY };
+}

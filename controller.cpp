@@ -10,6 +10,10 @@
 #include "opFillColor.h"
 #include "opColorPalete.h"
 #include "opDelete.h"
+#include "opRotate_90.h"
+#include "opCopy.h"
+#include "opLoad.h"
+#include "opPaste.h"
 #include "opSendtoBack.h"
 
 //Constructor
@@ -63,8 +67,20 @@ operation* controller::createOperation(operationType OpType)
 		case Select:
 			pOp = new opSelect(this);
 			break;
+		case LOAD:
+			pOp = new opLoad(this, "shapes.txt"); 
+			break;
+		case COPY:
+			pOp = new opCopy(this); 
+			break;
+		case PASTE:
+			pOp = new opPaste(this);
+			break;
 		case Delete:
 			pOp = new opDelete(this);
+			break;
+		case ROTATE:
+			pOp = new opRotate_90(this);
 			break;
 
 		case CHNG_DRAW_CLR:

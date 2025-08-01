@@ -1,4 +1,5 @@
 #include "Oval.h"
+#include<fstream>
 
 Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -21,3 +22,60 @@ string Oval::GetShapeType() const
 {
 	return "Oval";
 }
+void Oval::Rotate(double degrees)
+{
+	// Use a constant for pi since M_PI might not be defined
+	const double PI = 3.14159265358979323846;
+	// Convert degrees to radians
+	double radians = degrees * PI / 180.0;
+
+	// Calculate the initial angle of Edge_Point relative to Center
+	double dx = Edge_Point.x - Center.x;
+	double dy = Edge_Point.y - Center.y;
+	double currentAngle = atan2(dy, dx);
+
+	// Calculate the new angle (add the rotation angle)
+	double newAngle = currentAngle + radians;
+
+	// Update Edge_Point with the new position based on Radius_Oval
+	Edge_Point.x = Center.x + Radius_Oval * cos(newAngle);
+	Edge_Point.y = Center.y + Radius_Oval * sin(newAngle);
+}
+shape* Oval::Clone()
+{
+	// Cloning is not implemented for Oval
+	return new Oval(*this);
+}
+void Oval::Move(int dx, int dy)
+{
+	// Move the oval by dx, dy
+	Center.x += dx;
+	Center.y += dy;
+	Edge_Point.x += dx;
+	Edge_Point.y += dy;
+}
+void Oval::Save(ofstream& OutFile)
+{
+	// Save the oval parameters to the file
+	OutFile << Center.x << " " << Center.y << " " << Edge_Point.x << " " << Edge_Point.y << endl;
+	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << ShpGfxInfo.isFilled << endl;
+	OutFile << Radius_Oval << endl; // Save the radius of the oval
+}
+void Oval::Load(ifstream& Infile)
+{
+	// Load the oval parameters from the file
+	Infile >> Center.x >> Center.y >> Edge_Point.x >> Edge_Point.y;
+	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
+	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	Infile >> ShpGfxInfo.isFilled;
+	Radius_Oval = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
+}
+Point Oval::Getcenter() const
+{
+	// Calculate the center point of the oval
+	return Center; // The center is already stored in the Center member variable
+}
+
+

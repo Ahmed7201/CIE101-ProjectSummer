@@ -15,7 +15,7 @@ GUI::GUI()
 	StatusBarHeight = 50;
 	StatusBarWidth = 0;
 	ToolBarHeight = 50;
-	MenuIconWidth = 30;
+	MenuIconWidth = 50;
 
 	DrawColor = DARKGREEN;	//default Drawing color
 	FillColor = YELLOW;	//default Filling color
@@ -100,8 +100,13 @@ operationType GUI::GetUseroperation() const
 		case ICON_DRAW_CLR: return CHNG_DRAW_CLR;
 		case ICON_FILL_CLR: return CHNG_FILL_CLR;
 		case ICON_Delete: return Delete;
+		case ICON_ROTATE: return ROTATE;
+		case ICON_COPY: return COPY;
+		case ICON_PASTE: return PASTE;
+
 		case ICON_SendBack: return SEND_BACK;
 		case ICON_Select: return Select;
+		case ICON_LOAD: return LOAD;
 		case ICON_EXIT: return EXIT;
         
 		default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -174,12 +179,17 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
 	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
+	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Del.jpg";
 	MenuIconImages[ICON_SendBack] = "images\\MenuIcons\\Menu_Rect.jpg";
 	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Rect.jpg";
 
+	MenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
+	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
+	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
 
 
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
 	
 
 

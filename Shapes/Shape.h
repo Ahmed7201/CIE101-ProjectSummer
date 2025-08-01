@@ -24,6 +24,8 @@ public:
 	GfxInfo GetGfxInfo() const; //get the shape's graphical info
 
 	virtual string GetShapeType() const = 0; // Added to get the shape type
+
+	virtual Point Getcenter() const=0; // Get the center point of the shape
 	
 
 	
@@ -38,14 +40,14 @@ public:
 	///It should be overridden by each inherited shape
 
 	///Decide the parameters that you should pass to each function	
-
-
-	//virtual void Rotate() = 0;	//Rotate the shape
+	virtual shape* Clone() = 0;
+	virtual void Move(int dx, int dy) = 0;	//Move the shape by dx, dy
+	virtual void Rotate(double degrees) = 0;	//Rotate the shape
 	//virtual void Resize() = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
 
-	//virtual void Save(ofstream &OutFile) = 0;	//Save the shape parameters to the file
-	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
+	virtual void Save(ofstream &OutFile) = 0;	//Save the shape parameters to the file
+	virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
 };

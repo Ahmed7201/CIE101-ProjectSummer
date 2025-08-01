@@ -1,5 +1,12 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
+#include "../Shapes/Rect.h"
+#include "../Square.h"
+#include "../Triangle.h"
+#include "../Oval.h"
+#include "../Circle.h"
+#include "../Line.h"
+#include <fstream>
 
 Graph::Graph()
 {
@@ -36,7 +43,7 @@ void Graph::UnselectAllShapes(GUI* pUI) {
 		GfxInfo gfxInfo = selectedShape->GetGfxInfo();
 		gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
 		selectedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
-		selectedShape->Draw(pUI); // Redraw to remove highlight
+		
 		selectedShape = nullptr;
 	}
 	for (int i = 0; i < shapeCount; i++) {
@@ -45,7 +52,7 @@ void Graph::UnselectAllShapes(GUI* pUI) {
 			GfxInfo gfxInfo = shapesList[i]->GetGfxInfo();
 			gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
 			shapesList[i]->SetGfxInfo(gfxInfo); // Update GfxInfo
-			shapesList[i]->Draw(pUI);
+			
 		}
 	}
 }
@@ -94,6 +101,11 @@ void Graph::SendToBack(shape* pShape) {
 		}
 	}
 };
+void Graph::RotateSelectedShape(shape* pShape) {
+	if (selectedShape) {
+		selectedShape->Rotate(90.0); // Rotate the selected shape by 90 degrees
+	}
+}
 
 
 shape* Graph::Getshape(int x, int y) const
@@ -110,4 +122,80 @@ shape* Graph::Getshape(int x, int y) const
 	///Add your code here to search for a shape given a point x,y	
 
 	return nullptr;
+}
+void Graph::CopySelectedShape(shape* pShape)
+{
+	if (selectedShape && shapeCount < maxShapeCount) {
+		
+		shape* newshape = selectedShape->Clone();      // Deep copy
+	}
+}
+void Graph::PasteCopiedShape(Point P1) {
+	if (selectedShape && shapeCount < maxShapeCount) {
+		shape* newshape = selectedShape->Clone(); // Clone the copied shape
+		if (newshape) {
+			// Adjust position based on the paste point
+			Point originalPoint = newshape->Getcenter(); // Assume first point as reference
+			newshape->Move(P1.x - originalPoint.x, P1.y - originalPoint.y); // Move relative to original position
+			Addshape(newshape); // Add to shapesList
+		}
+	
+	}
+}
+
+void Graph::Save(ofstream& outfile)
+{
+	// Save the number of shapes
+	outfile << shapeCount << endl;
+	// Save each shape
+	for (int i = 0; i < shapeCount; i++) {
+		shapesList[i]->Save(outfile);
+	}
+}
+void Graph::load(ifstream& inputfile)
+{
+	// Clear the existing shapes
+	for (int i = 0; i < shapeCount; i++) {
+		delete shapesList[i];
+	}
+	shapeCount = 0;
+	// Read the number of shapes
+	inputfile >> shapeCount;
+	for (int i = 0; i < shapeCount; i++) {
+		string shapeType;
+		while (inputfile >> shapeType)
+		{
+			shape* newShape = nullptr;
+			if (shapeType == "Rectangle")
+			{
+				newShape = new Rect(Point(), Point(), GfxInfo());
+			}
+			else if (shapeType == "Square")
+			{
+				newShape = new Square(Point(), Point(), GfxInfo());
+			}
+			else if (shapeType == "Triangle")
+			{
+				newShape = new Triangle(Point(), Point(), Point(), GfxInfo());
+			}
+			else if (shapeType == "Oval")
+			{
+				newShape = new Oval(Point(), Point(), GfxInfo());
+			}
+			else if (shapeType == "Circle")
+			{
+				newShape = new Circle(Point(), Point(), GfxInfo());
+			}
+			else if (shapeType == "Line")
+			{
+				newShape = new Line(Point(), Point(), GfxInfo());
+			}
+			if (newShape)
+			{
+				newShape->Load(inputfile); // Load shape parameters from the file
+				Addshape(newShape); // Add the shape to the controller
+			}
+		}
+		
+	}
 }
