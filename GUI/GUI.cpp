@@ -483,7 +483,7 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 
 
 
-void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo) const
+void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo, double startAngle) const
 {
 	// A polygon must have at least 3 sides
 	if (sides < 3) return;
@@ -516,9 +516,13 @@ void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo) c
 	const double PI = 3.14159265358979323846;
 	double angleStep = 2 * PI / sides;
 
+	// Use the provided startAngle parameter
+	// If startAngle is the default value (-PI/2), use it as is
+	// Otherwise, use the provided angle
+
 	for (int i = 0; i < sides; ++i)
 	{
-		double angle = i * angleStep - PI / 2; // Start from the top
+		double angle = startAngle + i * angleStep;
 		xPoints[i] = center.x + static_cast<int>(radius * cos(angle));
 		yPoints[i] = center.y + static_cast<int>(radius * sin(angle));
 	}
