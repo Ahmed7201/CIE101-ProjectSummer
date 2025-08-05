@@ -20,6 +20,11 @@ void opStickImage::Execute()
 		pUI->PrintMessage("No shape selected. Please select a shape first.");
 		return;
 	}
+	if (selectedShape->HasImage())
+	{
+		pUI->PrintMessage("The selected shape already has an image.");
+		return;
+	}
 
 
 	pUI->PrintMessage("Enter image file name (e.g., image1.jpg):");
