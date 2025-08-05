@@ -17,7 +17,8 @@ public:
     virtual void Rotate(double degrees) override;
     virtual shape* Clone() override;
     virtual void Move(int dx, int dy) override;
+    virtual void Scale(double factor) override; // Scale the irregular polygon by factor
     virtual void Save(ofstream& OutFile) override;
     virtual void Load(ifstream& Infile) override;
     virtual Point Getcenter() const override;
-}; 
+};

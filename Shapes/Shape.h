@@ -45,6 +45,7 @@ public:
 	virtual shape* Clone() = 0;
 	virtual void Move(int dx, int dy) = 0;	//Move the shape by dx, dy
 	virtual void Rotate(double degrees) = 0;	//Rotate the shape
+	virtual void Scale(double factor) = 0;	//Scale the shape by factor
 	//virtual void Resize() = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
 

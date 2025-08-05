@@ -16,6 +16,7 @@ public:
 	virtual void Rotate(double degrees) override; // Rotate the rectangle by a given angle
 	virtual shape* Clone() override ; // Cloning is not implemented for Rect
 	virtual void Move(int dx, int dy) override; // Move the rectangle by dx, dy
+	virtual void Scale(double factor) override; // Scale the rectangle by factor
 	
 
 	virtual void Save(ofstream& OutFile) override; // Save the rectangle parameters to a file

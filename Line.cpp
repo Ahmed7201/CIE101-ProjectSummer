@@ -87,6 +87,26 @@ void Line::Move(int dx, int dy)
     point2.x += dx;
     point2.y += dy;
 }
+
+void Line::Scale(double factor)
+{
+    // Calculate the center of the line (midpoint)
+    double centerX = (point1.x + point2.x) / 2.0;
+    double centerY = (point1.y + point2.y) / 2.0;
+
+    // Scale each point relative to the center
+    // Point1
+    double dx = point1.x - centerX;
+    double dy = point1.y - centerY;
+    point1.x = centerX + dx * factor;
+    point1.y = centerY + dy * factor;
+
+    // Point2
+    dx = point2.x - centerX;
+    dy = point2.y - centerY;
+    point2.x = centerX + dx * factor;
+    point2.y = centerY + dy * factor;
+}
 void Line::Save(ofstream& OutFile)
 {
     // Save the line parameters to the file

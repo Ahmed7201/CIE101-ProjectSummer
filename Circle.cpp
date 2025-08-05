@@ -54,6 +54,25 @@ void Circle::Move(int dx, int dy)
 	// Update the radius based on the new edge point
 	Radius = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
 }
+
+void Circle::Scale(double factor)
+{
+	// Scale the radius
+	Radius *= factor;
+	
+	// Update the edge point to maintain the same direction from center
+	double dx = Edge_Point.x - Center.x;
+	double dy = Edge_Point.y - Center.y;
+	double distance = sqrt(dx * dx + dy * dy);
+	
+	if (distance > 0) {
+		// Normalize and scale
+		dx = (dx / distance) * Radius;
+		dy = (dy / distance) * Radius;
+		Edge_Point.x = Center.x + dx;
+		Edge_Point.y = Center.y + dy;
+	}
+}
 void Circle::Save(ofstream& OutFile)
 {
 	// Save the circle parameters to the file

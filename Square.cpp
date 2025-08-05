@@ -45,6 +45,26 @@ void Square::Move(int dx, int dy)
 	Corner2.x += dx;
 	Corner2.y += dy;
 }
+
+void Square::Scale(double factor)
+{
+	// Calculate the center of the square
+	double centerX = (Corner1.x + Corner2.x) / 2.0;
+	double centerY = (Corner1.y + Corner2.y) / 2.0;
+
+	// Calculate the current side length
+	double sideLength = abs(Corner2.x - Corner1.x);
+	double newSideLength = sideLength * factor;
+
+	// Calculate new corners relative to center
+	double halfSide = newSideLength / 2.0;
+
+	// Update corners
+	Corner1.x = centerX - halfSide;
+	Corner1.y = centerY - halfSide;
+	Corner2.x = centerX + halfSide;
+	Corner2.y = centerY + halfSide;
+}
 void Square::Save(ofstream& OutFile)
 {
 	// Save the square parameters to the file

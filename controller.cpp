@@ -22,6 +22,7 @@
 #include "opUndo.h"
 #include "opRedo.h"
 #include "opStickImage.h"
+#include "opResize.h"
 
 //working testing by me ahmedd
 
@@ -105,6 +106,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case ROTATE:
 			pOp = new opRotate_90(this);
+			break;
+		case RESIZE:
+			pOp = new opResize(this);
 			break;
 
 		case CHNG_DRAW_CLR:

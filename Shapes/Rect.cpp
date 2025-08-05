@@ -65,6 +65,31 @@ void Rect::Move(int dx, int dy)
 	Corner2.y += dy;
 }
 
+void Rect::Scale(double factor)
+{
+	// Calculate the center of the rectangle
+	double centerX = (Corner1.x + Corner2.x) / 2.0;
+	double centerY = (Corner1.y + Corner2.y) / 2.0;
+
+	// Calculate the current width and height
+	double width = abs(Corner2.x - Corner1.x);
+	double height = abs(Corner2.y - Corner1.y);
+
+	// Calculate new width and height
+	double newWidth = width * factor;
+	double newHeight = height * factor;
+
+	// Calculate new corners relative to center
+	double halfWidth = newWidth / 2.0;
+	double halfHeight = newHeight / 2.0;
+
+	// Update corners
+	Corner1.x = centerX - halfWidth;
+	Corner1.y = centerY - halfHeight;
+	Corner2.x = centerX + halfWidth;
+	Corner2.y = centerY + halfHeight;
+}
+
 void Rect::Save(ofstream& OutFile) 
 {
 	// Save the rectangle parameters to the file

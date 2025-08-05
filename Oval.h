@@ -15,6 +15,7 @@ public:
 	virtual void Rotate( double degrees) override; // Rotate the oval by a given angle
 	virtual shape* Clone() override; // Cloning is not implemented for Oval
 	virtual void Move(int dx, int dy) override; // Move the oval by dx, dy
+	virtual void Scale(double factor) override; // Scale the oval by factor
 	virtual void Save(ofstream& OutFile) override; // Save the oval parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the oval parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the oval
