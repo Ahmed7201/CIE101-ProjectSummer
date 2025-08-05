@@ -6,6 +6,8 @@
 
 opExit::opExit(controller * pCont) : operation(pCont) {}
 
+opExit::~opExit() {}
+
 void opExit::Execute()
 {
     GUI* pUI = pControl->GetUI();

@@ -5,5 +5,6 @@ class opDrawColor : public operation
 {
 public:
     opDrawColor(controller* pCont);
-    virtual void Execute();
+	virtual ~opDrawColor();
+    virtual void Execute() override;
 };

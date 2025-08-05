@@ -4,6 +4,8 @@
 
 opFillColor::opFillColor(controller* pCont) : operation(pCont) {}
 
+opFillColor::~opFillColor() {}
+
 void opFillColor::Execute()
 {
     GUI* pUI = pControl->GetUI();

@@ -5,6 +5,8 @@
 
 opRedo::opRedo(controller* pCont) : operation(pCont) {}
 
+opRedo::~opRedo() {}
+
 void opRedo::Execute() {
     // Get the Graph from the controller
     Graph* pGraph = pControl->getGraph();

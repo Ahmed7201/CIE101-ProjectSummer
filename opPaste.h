@@ -6,6 +6,6 @@
 class opPaste : public operation {
 public:
     opPaste(controller* pCont);
-    virtual void Execute() override;
+    virtual void Execute();
     virtual ~opPaste();
 };

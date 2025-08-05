@@ -5,6 +5,8 @@
 
 opPaste::opPaste(controller* pCont) : operation(pCont) {}
 
+opPaste::~opPaste() {}
+
 void opPaste::Execute() {
 	Graph* pGraph = pControl->getGraph();
 	pGraph->PushToUndo();

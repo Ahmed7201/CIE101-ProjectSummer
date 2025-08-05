@@ -5,6 +5,9 @@
 
 opDrawColor::opDrawColor(controller* pCont) : operation(pCont) {}
 
+opDrawColor::~opDrawColor() {}
+
+
 void opDrawColor::Execute()
 {
     GUI* pUI = pControl->GetUI();

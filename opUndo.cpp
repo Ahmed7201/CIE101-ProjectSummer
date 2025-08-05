@@ -5,6 +5,8 @@
 
 opUndo::opUndo(controller* pCont) : operation(pCont) {}
 
+opUndo::~opUndo() {}
+
 void opUndo::Execute() {
     // Get the Graph from the controller
     Graph* pGraph = pControl->getGraph();
