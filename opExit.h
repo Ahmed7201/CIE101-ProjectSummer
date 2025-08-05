@@ -5,5 +5,6 @@ class opExit : public operation
 {
 public:
     opExit(controller* pCont);
-    virtual void Execute();
+    virtual void Execute() override;
+  virtual ~opExit();
 };

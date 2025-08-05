@@ -290,11 +290,6 @@ void Graph::ClearShapes() {
 	for (int i = 0; i < shapeCount; ++i) {
 		delete shapesList[i];
 		shapesList[i] = nullptr;
-		// Each shape's Load reads the rest of its parameters from inputfile
-		pS->Load(inputfile);
-
-		// Addshape will insert into shapesList at the next free index and increment shapeCount
-		Addshape(pS);
 	}
 	shapeCount = 0;
 }

@@ -4,5 +4,6 @@
 class opRedo : public operation {
 public:
     opRedo(controller* pCont);
-    virtual void Execute();
+    virtual void Execute() override;
+    virtual ~opRedo();
 };

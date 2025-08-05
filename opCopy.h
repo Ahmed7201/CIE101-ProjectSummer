@@ -5,7 +5,7 @@ class opCopy :
 {
 public:
     opCopy(controller* pCont);
-    virtual void Execute() override; // Execute the copy operation
-	virtual ~opCopy(); // Destructor
+    virtual void Execute() override; 
+	virtual ~opCopy(); 
 };
 

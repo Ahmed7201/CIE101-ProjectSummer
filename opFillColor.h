@@ -6,5 +6,6 @@ class opFillColor : public operation
 {
 public:
     opFillColor(controller* pCont);
-    virtual void Execute();
+    virtual void Execute() override;
+    virtual ~opFillColor();
 };
