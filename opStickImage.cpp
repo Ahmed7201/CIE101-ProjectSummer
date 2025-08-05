@@ -30,6 +30,4 @@ void opStickImage::Execute()
 	selectedShape->SetImagePath(fullPath);
 
 	pUI->PrintMessage("Image added to the selected shape.");
-
-	pControl->UpdateInterface(); // Refresh the interface to reflect changes
 }
