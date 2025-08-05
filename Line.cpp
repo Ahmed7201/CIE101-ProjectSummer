@@ -91,16 +91,31 @@ void Line::Save(ofstream& OutFile)
 {
     // Save the line parameters to the file
     OutFile << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
-    OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
-    OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+    OutFile << (int) ShpGfxInfo.DrawClr.ucRed << " " << (int) ShpGfxInfo.DrawClr.ucGreen << " " << (int) ShpGfxInfo.DrawClr.ucBlue << endl;
+    OutFile << (int) ShpGfxInfo.FillClr.ucRed << " " << (int) ShpGfxInfo.FillClr.ucGreen << " " << (int) ShpGfxInfo.FillClr.ucBlue << endl;
     OutFile << ShpGfxInfo.isFilled << endl;
 }
 void Line::Load(ifstream& Infile)
 {
     // Load the line parameters from the file
     Infile >> point1.x >> point1.y >> point2.x >> point2.y;
-    Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
-    Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+   
+    // Explicit casting from int to unsigned char
+    int r, g, b;
+
+    // Draw Color
+    Infile >> r >> g >> b;
+    ShpGfxInfo.DrawClr.ucRed = static_cast<unsigned char>(r);
+    ShpGfxInfo.DrawClr.ucGreen = static_cast<unsigned char>(g);
+    ShpGfxInfo.DrawClr.ucBlue = static_cast<unsigned char>(b);
+
+    // Fill Color
+    Infile >> r >> g >> b;
+    ShpGfxInfo.FillClr.ucRed = static_cast<unsigned char>(r);
+    ShpGfxInfo.FillClr.ucGreen = static_cast<unsigned char>(g);
+    ShpGfxInfo.FillClr.ucBlue = static_cast<unsigned char>(b);
+
+    // Fill flag
     Infile >> ShpGfxInfo.isFilled;
 }
 Point Line::Getcenter() const

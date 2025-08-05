@@ -58,8 +58,8 @@ void Circle::Save(ofstream& OutFile)
 {
 	// Save the circle parameters to the file
 	OutFile << Center.x << " " << Center.y << " " << Edge_Point.x << " " << Edge_Point.y << endl;
-	OutFile << ShpGfxInfo.DrawClr.ucRed << " " << ShpGfxInfo.DrawClr.ucGreen << " " << ShpGfxInfo.DrawClr.ucBlue << endl;
-	OutFile << ShpGfxInfo.FillClr.ucRed << " " << ShpGfxInfo.FillClr.ucGreen << " " << ShpGfxInfo.FillClr.ucBlue << endl;
+	OutFile << (int) ShpGfxInfo.DrawClr.ucRed << " " << (int) ShpGfxInfo.DrawClr.ucGreen << " " << (int) ShpGfxInfo.DrawClr.ucBlue << endl;
+	OutFile << (int) ShpGfxInfo.FillClr.ucRed << " " << (int) ShpGfxInfo.FillClr.ucGreen << " " << (int) ShpGfxInfo.FillClr.ucBlue << endl;
 	OutFile << ShpGfxInfo.isFilled << endl;
 	OutFile << Radius << endl; // Save the radius of the circle
 }
@@ -68,10 +68,27 @@ void Circle::Load(ifstream& Infile)
 {
 	// Load the circle parameters from the file
 	Infile >> Center.x >> Center.y >> Edge_Point.x >> Edge_Point.y;
-	Infile >> ShpGfxInfo.DrawClr.ucRed >> ShpGfxInfo.DrawClr.ucGreen >> ShpGfxInfo.DrawClr.ucBlue;
-	Infile >> ShpGfxInfo.FillClr.ucRed >> ShpGfxInfo.FillClr.ucGreen >> ShpGfxInfo.FillClr.ucBlue;
+	
+	// Explicit casting from int to unsigned char
+	int r, g, b;
+
+	// Draw Color
+	Infile >> r >> g >> b;
+	ShpGfxInfo.DrawClr.ucRed = static_cast<unsigned char>(r);
+	ShpGfxInfo.DrawClr.ucGreen = static_cast<unsigned char>(g);
+	ShpGfxInfo.DrawClr.ucBlue = static_cast<unsigned char>(b);
+
+	// Fill Color
+	Infile >> r >> g >> b;
+	ShpGfxInfo.FillClr.ucRed = static_cast<unsigned char>(r);
+	ShpGfxInfo.FillClr.ucGreen = static_cast<unsigned char>(g);
+	ShpGfxInfo.FillClr.ucBlue = static_cast<unsigned char>(b);
+
+	// Fill flag
 	Infile >> ShpGfxInfo.isFilled;
-	Radius = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
+
+	// Load the radius of the circle
+	Infile >> Radius;
 }
 Point Circle::Getcenter() const
 {
