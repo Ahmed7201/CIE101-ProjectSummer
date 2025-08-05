@@ -14,10 +14,27 @@ Rect::~Rect()
 
 void Rect::Draw(GUI* pUI) const
 {
-	//Call Output::DrawRect to draw a rectangle on the screen	
-	
-	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
-
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		pUI->DrawRect(Corner1, Corner2, borderInfo);
+		
+		// Calculate the rectangle bounds
+		int x = min(Corner1.x, Corner2.x);
+		int y = min(Corner1.y, Corner2.y);
+		int width = abs(Corner2.x - Corner1.x);
+		int height = abs(Corner2.y - Corner1.y);
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), x, y, width, height);
+	} else {
+		// Draw the shape normally with fill
+		pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
+	}
 }
 bool Rect::isInside(int x, int y) const
 {

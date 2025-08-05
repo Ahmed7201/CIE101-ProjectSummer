@@ -11,7 +11,27 @@ Oval::~Oval()
 { }
 void Oval::Draw(GUI* pUI) const
 {
-	pUI->DrawOval(Center, Edge_Point, ShpGfxInfo);
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		pUI->DrawOval(Center, Edge_Point, borderInfo);
+		
+		// Calculate the oval bounds
+		int x = Center.x - Radius_Oval;
+		int y = Center.y - Radius_Oval;
+		int width = 2 * Radius_Oval;
+		int height = 2 * Radius_Oval;
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), x, y, width, height);
+	} else {
+		// Draw the shape normally with fill
+		pUI->DrawOval(Center, Edge_Point, ShpGfxInfo);
+	}
 }
 bool Oval::isInside(int x, int y) const
 {

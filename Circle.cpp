@@ -12,8 +12,27 @@ Circle::~Circle()
 
 void Circle::Draw(GUI* pUI) const
 {
-	// Call Output::DrawCircle to draw a circle on the screen
-	pUI->DrawCircle(Center, Radius, ShpGfxInfo);
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		pUI->DrawCircle(Center, Radius, borderInfo);
+		
+		// Calculate the circle bounds
+		int x = Center.x - Radius;
+		int y = Center.y - Radius;
+		int width = 2 * Radius;
+		int height = 2 * Radius;
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), x, y, width, height);
+	} else {
+		// Draw the shape normally with fill
+		pUI->DrawCircle(Center, Radius, ShpGfxInfo);
+	}
 }
 void Circle::SetRadius(int r)
 {

@@ -16,12 +16,37 @@ RegularPoly::~RegularPoly()
 
 void RegularPoly::Draw(GUI* pUI) const
 {
-    // Calculate the starting angle based on the Vertex position
-    const double PI = 3.14159265358979323846;
-    double startAngle = atan2(Vertex.y - Center.y, Vertex.x - Center.x);
-    
-    // Use the GUI's DrawPolygon method with the calculated starting angle
-    pUI->DrawPolygon(Center, Radius, NumSides, ShpGfxInfo, startAngle);
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		// Calculate the starting angle based on the Vertex position
+		const double PI = 3.14159265358979323846;
+		double startAngle = atan2(Vertex.y - Center.y, Vertex.x - Center.x);
+		
+		// Use the GUI's DrawPolygon method with the calculated starting angle
+		pUI->DrawPolygon(Center, Radius, NumSides, borderInfo, startAngle);
+		
+		// Calculate the polygon bounds
+		int x = Center.x - Radius;
+		int y = Center.y - Radius;
+		int width = 2 * Radius;
+		int height = 2 * Radius;
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), x, y, width, height);
+	} else {
+		// Draw the shape normally with fill
+		// Calculate the starting angle based on the Vertex position
+		const double PI = 3.14159265358979323846;
+		double startAngle = atan2(Vertex.y - Center.y, Vertex.x - Center.x);
+		
+		// Use the GUI's DrawPolygon method with the calculated starting angle
+		pUI->DrawPolygon(Center, Radius, NumSides, ShpGfxInfo, startAngle);
+	}
 }
 
 
@@ -74,9 +99,6 @@ void RegularPoly::Rotate(double degrees)
     double dy = Vertex.y - Center.y;
 
     // Step 2: Apply 90-degree rotation matrix to the relative coordinates
-    // For 90 degrees: x' = -y, y' = x (derived from cos(90) = 0, sin(90) = 1)
-    // Rotation matrix: [cos(90) -sin(90)] [dx] = [0 -1][dx] = [-dy]
-    //                  [sin(90)  cos(90)] [dy]   [1  0][dy]   [dx]
     Vertex.x = Center.x - dy;
     Vertex.y = Center.y + dx;
 }

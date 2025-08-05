@@ -29,7 +29,35 @@ IrregularPoly::~IrregularPoly()
 
 void IrregularPoly::Draw(GUI* pUI) const
 {
-    pUI->DrawIrregularPoly(Vertices, NumVertices, ShpGfxInfo);
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		pUI->DrawIrregularPoly(Vertices, NumVertices, borderInfo);
+		
+		// Calculate the polygon bounding box
+		int minX = Vertices[0].x, minY = Vertices[0].y;
+		int maxX = Vertices[0].x, maxY = Vertices[0].y;
+		
+		for (int i = 1; i < NumVertices; i++) {
+			minX = min(minX, Vertices[i].x);
+			minY = min(minY, Vertices[i].y);
+			maxX = max(maxX, Vertices[i].x);
+			maxY = max(maxY, Vertices[i].y);
+		}
+		
+		int width = maxX - minX;
+		int height = maxY - minY;
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), minX, minY, width, height);
+	} else {
+		// Draw the shape normally with fill
+		pUI->DrawIrregularPoly(Vertices, NumVertices, ShpGfxInfo);
+	}
 }
 
 bool IrregularPoly::isInside(int x, int y) const

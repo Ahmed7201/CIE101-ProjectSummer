@@ -22,6 +22,7 @@
 #include "opUndo.h"
 #include "opRedo.h"
 #include "opResize.h"
+#include "opStickImage.h"
 
 //working testing by me ahmedd
 #include "opDrag.h"
@@ -82,6 +83,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Draw_Oval:
 			pOp = new opAddOval(this);
+			break;
+		case STICK_IMAGE:
+			pOp = new opStickImage(this);
 			break;
 		case Select:
 			pOp = new opSelect(this);

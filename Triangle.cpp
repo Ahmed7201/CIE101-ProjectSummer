@@ -14,8 +14,29 @@ Triangle::~Triangle()
 
 void Triangle::Draw(GUI* pUI) const
 {
-	//Call Output::DrawTriangle to draw a Triangleangle on the screen
-	pUI->DrawTriangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		pUI->DrawTriangle(Corner1, Corner2, Corner3, borderInfo);
+		
+		// Calculate the triangle bounding box
+		int minX = min(min(Corner1.x, Corner2.x), Corner3.x);
+		int minY = min(min(Corner1.y, Corner2.y), Corner3.y);
+		int maxX = max(max(Corner1.x, Corner2.x), Corner3.x);
+		int maxY = max(max(Corner1.y, Corner2.y), Corner3.y);
+		int width = maxX - minX;
+		int height = maxY - minY;
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), minX, minY, width, height);
+	} else {
+		// Draw the shape normally with fill
+		pUI->DrawTriangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	}
 }
 bool Triangle::isInside(int x, int y) const
 {

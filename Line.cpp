@@ -13,8 +13,29 @@ Line::~Line()
 
 void Line::Draw(GUI* pUI) const
 {
-	//Call Output::DrawSquare to draw a Line on the screen	
-	pUI->DrawLine(point1, point2, ShpGfxInfo);
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		pUI->DrawLine(point1, point2, borderInfo);
+		
+		// Calculate the line bounding box
+		int minX = min(point1.x, point2.x);
+		int minY = min(point1.y, point2.y);
+		int maxX = max(point1.x, point2.x);
+		int maxY = max(point1.y, point2.y);
+		int width = maxX - minX;
+		int height = maxY - minY;
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), minX, minY, width, height);
+	} else {
+		// Draw the shape normally with fill
+		pUI->DrawLine(point1, point2, ShpGfxInfo);
+	}
 }
 bool Line::isInside(int x, int y) const
 {

@@ -1,6 +1,7 @@
 #include "GUI.h"
 #include "../operations/operation.h"
 #include "..//controller.h"
+#include "../CMUgraphicsLib/image.h"
 #include <algorithm>
 #include <cmath>
 #include "../CMUGraphicsLib/mousequeue.h"
@@ -582,21 +583,25 @@ void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo, d
 }
 void GUI::DrawImage_InsideShape(string imagepath, int x, int y, int width, int height) const
 {
-	// Draw an image inside a shape
-	pWind->DrawImage(imagepath, x, y, width, height);
+	// Load the image from file and draw it inside the shape
+	// Use the exact dimensions to ensure the image fits within the shape
+	image img(imagepath, JPEG);
+	pWind->DrawImage(img, x, y, width, height);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::DrawImage(string imagepath, Point p1,Point p2) const
 {
-	// ???? ????? ??????
+	// Calculate the dimensions
 	int width = abs(p2.x - p1.x);
 	int height = abs(p2.y - p1.y);
 
-	// ???? ????? ?? ??? ?? ???????? ??? ?? ?????? ?????? ?????
+	// Calculate the position (top-left corner)
 	int x = min(p1.x, p2.x);
 	int y = min(p1.y, p2.y);
 
-	pWind->DrawImage(imagepath, x, y, width, height);
+	// Load the image from file and draw it
+	image img(imagepath, JPEG);
+	pWind->DrawImage(img, x, y, width, height);
 }
 
 

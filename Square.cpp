@@ -16,8 +16,26 @@ Square::~Square()
 
 void Square::Draw(GUI* pUI) const
 {
-	//Call Output::DrawSquare to draw a Square on the screen	
-	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+	// Check if the shape has an image attached
+	if (HasImage()) {
+		// Create a temporary graphics info without fill for the border
+		GfxInfo borderInfo = ShpGfxInfo;
+		borderInfo.isFilled = false; // Don't fill when we have an image
+		
+		// Draw the shape border first
+		pUI->DrawSquare(Corner1, Corner2, borderInfo);
+		
+		// Calculate the square bounds
+		int x = min(Corner1.x, Corner2.x);
+		int y = min(Corner1.y, Corner2.y);
+		int side = abs(Corner2.x - Corner1.x);
+		
+		// Draw the image inside the shape (this will be drawn on top of the border)
+		pUI->DrawImage_InsideShape(GetImagePath(), x, y, side, side);
+	} else {
+		// Draw the shape normally with fill
+		pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+	}
 }
 bool Square::isInside(int x, int y) const
 {
