@@ -33,6 +33,8 @@ public:
 	shape* getSelectedShape() const;
 
 	Graph* getGraph() const;
+
+	void setGraph(Graph* pG); //Set the current graph
 	
 	// -- Interface Management Functions
 	GUI *GetUI() const; //Return pointer to the UI

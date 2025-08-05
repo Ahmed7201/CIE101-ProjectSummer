@@ -102,7 +102,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opSave(this);
 			break;
 		case LOAD:
-			pOp = new opLoad(this, "testtriangleagain3.txt");
+			pOp = new opLoad(this);
 			break;
 
 		case EXIT:
@@ -137,6 +137,21 @@ GUI *controller::GetUI() const
 Graph* controller::getGraph() const
 {
 	return pGraph;
+}
+////////////////////////////////////////////////////////////////////////////////////
+//Set the current graph
+void controller::setGraph(Graph* pG)
+{
+	if (pGraph != nullptr)
+	{
+		delete pGraph; // Delete the old graph if it exists
+		pGraph = nullptr; // Set the pointer to null to avoid dangling pointer
+	}
+	else {
+
+		pGraph = pG; // Set the new graph
+	}
+	
 }
 
 
