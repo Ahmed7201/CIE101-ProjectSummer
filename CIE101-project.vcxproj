@@ -167,9 +167,11 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="GUI\GUI.cpp" />
     <ClCompile Include="controller.cpp" />
+    <ClCompile Include="IrregularPoly.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="opAddCircle.cpp" />
+    <ClCompile Include="opAddIrregularPoly.cpp" />
     <ClCompile Include="opAddLine.cpp" />
     <ClCompile Include="opAddOval.cpp" />
     <ClCompile Include="opAddRegularPoly.cpp" />
@@ -186,6 +188,7 @@
     <ClCompile Include="opLoad.cpp" />
     <ClCompile Include="opPaste.cpp" />
     <ClCompile Include="opRedo.cpp" />
+    <ClCompile Include="opResize.cpp" />
     <ClCompile Include="opRotate_90.cpp" />
     <ClCompile Include="opSave.cpp" />
     <ClCompile Include="opSelect.cpp" />
@@ -225,8 +228,10 @@
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="IrregularPoly.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="opAddCircle.h" />
+    <ClInclude Include="opAddIrregularPoly.h" />
     <ClInclude Include="opAddLine.h" />
     <ClInclude Include="opAddOval.h" />
     <ClInclude Include="opAddRegularPoly.h" />
@@ -244,6 +249,7 @@
     <ClInclude Include="opLoad.h" />
     <ClInclude Include="opPaste.h" />
     <ClInclude Include="opRedo.h" />
+    <ClInclude Include="opResize.h" />
     <ClInclude Include="opRotate_90.h" />
     <ClInclude Include="opSave.h" />
     <ClInclude Include="opSelect.h" />

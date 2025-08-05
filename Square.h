@@ -16,6 +16,7 @@ public:
 	virtual void Rotate(double degrees) override; // Rotate the square by a given angle
 	virtual shape* Clone() override; // Cloning is not implemented for Square
 	virtual void Move(int dx, int dy) override; // Move the square by dx, dy
+	virtual void Scale(double factor) override; // Scale the square by factor
 	virtual void Save(ofstream& OutFile) override; // Save the square parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the square parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the square

@@ -205,6 +205,10 @@
     <ClCompile Include="RegularPoly.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
+    <ClCompile Include="opStickImage.cpp" />
+    <ClCompile Include="opAddIrregularPoly.cpp" />
+    <ClCompile Include="IrregularPoly.cpp" />
+    <ClCompile Include="opResize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -383,6 +387,10 @@
     <ClInclude Include="opAddRegularPoly.h">
       <Filter>Operations</Filter>
     </ClInclude>
+    <ClInclude Include="opStickImage.h" />
+    <ClInclude Include="opAddIrregularPoly.h" />
+    <ClInclude Include="IrregularPoly.h" />
+    <ClInclude Include="opResize.h" />
     <ClInclude Include="opDrag.h" />
     <ClInclude Include="opStickImage.h" />
     <ClInclude Include="RegularPoly.h">

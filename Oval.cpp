@@ -54,6 +54,25 @@ void Oval::Move(int dx, int dy)
 	Edge_Point.x += dx;
 	Edge_Point.y += dy;
 }
+
+void Oval::Scale(double factor)
+{
+	// Scale the radius
+	Radius_Oval *= factor;
+	
+	// Update the edge point to maintain the same direction from center
+	double dx = Edge_Point.x - Center.x;
+	double dy = Edge_Point.y - Center.y;
+	double distance = sqrt(dx * dx + dy * dy);
+	
+	if (distance > 0) {
+		// Normalize and scale
+		dx = (dx / distance) * Radius_Oval;
+		dy = (dy / distance) * Radius_Oval;
+		Edge_Point.x = Center.x + dx;
+		Edge_Point.y = Center.y + dy;
+	}
+}
 void Oval::Save(ofstream& OutFile)
 {
 	// Save the oval parameters to the file

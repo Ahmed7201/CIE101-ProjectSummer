@@ -36,6 +36,7 @@ class GUI
 		ICON_SQUARE,	//Square icon in menu
 		ICON_OVAL,		//Oval icon in menu
 		ICON_REG_POLYGON,	//Regular Polygon icon in menu
+		ICON_IRREG_POLYGON,	//Irregular Polygon icon in menu
 
 
 
@@ -51,6 +52,7 @@ class GUI
 		ICON_DRAG,
 		ICON_UNDO,
 		ICON_REDO,
+		ICON_RESIZE,		//Resize icon in menu
 		ICON_STICK_IMAGE,	//Stick image icon in menu
 		ICON_DRAW_CLR,
 		ICON_FILL_CLR,
@@ -133,6 +135,7 @@ public:
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo) const;  //Draw a triangle
 	
 	void DrawOval(Point P1, Point P2, GfxInfo OvalGfxInfo) const;
+	void DrawIrregularPoly(Point* vertices, int numVertices, GfxInfo ShpGfxInfo) const;
 	void DrawImage_InsideShape(string imagepath, int x, int y, int width, int height)const;
 	void DrawImage(string imagepath, Point p1, Point p2)const;
 

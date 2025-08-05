@@ -18,9 +18,11 @@
 #include "opSave.h"
 #include "opExit.h"
 #include "opAddRegularPoly.h"
+#include "opAddIrregularPoly.h"
 #include "opUndo.h"
 #include "opRedo.h"
 #include "opStickImage.h"
+#include "opResize.h"
 
 //working testing by me ahmedd
 #include "opDrag.h"
@@ -58,6 +60,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Draw_Regular_Polygon:
 			pOp = new opAddRegularPoly(this);
+			break;
+		case Draw_Irregular_Polygon:
+			pOp = new opAddIrregularPoly(this);
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
@@ -103,6 +108,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case ROTATE:
 			pOp = new opRotate_90(this);
+			break;
+		case RESIZE:
+			pOp = new opResize(this);
 			break;
 
 		case CHNG_DRAW_CLR:

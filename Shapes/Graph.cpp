@@ -7,6 +7,7 @@
 #include "../Circle.h"
 #include "../Line.h"
 #include "../RegularPoly.h"
+#include "../IrregularPoly.h"
 #include <fstream>
 
 Graph::Graph()
@@ -82,6 +83,7 @@ shape* Graph::GetSelectedShape() const
 }
 void Graph::RemoveShape(shape* pShape)
 {
+	
 	PushToUndoStack();
 	for (int i = 0;i < shapeCount;i++)
 	{
@@ -268,6 +270,8 @@ void Graph::load(ifstream& inputfile)
 			pS = new Oval(Point(), Point(), GfxInfo());
 		else if (shapeType == "RegularPolygon")
 			pS = new RegularPoly(Point(), Point(),int(), GfxInfo());
+		else if (shapeType == "IrregularPoly")
+			pS = new IrregularPoly(nullptr, 0, GfxInfo());
 		else {
 			// Unknown shape type: skip the rest of this line to avoid being stuck
 			string rest;

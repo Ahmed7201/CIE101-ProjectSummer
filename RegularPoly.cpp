@@ -94,6 +94,25 @@ void RegularPoly::Move(int dx, int dy)
     Vertex.y += dy;
 }
 
+void RegularPoly::Scale(double factor)
+{
+    // Scale the radius
+    Radius *= factor;
+    
+    // Update the vertex point to maintain the same direction from center
+    double dx = Vertex.x - Center.x;
+    double dy = Vertex.y - Center.y;
+    double distance = sqrt(dx * dx + dy * dy);
+    
+    if (distance > 0) {
+        // Normalize and scale
+        dx = (dx / distance) * Radius;
+        dy = (dy / distance) * Radius;
+        Vertex.x = Center.x + dx;
+        Vertex.y = Center.y + dy;
+    }
+}
+
 void RegularPoly::Save(ofstream& OutFile)
 {
     OutFile << "RegularPoly " << Center.x << " " << Center.y << " " << Vertex.x << " " << Vertex.y << " " << NumSides << endl;

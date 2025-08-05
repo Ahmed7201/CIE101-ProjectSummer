@@ -103,6 +103,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_SQUARE: return Draw_SQUARE;
 		case ICON_OVAL: return Draw_Oval;
 		case ICON_REG_POLYGON: return Draw_Regular_Polygon;
+		case ICON_IRREG_POLYGON: return Draw_Irregular_Polygon;
 		case ICON_DRAW_CLR: return CHNG_DRAW_CLR;
 		case ICON_FILL_CLR: return CHNG_FILL_CLR;
 		case ICON_Delete: return Delete;
@@ -110,6 +111,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_COPY: return COPY;
 		case ICON_UNDO: return UNDO;
 		case ICON_REDO: return REDO;
+		case ICON_RESIZE: return RESIZE;
 		case ICON_PASTE: return PASTE;
 		case ICON_DRAG: return DRAG;
 		case ICON_STICK_IMAGE: return STICK_IMAGE;
@@ -187,6 +189,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\Menu_Oval.jpg";
 	MenuIconImages[ICON_REG_POLYGON] = "images\\MenuIcons\\Menu_RegPolygon.jpg";
+	MenuIconImages[ICON_IRREG_POLYGON] = "images\\MenuIcons\\Menu_IrregPolygon.jpg";
 	MenuIconImages[ICON_DRAW_CLR] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
 	MenuIconImages[ICON_SendBack] = "images\\MenuIcons\\Menu_SendBack.jpg";
@@ -198,6 +201,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\Menu_Undo.jpg";
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
 	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\Menu_Drag.jpg";
+	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
 	MenuIconImages[ICON_STICK_IMAGE] = "images\\MenuIcons\\Menu_Stick.jpg";
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
@@ -436,6 +440,41 @@ void GUI::DrawOval(Point P1, Point P2, GfxInfo ShpGfxInfo) const
 	else
 		style = FRAME;
 	pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
+}
+
+void GUI::DrawIrregularPoly(Point* vertices, int numVertices, GfxInfo ShpGfxInfo) const
+{
+	color DrawingClr;
+	if (ShpGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = ShpGfxInfo.DrawClr;
+	pWind->SetPen(DrawingClr, ShpGfxInfo.BorderWdth);	//Set Drawing color & width
+	drawstyle style;
+	if (ShpGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(ShpGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	// Create arrays for polygon vertices
+	int* xPoints = new int[numVertices];
+	int* yPoints = new int[numVertices];
+
+	// Copy vertices to arrays
+	for (int i = 0; i < numVertices; i++) {
+		xPoints[i] = vertices[i].x;
+		yPoints[i] = vertices[i].y;
+	}
+
+	// Draw the polygon using CMU graphics
+	pWind->DrawPolygon(xPoints, yPoints, numVertices, style);
+
+	// Clean up
+	delete[] xPoints;
+	delete[] yPoints;
 }
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const

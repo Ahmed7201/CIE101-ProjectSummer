@@ -83,6 +83,32 @@ void Triangle::Move(int dx, int dy)
 	Corner3.y += dy;
 }
 
+void Triangle::Scale(double factor)
+{
+	// Calculate the centroid (center of scaling)
+	double centerX = (Corner1.x + Corner2.x + Corner3.x) / 3.0;
+	double centerY = (Corner1.y + Corner2.y + Corner3.y) / 3.0;
+
+	// Scale each corner relative to the centroid
+	// Corner1
+	double dx = Corner1.x - centerX;
+	double dy = Corner1.y - centerY;
+	Corner1.x = centerX + dx * factor;
+	Corner1.y = centerY + dy * factor;
+
+	// Corner2
+	dx = Corner2.x - centerX;
+	dy = Corner2.y - centerY;
+	Corner2.x = centerX + dx * factor;
+	Corner2.y = centerY + dy * factor;
+
+	// Corner3
+	dx = Corner3.x - centerX;
+	dy = Corner3.y - centerY;
+	Corner3.x = centerX + dx * factor;
+	Corner3.y = centerY + dy * factor;
+}
+
 void Triangle::Save(ofstream& OutFile)
 {
 	
