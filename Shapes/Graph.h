@@ -15,6 +15,7 @@ private:
 	shape* shapesList[maxShapeCount]; //a container to hold all shapes							   
 	int shapeCount;			// Actual number of shapes stored in the list
 	shape* selectedShape;	//pointer to the currently selected shape
+	bool isSaved;
 public:										
 	Graph();
 	~Graph();
@@ -30,6 +31,7 @@ public:
 	void RemoveShape(shape* pShape);
 	void RotateSelectedShape(shape* pShape); // Rotate the selected shape by a given angle
 	void PasteCopiedShape(Point P1);
-
+	bool IsSaved() const;
+	void SetSaved(bool);
 	void SendToBack(shape* pShape);
 };
