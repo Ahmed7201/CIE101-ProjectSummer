@@ -16,8 +16,12 @@ RegularPoly::~RegularPoly()
 
 void RegularPoly::Draw(GUI* pUI) const
 {
-    // Use the GUI's DrawPolygon method that handles filled and frame styles
-    pUI->DrawPolygon(Center, Radius, NumSides, ShpGfxInfo);
+    // Calculate the starting angle based on the Vertex position
+    const double PI = 3.14159265358979323846;
+    double startAngle = atan2(Vertex.y - Center.y, Vertex.x - Center.x);
+    
+    // Use the GUI's DrawPolygon method with the calculated starting angle
+    pUI->DrawPolygon(Center, Radius, NumSides, ShpGfxInfo, startAngle);
 }
 
 
