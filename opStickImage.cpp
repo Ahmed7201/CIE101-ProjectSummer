@@ -1,6 +1,8 @@
 #include "opStickImage.h"
 #include "controller.h"
 #include "GUI/GUI.h"
+#include "Shapes/Graph.h"
+#include "Shapes/shape.h"
 
 opStickImage::opStickImage(controller* pCont) : operation(pCont) {}
 
