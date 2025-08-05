@@ -2,6 +2,7 @@
 #include "../operations/operation.h"
 #include "..//controller.h"
 #include <algorithm>
+#include <cmath>
 
 GUI::GUI()
 {
@@ -454,6 +455,7 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 }
 
 
+
 void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 {
 	color DrawingClr;
@@ -478,10 +480,67 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 
 
 }
+
+
+
+void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo) const
+{
+	// A polygon must have at least 3 sides
+	if (sides < 3) return;
+
+	// Set drawing color based on selection
+	color DrawingClr;
+	if (ShpGfxInfo.isSelected)
+		DrawingClr = HighlightColor;
+	else
+		DrawingClr = ShpGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, ShpGfxInfo.BorderWdth);
+
+	// Set fill or frame style
+	drawstyle style;
+	if (ShpGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(ShpGfxInfo.FillClr);
+	}
+	else
+	{
+		style = FRAME;
+	}
+
+	// Create arrays to hold X and Y coordinates of the polygon vertices
+	int* xPoints = new int[sides];
+	int* yPoints = new int[sides];
+
+	const double PI = 3.14159265358979323846;
+	double angleStep = 2 * PI / sides;
+
+	for (int i = 0; i < sides; ++i)
+	{
+		double angle = i * angleStep - PI / 2; // Start from the top
+		xPoints[i] = center.x + static_cast<int>(radius * cos(angle));
+		yPoints[i] = center.y + static_cast<int>(radius * sin(angle));
+	}
+
+	// Draw the polygon using CMU graphics window method
+	pWind->DrawPolygon(xPoints, yPoints, sides, style);
+
+	// Free the allocated memory
+	delete[] xPoints;
+	delete[] yPoints;
+}
+
+
+
+
+
 color GUI::GetHighlightColor()const
 {
 	return HighlightColor;
 }
+
+
 
 
 

@@ -331,6 +331,13 @@
     <ClInclude Include="Oval.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
+    <ClInclude Include="opLoad.h" />
+    <ClInclude Include="opCopy.h" />
+    <ClInclude Include="opPaste.h" />
+    <ClInclude Include="opSave.h" />
+    <ClInclude Include="opSendtoBack.h" />
+    <ClInclude Include="opAddRegularPoly.h" />
+    <ClInclude Include="RegularPoly.h" />
     <ClInclude Include="opCopy.h">
       <Filter>Operations</Filter>
     </ClInclude>

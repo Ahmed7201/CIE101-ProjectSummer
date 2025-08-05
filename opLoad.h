@@ -6,7 +6,7 @@ class opLoad :
     private:
 		string filename; // Name of the file to load shapes from
 public:
-    opLoad(controller* pCont, string fileName);
+    opLoad(controller* pCont);
     virtual void Execute() override; // Execute the load operation
 	virtual ~opLoad(); // Destructor
 

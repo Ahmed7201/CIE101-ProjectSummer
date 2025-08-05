@@ -119,10 +119,12 @@ public:
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;
 	void DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const;
+	void DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo) const;
+
 	void DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const;  //Draw a line
 	void DrawCircle(Point Center, double Radius, GfxInfo CircGfxInfo) const;  //Draw a circle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo) const;  //Draw a triangle
-	void DrawPolygon(Point vertices,int numSides, GfxInfo ShpGfxInfo) const;
+	
 	void DrawOval(Point P1, Point P2, GfxInfo OvalGfxInfo) const;
 
 	

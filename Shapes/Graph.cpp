@@ -6,6 +6,7 @@
 #include "../Oval.h"
 #include "../Circle.h"
 #include "../Line.h"
+#include "../RegularPoly.h"
 #include <fstream>
 
 Graph::Graph()
@@ -229,48 +230,49 @@ shape** Graph::CloneAllShapes() {
 
 void Graph::load(ifstream& inputfile)
 {
-	// Clear the existing shapes
-	for (int i = 0; i < shapeCount; i++) {
-		delete shapesList[i];
+	for(int i=0; i < shapeCount; ++i) {
+		delete shapesList[i]; // Clean up existing shapes
+		shapesList[i] = nullptr;
 	}
-	shapeCount = 0;
-	// Read the number of shapes
-	inputfile >> shapeCount;
-	for (int i = 0; i < shapeCount; i++) {
-		string shapeType;
-		while (inputfile >> shapeType)
-		{
+	shapeCount = 0; // Reset shape count
 
-			shape* newShape = nullptr;
-			if (shapeType == "Rectangle")
-			{
-				newShape = new Rect(Point(), Point(), GfxInfo());
-			}
-			else if (shapeType == "Square")
-			{
-				newShape = new Square(Point(), Point(), GfxInfo());
-			}
-			else if (shapeType == "Triangle")
-			{
-				newShape = new Triangle(Point(), Point(), Point(), GfxInfo());
-			}
-			else if (shapeType == "Oval")
-			{
-				newShape = new Oval(Point(), Point(), GfxInfo());
-			}
-			else if (shapeType == "Circle")
-			{
-				newShape = new Circle(Point(), Point(), GfxInfo());
-			}
-			else if (shapeType == "Line")
-			{
-				newShape = new Line(Point(), Point(), GfxInfo());
-			}
-			if (newShape)
-			{
-				newShape->Load(inputfile); // Load shape parameters from the file
-				Addshape(newShape); // Add the shape to the controller
-			}
+	// Read how many shapes were saved
+	int shapesToLoad = 0;
+	if (!(inputfile >> shapesToLoad)) {
+		// nothing to load or file format error
+		return;
+	}
+
+	// For each saved shape read its type and load its data
+	for (int i = 0; i < shapesToLoad; ++i)
+	{
+		string shapeType;
+		if (!(inputfile >> shapeType)) {
+			// unexpected EOF or read error
+			break;
+		}
+
+		shape* pS = nullptr;
+
+		if (shapeType == "Rectangle")
+			pS = new Rect(Point(), Point(), GfxInfo());
+		else if (shapeType == "Square")
+			pS = new Square(Point(),Point(),GfxInfo());
+		else if (shapeType == "Triangle")
+			pS = new Triangle(Point(), Point(), Point(), GfxInfo());
+		else if (shapeType == "Circle")
+			pS = new Circle(Point(), Point(), GfxInfo());
+		else if (shapeType == "Line")
+			pS = new Line(Point(), Point(), GfxInfo());
+		else if (shapeType == "Oval")
+			pS = new Oval(Point(), Point(), GfxInfo());
+		else if (shapeType == "RegularPolygon")
+			pS = new RegularPoly(Point(), Point(),int(), GfxInfo());
+		else {
+			// Unknown shape type: skip the rest of this line to avoid being stuck
+			string rest;
+			getline(inputfile, rest);
+			continue;
 		}
 
 	}
@@ -288,6 +290,11 @@ void Graph::ClearShapes() {
 	for (int i = 0; i < shapeCount; ++i) {
 		delete shapesList[i];
 		shapesList[i] = nullptr;
+		// Each shape's Load reads the rest of its parameters from inputfile
+		pS->Load(inputfile);
+
+		// Addshape will insert into shapesList at the next free index and increment shapeCount
+		Addshape(pS);
 	}
 	shapeCount = 0;
 }
