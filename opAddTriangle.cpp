@@ -12,6 +12,8 @@ opAddTriangle::~opAddTriangle()
 //Execute the operation
 void opAddTriangle::Execute()
 {
+	    Graph* pGraph = pControl->getGraph();
+    pGraph->PushToUndo();
 	Point P1, P2, P3;
 
 	//Get a Pointer to the Input / Output Interfaces

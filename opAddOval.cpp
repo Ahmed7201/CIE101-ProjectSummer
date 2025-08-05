@@ -10,6 +10,8 @@ opAddOval::~opAddOval()
 //Execute the operation	
 void opAddOval::Execute()
 {
+	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
 	Point Center;
 	Point Edge_Point; // This point will be used to determine the radius of the Oval
 	GUI* pUI = pControl->GetUI();

@@ -12,6 +12,8 @@ opAddSquare::~opAddSquare()
 //Execute the operation	
 void opAddSquare::Execute()
 {
+	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
 	Point P1,P2;
 	GUI* pUI = pControl->GetUI();
 	pUI->PrintMessage("New Square: Click at center");

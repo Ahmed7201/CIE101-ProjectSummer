@@ -9,8 +9,10 @@ opSendtoBack::~opSendtoBack()
 {
 }
 void opSendtoBack::Execute() {
-	GUI* pUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
+	GUI* pUI = pControl->GetUI();
+	
 
 	// Get the currently selected shape
 	shape* clickedShape = pGraph->GetSelectedShape();

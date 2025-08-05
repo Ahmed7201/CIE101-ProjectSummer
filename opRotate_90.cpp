@@ -9,8 +9,10 @@ opRotate_90::~opRotate_90()
 {}
 
 void opRotate_90::Execute() {
-	GUI* pUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
+	GUI* pUI = pControl->GetUI();
+
 	// Get the currently selected shape
 	shape* clickedShape = pGraph->GetSelectedShape();
 	if (clickedShape) {

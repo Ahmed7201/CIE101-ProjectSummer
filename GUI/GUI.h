@@ -42,13 +42,14 @@ class GUI
 
 
 		ICON_Select,		//Select icon in menu
-		
+
 		ICON_SendBack,
 		ICON_Delete,		//Delete icon in menu
 		ICON_ROTATE,		//Rotate icon in menu
 		ICON_COPY,		//Copy icon in menu
 		ICON_PASTE,
-
+		ICON_UNDO,
+		ICON_REDO,
 		
 		ICON_DRAW_CLR,
 		ICON_FILL_CLR,

@@ -7,8 +7,10 @@ opDelete::opDelete(controller* pCont) : operation(pCont)
 opDelete::~opDelete() 
 {}
 void opDelete::Execute() {
-	GUI* pUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
+	GUI* pUI = pControl->GetUI();
+	
 	
 	// Get the currently selected shape
 	shape* clickedShape = pGraph->GetSelectedShape();

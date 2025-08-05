@@ -13,7 +13,16 @@ Graph::Graph()
 	shapeCount = 0;
 	selectedShape = nullptr;
 	isSaved = true;
-}
+	undoTop = -1;
+	redoTop = -1;
+
+	for (int i = 0; i < maxUndoRedo; i++) {
+		undoStack[i] = nullptr;
+		redoStack[i] = nullptr;
+		shapeCountForUndo[i] = 0;
+		shapeCountForRedo[i] = 0;
+		}
+	}
 
 Graph::~Graph()
 {
@@ -72,6 +81,7 @@ shape* Graph::GetSelectedShape() const
 }
 void Graph::RemoveShape(shape* pShape)
 {
+	PushToUndoStack();
 	for (int i = 0;i < shapeCount;i++)
 	{
 		if (shapesList[i] == pShape)
@@ -85,8 +95,11 @@ void Graph::RemoveShape(shape* pShape)
 		}
 	}
 	SetSaved(false);
+	
+
 }
 void Graph::SendToBack(shape* pShape) {
+	PushToUndoStack();
 	for (int i = 0; i < shapeCount; ++i) {
 		if (shapesList[i]->IsSelected()) {
 			pShape = shapesList[i]; // pointer to the selected shape
@@ -103,12 +116,17 @@ void Graph::SendToBack(shape* pShape) {
 		}
 	}
 	SetSaved(false);
+	
+
 };
 void Graph::RotateSelectedShape(shape* pShape) {
+	PushToUndoStack();
 	if (selectedShape) {
 		selectedShape->Rotate(90.0); // Rotate the selected shape by 90 degrees
 	}
 	SetSaved(false);
+	
+
 }
 
 
@@ -129,13 +147,16 @@ shape* Graph::Getshape(int x, int y) const
 }
 void Graph::CopySelectedShape(shape* pShape)
 {
+	PushToUndoStack();
 	if (selectedShape && shapeCount < maxShapeCount) {
 		
 		shape* newshape = selectedShape->Clone();      // Deep copy
 	}
 	SetSaved(false);
+	
 }
 void Graph::PasteCopiedShape(Point P1) {
+	PushToUndoStack();
 	if (selectedShape && shapeCount < maxShapeCount) {
 		shape* newshape = selectedShape->Clone(); // Clone the copied shape
 		if (newshape) {
@@ -147,6 +168,7 @@ void Graph::PasteCopiedShape(Point P1) {
 	
 	}
 	SetSaved(false);
+	
 }
 
 void Graph::Save(ofstream& outfile)
@@ -167,6 +189,42 @@ bool Graph::IsSaved() const {
 
 void Graph::SetSaved(bool saved) {
 	isSaved = saved;
+}
+
+void Graph::PushToUndoStack() {
+	if (undoTop < maxUndoRedo - 1) {
+		undoTop++;
+	}
+	else {
+		// Shift all previous states left (remove oldest)
+		delete[] undoStack[0];
+		for (int i = 1; i < maxUndoRedo; ++i) {
+			undoStack[i - 1] = undoStack[i];
+			shapeCountForUndo[i - 1] = shapeCountForUndo[i];
+		}
+		undoTop = maxUndoRedo - 1;
+	}
+
+	// Save current state
+	undoStack[undoTop] = CloneAllShapes();
+	shapeCountForUndo[undoTop] = shapeCount;
+
+	// Clear redo history
+	for (int i = 0; i <= redoTop; ++i) {
+		delete[] redoStack[i];
+		redoStack[i] = nullptr;
+	}
+	redoTop = -1;
+}
+
+shape** Graph::CloneAllShapes() {
+	if (shapeCount <= 0 || shapeCount > maxShapeCount) return nullptr;
+
+	shape** cloned = new shape * [shapeCount];
+	for (int i = 0; i < shapeCount; ++i) {
+		cloned[i] = shapesList[i]->Clone();  
+	}
+	return cloned;
 }
 
 void Graph::load(ifstream& inputfile)
@@ -216,4 +274,56 @@ void Graph::load(ifstream& inputfile)
 		}
 
 	}
+
 }
+void Graph::PushToUndo() {
+	if (undoTop < maxUndoRedo - 1) {
+		undoStack[++undoTop] = CloneAllShapes();        // Clone current shapes
+		shapeCountForUndo[undoTop] = shapeCount;        // Store count
+		redoTop = -1;                                    // Clear redo stack
+	}
+}
+
+void Graph::ClearShapes() {
+	for (int i = 0; i < shapeCount; ++i) {
+		delete shapesList[i];
+		shapesList[i] = nullptr;
+	}
+	shapeCount = 0;
+}
+void Graph::Undo() {
+	if (undoTop >= 0) {
+		// Save current state to redo stack
+		redoStack[++redoTop] = CloneAllShapes();
+		shapeCountForRedo[redoTop] = shapeCount;
+
+		// Restore from undo stack
+		ClearShapes();
+		shapeCount = shapeCountForUndo[undoTop];
+		for (int i = 0; i < shapeCount; ++i) {
+			shapesList[i] = undoStack[undoTop][i]->Clone();
+		}
+
+		--undoTop;
+		SetSaved(false);
+	}
+}
+
+void Graph::Redo() {
+	if (redoTop >= 0) {
+		// Save current state to undo stack
+		undoStack[++undoTop] = CloneAllShapes();
+		shapeCountForUndo[undoTop] = shapeCount;
+
+		// Restore from redo stack
+		ClearShapes();
+		shapeCount = shapeCountForRedo[redoTop];
+		for (int i = 0; i < shapeCount; ++i) {
+			shapesList[i] = redoStack[redoTop][i]->Clone();
+		}
+
+		--redoTop;
+		SetSaved(false);
+	}
+}
+

@@ -13,6 +13,8 @@ opAddRect::~opAddRect()
 //Execute the operation
 void opAddRect::Execute() 
 {
+	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
 	Point P1, P2;
 
 	//Get a Pointer to the Input / Output Interfaces

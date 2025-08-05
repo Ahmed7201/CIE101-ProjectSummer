@@ -6,8 +6,9 @@
 opPaste::opPaste(controller* pCont) : operation(pCont) {}
 
 void opPaste::Execute() {
+	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
 	Point clickedPoint;
-    Graph* pGraph = pControl->getGraph();
 	GUI* pUI = pControl->GetUI();
 	shape* clickedShape = pGraph->GetSelectedShape();
 	if (clickedShape) {

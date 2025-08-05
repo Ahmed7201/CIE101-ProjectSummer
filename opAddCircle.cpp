@@ -2,6 +2,7 @@
 #include "Circle.h"
 #include "controller.h"	
 #include "GUI/GUI.h"	
+#include "Shapes/graph.h"
 
 opAddCircle::opAddCircle(controller* pCont) : operation(pCont)
 {}
@@ -10,6 +11,8 @@ opAddCircle::~opAddCircle()
 //Execute the operation	
 void opAddCircle::Execute()
 {
+	Graph* pGraph = pControl->getGraph();
+	pGraph->PushToUndo();
 	Point Center;
 	Point Edge_Point; // This point will be used to determine the radius of the circle
 	GUI* pUI = pControl->GetUI();

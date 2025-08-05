@@ -173,8 +173,28 @@
     <ClCompile Include="Oval.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
-    <ClCompile Include="opLoad.cpp" />
-    <ClCompile Include="opCopy.cpp" />
+    <ClCompile Include="opExit.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opLoad.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opPaste.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opSave.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opCopy.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opSendtoBack.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opUndo.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="opRedo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -311,8 +331,28 @@
     <ClInclude Include="Oval.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
-    <ClInclude Include="opLoad.h" />
-    <ClInclude Include="opCopy.h" />
+    <ClInclude Include="opCopy.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opLoad.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opPaste.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opExit.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opSave.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opSendtoBack.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opUndo.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opRedo.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

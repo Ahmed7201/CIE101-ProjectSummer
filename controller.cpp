@@ -3,7 +3,7 @@
 #include "opAddSquare.h"
 #include "opAddCircle.h"
 #include "opAddLine.h"
-#include"opAddTriangle.h"
+#include "opAddTriangle.h"
 #include "opAddOval.h"
 #include "opSelect.h"
 #include "opDrawColor.h"
@@ -17,6 +17,8 @@
 #include "opSendtoBack.h"
 #include "opSave.h"
 #include "opExit.h"
+#include "opUndo.h"
+#include "opRedo.h"
 
 
 //Constructor
@@ -79,6 +81,12 @@ operation* controller::createOperation(operationType OpType)
 		case PASTE:
 			pOp = new opPaste(this);
 			break;
+		case UNDO:
+			pOp = new opUndo(this);
+			break;
+		case REDO:
+			pOp = new opRedo(this);
+			break;
 		case Delete:
 			pOp = new opDelete(this);
 			break;
@@ -110,7 +118,8 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opExit(this);
 			break;
 		}
-		
+	
+			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 	}

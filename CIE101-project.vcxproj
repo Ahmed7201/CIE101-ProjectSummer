@@ -183,10 +183,12 @@
     <ClCompile Include="opFillColor.cpp" />
     <ClCompile Include="opLoad.cpp" />
     <ClCompile Include="opPaste.cpp" />
+    <ClCompile Include="opRedo.cpp" />
     <ClCompile Include="opRotate_90.cpp" />
     <ClCompile Include="opSave.cpp" />
     <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="opSendtoBack.cpp" />
+    <ClCompile Include="opUndo.cpp" />
     <ClCompile Include="Oval.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
@@ -235,10 +237,12 @@
     <ClInclude Include="opFillColor.h" />
     <ClInclude Include="opLoad.h" />
     <ClInclude Include="opPaste.h" />
+    <ClInclude Include="opRedo.h" />
     <ClInclude Include="opRotate_90.h" />
     <ClInclude Include="opSave.h" />
     <ClInclude Include="opSelect.h" />
     <ClInclude Include="opSendtoBack.h" />
+    <ClInclude Include="opUndo.h" />
     <ClInclude Include="Oval.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Graph.h" />

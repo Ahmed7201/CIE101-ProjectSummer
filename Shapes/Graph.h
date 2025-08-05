@@ -16,7 +16,16 @@ private:
 	int shapeCount;			// Actual number of shapes stored in the list
 	shape* selectedShape;	//pointer to the currently selected shape
 	bool isSaved;
+	static const int maxUndoRedo = 20; // Or any limit you want
+	shape** undoStack[maxUndoRedo];
+	shape** redoStack[maxUndoRedo];
+	int shapeCountForUndo[maxUndoRedo];  // Add this
+	int shapeCountForRedo[maxUndoRedo];  // Add this
+	int undoTop = -1;
+	int redoTop = -1;
+
 public:										
+	
 	Graph();
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
@@ -34,4 +43,10 @@ public:
 	bool IsSaved() const;
 	void SetSaved(bool);
 	void SendToBack(shape* pShape);
+	void PushToUndoStack();
+	void PushToUndo();
+	shape** CloneAllShapes();
+	void Undo();
+	void Redo();
+	void ClearShapes();
 };
