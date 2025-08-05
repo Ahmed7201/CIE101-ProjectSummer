@@ -18,6 +18,7 @@
 #include "opSave.h"
 #include "opExit.h"
 #include "opAddRegularPoly.h"
+#include "opAddIrregularPoly.h"
 #include "opUndo.h"
 #include "opRedo.h"
 #include "opStickImage.h"
@@ -56,6 +57,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Draw_Regular_Polygon:
 			pOp = new opAddRegularPoly(this);
+			break;
+		case Draw_Irregular_Polygon:
+			pOp = new opAddIrregularPoly(this);
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);

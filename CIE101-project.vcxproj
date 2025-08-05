@@ -175,6 +175,7 @@
     <ClCompile Include="opAddRegularPoly.cpp" />
     <ClCompile Include="opAddSquare.cpp" />
     <ClCompile Include="opAddTriangle.cpp" />
+    <ClCompile Include="opAddIrregularPoly.cpp" />
     <ClCompile Include="opColorPalete.cpp" />
     <ClCompile Include="opCopy.cpp" />
     <ClCompile Include="opDelete.cpp" />
@@ -196,6 +197,7 @@
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
+    <ClCompile Include="Shapes\IrregularPoly.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
@@ -231,6 +233,7 @@
     <ClInclude Include="opAddRegularPoly.h" />
     <ClInclude Include="opAddSquare.h" />
     <ClInclude Include="opAddTriangle.h" />
+    <ClInclude Include="opAddIrregularPoly.h" />
     <ClInclude Include="opColorPalete.h" />
     <ClInclude Include="opCopy.h" />
     <ClInclude Include="opDelete.h" />
@@ -254,6 +257,7 @@
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Shape.h" />
     <ClInclude Include="Shapes\Rect.h" />
+    <ClInclude Include="Shapes\IrregularPoly.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
