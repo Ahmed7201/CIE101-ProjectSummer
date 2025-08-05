@@ -16,6 +16,8 @@
 #include "opPaste.h"
 #include "opSendtoBack.h"
 #include "opSave.h"
+#include "opExit.h"
+
 
 //Constructor
 controller::controller()
@@ -104,9 +106,10 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case EXIT:
-			///create Exitoperation here
-			
+		{
+			pOp = new opExit(this);
 			break;
+		}
 		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;

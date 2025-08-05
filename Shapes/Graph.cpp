@@ -12,6 +12,7 @@ Graph::Graph()
 {
 	shapeCount = 0;
 	selectedShape = nullptr;
+	isSaved = true;
 }
 
 Graph::~Graph()
@@ -83,6 +84,7 @@ void Graph::RemoveShape(shape* pShape)
 			
 		}
 	}
+	SetSaved(false);
 }
 void Graph::SendToBack(shape* pShape) {
 	for (int i = 0; i < shapeCount; ++i) {
@@ -100,11 +102,13 @@ void Graph::SendToBack(shape* pShape) {
 			break; 
 		}
 	}
+	SetSaved(false);
 };
 void Graph::RotateSelectedShape(shape* pShape) {
 	if (selectedShape) {
 		selectedShape->Rotate(90.0); // Rotate the selected shape by 90 degrees
 	}
+	SetSaved(false);
 }
 
 
@@ -129,6 +133,7 @@ void Graph::CopySelectedShape(shape* pShape)
 		
 		shape* newshape = selectedShape->Clone();      // Deep copy
 	}
+	SetSaved(false);
 }
 void Graph::PasteCopiedShape(Point P1) {
 	if (selectedShape && shapeCount < maxShapeCount) {
@@ -141,6 +146,7 @@ void Graph::PasteCopiedShape(Point P1) {
 		}
 	
 	}
+	SetSaved(false);
 }
 
 void Graph::Save(ofstream& outfile)
@@ -155,6 +161,14 @@ void Graph::Save(ofstream& outfile)
 		shapesList[i]->Save(outfile);                 // Then write shape data
 	}
 }
+bool Graph::IsSaved() const {
+	return isSaved;
+}
+
+void Graph::SetSaved(bool saved) {
+	isSaved = saved;
+}
+
 void Graph::load(ifstream& inputfile)
 {
 	// Clear the existing shapes
