@@ -158,15 +158,10 @@ void controller::setGraph(Graph* pG)
 	if (pGraph != nullptr)
 	{
 		delete pGraph; // Delete the old graph if it exists
-		pGraph = nullptr; // Set the pointer to null to avoid dangling pointer
 	}
-	else {
-
 		pGraph = pG; // Set the new graph
 	}
 	
-}
-
 
 
 

@@ -43,8 +43,6 @@ void opLoad::Execute()
 	
 	Infile.close(); // Close the file after reading
 	pUI->PrintMessage("Shapes loaded successfully from " + name);
-	// Update the controller's graph with the loaded shapes
-	pControl->setGraph(pGraph);
 	// Update the interface to reflect the loaded shapes
 	pControl->UpdateInterface(); // Refresh the interface to reflect loaded shapes
 }
