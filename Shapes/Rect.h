@@ -23,5 +23,6 @@ public:
 	virtual void Load(ifstream& Infile) override; // Load the rectangle parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the rectangle
 	
+
 };
 

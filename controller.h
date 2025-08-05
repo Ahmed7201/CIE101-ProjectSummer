@@ -3,8 +3,7 @@
 #include "DEFS.h"
 #include "Shapes\Graph.h"
 #include "GUI\GUI.h"
-#include "operations\Operation.h"
-#include "Shapes\Graph.h"       
+#include "operations\Operation.h"     
 #include "Shapes\Shape.h"
 //Ahmed
 //push without commit

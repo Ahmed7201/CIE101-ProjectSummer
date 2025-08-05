@@ -3,6 +3,11 @@
 #include "..//controller.h"
 #include <algorithm>
 #include <cmath>
+#include "../CMUGraphicsLib/mousequeue.h"
+
+
+
+
 
 GUI::GUI()
 {
@@ -108,6 +113,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_REDO: return REDO;
 		case ICON_RESIZE: return RESIZE;
 		case ICON_PASTE: return PASTE;
+		case ICON_DRAG: return DRAG;
 		case ICON_STICK_IMAGE: return STICK_IMAGE;
 		case ICON_SendBack: return SEND_BACK;
 		case ICON_Select: return Select;
@@ -194,6 +200,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
 	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\Menu_Undo.jpg";
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
+	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\Menu_Drag.jpg";
 	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
 	MenuIconImages[ICON_STICK_IMAGE] = "images\\MenuIcons\\Menu_Stick.jpg";
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
@@ -601,6 +608,21 @@ color GUI::GetHighlightColor()const
 	return HighlightColor;
 }
 
+
+
+void GUI::GetMouseDrag(int& x, int& y) {
+	int d;
+	pWind->WaitMouseClick(d, d); // Wait for user to release mouse
+	pWind->GetMouseCoord(x, y);          // Get final drag point
+}
+void GUI::GetMouseCoord(int& x, int& y) const {
+	pWind->GetMouseCoord(x, y);
+}
+
+bool GUI::IsMouseButtonDown() const
+{
+	return (GetAsyncKeyState(VK_LBUTTON) & 0x8000);  // True if left button is held
+}
 
 
 

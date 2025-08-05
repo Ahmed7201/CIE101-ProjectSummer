@@ -27,6 +27,10 @@ Point Circle::GetCenter() const
 {
 	return Center;
 }
+shape* Circle::Clone()  {
+	return new Circle(*this); // Uses the copy constructor
+}
+
 bool Circle::isInside(int x, int y) const
 {
 	// Check if the point (x,y) is inside the circle using the distance formula
@@ -39,11 +43,7 @@ string Circle::GetShapeType() const
 }
 void Circle::Rotate(double degrees)
 {}
-shape* Circle::Clone()
-{
-	// Cloning is not implemented for Circle
-	return new Circle(*this);
-}
+
 void Circle::Move(int dx, int dy)
 {
 	// Move the circle by dx, dy
@@ -54,6 +54,8 @@ void Circle::Move(int dx, int dy)
 	// Update the radius based on the new edge point
 	Radius = sqrt(pow(Center.x - Edge_Point.x, 2) + pow(Center.y - Edge_Point.y, 2));
 }
+
+
 
 void Circle::Scale(double factor)
 {

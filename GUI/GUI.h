@@ -49,6 +49,7 @@ class GUI
 		ICON_ROTATE,		//Rotate icon in menu
 		ICON_COPY,		//Copy icon in menu
 		ICON_PASTE,
+		ICON_DRAG,
 		ICON_UNDO,
 		ICON_REDO,
 		ICON_RESIZE,		//Resize icon in menu
@@ -58,7 +59,6 @@ class GUI
 
 		ICON_SAVE,		//Save icon in menu
 		ICON_LOAD,		//Load icon in menu
-
 
 		ICON_EXIT,		//Exit icon
 
@@ -112,8 +112,15 @@ public:
 	void SetDrawColor(color newColor); 
 	void SetFillColor(color newColor);  
 
-	
-	
+	void GetMouseDrag(int& x, int& y); 
+
+	// Gets current mouse position without clicking
+	void GetMouseCoord(int& x, int& y) const;
+
+	// Returns whether the left mouse button is currently down
+	bool IsMouseButtonDown() const;
+
+
 
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area

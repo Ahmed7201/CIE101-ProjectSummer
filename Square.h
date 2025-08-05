@@ -20,6 +20,7 @@ public:
 	virtual void Save(ofstream& OutFile) override; // Save the square parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the square parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the square
+	
 
 };
 

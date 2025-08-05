@@ -25,6 +25,8 @@
 #include "opResize.h"
 
 //working testing by me ahmedd
+#include "opDrag.h"
+//working testing by me ahmed
 
 //Constructor
 controller::controller()
@@ -129,7 +131,9 @@ operation* controller::createOperation(operationType OpType)
 		case LOAD:
 			pOp = new opLoad(this);
 			break;
-
+		case DRAG:
+			pOp = new opDrag(this);
+			break;
 		case EXIT:
 		{
 			pOp = new opExit(this);

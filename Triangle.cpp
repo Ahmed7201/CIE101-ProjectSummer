@@ -108,6 +108,7 @@ void Triangle::Scale(double factor)
 	Corner3.x = centerX + dx * factor;
 	Corner3.y = centerY + dy * factor;
 }
+
 void Triangle::Save(ofstream& OutFile)
 {
 	

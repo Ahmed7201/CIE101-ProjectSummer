@@ -65,6 +65,8 @@ void Square::Scale(double factor)
 	Corner2.x = centerX + halfSide;
 	Corner2.y = centerY + halfSide;
 }
+
+
 void Square::Save(ofstream& OutFile)
 {
 	// Save the square parameters to the file
