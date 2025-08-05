@@ -193,7 +193,6 @@
     <ClCompile Include="opSave.cpp" />
     <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="opSendtoBack.cpp" />
-    <ClCompile Include="opStickImage.cpp" />
     <ClCompile Include="opUndo.cpp" />
     <ClCompile Include="Oval.cpp" />
     <ClCompile Include="RegularPoly.cpp" />
@@ -254,7 +253,6 @@
     <ClInclude Include="opSave.h" />
     <ClInclude Include="opSelect.h" />
     <ClInclude Include="opSendtoBack.h" />
-    <ClInclude Include="opStickImage.h" />
     <ClInclude Include="opUndo.h" />
     <ClInclude Include="Oval.h" />
     <ClInclude Include="RegularPoly.h" />
