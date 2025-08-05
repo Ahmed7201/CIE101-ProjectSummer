@@ -490,7 +490,7 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 
 
 
-void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo) const
+void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo, double startAngle) const
 {
 	// A polygon must have at least 3 sides
 	if (sides < 3) return;
@@ -523,9 +523,13 @@ void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo) c
 	const double PI = 3.14159265358979323846;
 	double angleStep = 2 * PI / sides;
 
+	// Use the provided startAngle parameter
+	// If startAngle is the default value (-PI/2), use it as is
+	// Otherwise, use the provided angle
+
 	for (int i = 0; i < sides; ++i)
 	{
-		double angle = i * angleStep - PI / 2; // Start from the top
+		double angle = startAngle + i * angleStep;
 		xPoints[i] = center.x + static_cast<int>(radius * cos(angle));
 		yPoints[i] = center.y + static_cast<int>(radius * sin(angle));
 	}
@@ -536,6 +540,24 @@ void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo) c
 	// Free the allocated memory
 	delete[] xPoints;
 	delete[] yPoints;
+}
+void GUI::DrawImage_InsideShape(string imagepath, int x, int y, int width, int height) const
+{
+	// Draw an image inside a shape
+	pWind->DrawImage(imagepath, x, y, width, height);
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+void GUI::DrawImage(string imagepath, Point p1,Point p2) const
+{
+	// ???? ????? ??????
+	int width = abs(p2.x - p1.x);
+	int height = abs(p2.y - p1.y);
+
+	// ???? ????? ?? ??? ?? ???????? ??? ?? ?????? ?????? ?????
+	int x = min(p1.x, p2.x);
+	int y = min(p1.y, p2.y);
+
+	pWind->DrawImage(imagepath, x, y, width, height);
 }
 
 

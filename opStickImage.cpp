@@ -13,11 +13,16 @@ void opStickImage::Execute()
 	GUI* pUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
 
-	shape* selectedShape = pGraph->GetSelectedShape();
+	shape* clickedShape = pGraph->GetSelectedShape();
 
-	if (!selectedShape)
+	if (!clickedShape)
 	{
 		pUI->PrintMessage("No shape selected. Please select a shape first.");
+		return;
+	}
+	if (clickedShape->HasImage())
+	{
+		pUI->PrintMessage("The selected shape already has an image.");
 		return;
 	}
 
@@ -27,9 +32,8 @@ void opStickImage::Execute()
 
 	string fullPath = "images\\Shape_Images\\" + filename;
 
-	selectedShape->SetImagePath(fullPath);
+	clickedShape->SetImagePath(fullPath);
 
 	pUI->PrintMessage("Image added to the selected shape.");
-
-	pControl->UpdateInterface(); // Refresh the interface to reflect changes
 }
+//testing
