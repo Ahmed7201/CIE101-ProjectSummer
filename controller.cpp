@@ -21,6 +21,7 @@
 #include "opUndo.h"
 #include "opRedo.h"
 
+//working testing by me ahmed
 
 //Constructor
 controller::controller()
@@ -159,9 +160,9 @@ void controller::setGraph(Graph* pG)
 	{
 		delete pGraph; // Delete the old graph if it exists
 	}
-		pGraph = pG; // Set the new graph
-	}
-	
+	pGraph = pG; // Set the new graph
+}
+
 
 
 

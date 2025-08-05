@@ -275,8 +275,12 @@ void Graph::load(ifstream& inputfile)
 			continue;
 		}
 
+		// Load the shape data from file
+		if (pS) {
+			pS->Load(inputfile);
+			Addshape(pS); // Add the loaded shape to the shapes list
+		}
 	}
-
 }
 void Graph::PushToUndo() {
 	if (undoTop < maxUndoRedo - 1) {
