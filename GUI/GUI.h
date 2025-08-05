@@ -50,7 +50,7 @@ class GUI
 		ICON_PASTE,
 		ICON_UNDO,
 		ICON_REDO,
-		
+		ICON_STICK_IMAGE,	//Stick image icon in menu
 		ICON_DRAW_CLR,
 		ICON_FILL_CLR,
 

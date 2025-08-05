@@ -33,4 +33,18 @@ GfxInfo shape::GetGfxInfo()const
 {
 	return ShpGfxInfo;
 } // Return the shape's graphical info
+void shape::SetImagePath(const string& path)
+{
+	imagePath = path;
+}
+string shape::GetImagePath()const
+{
+	return imagePath;
+} // Get the image path for the shape
+bool shape::HasImage() const
+{
+	return !imagePath.empty();
+} // Check if the shape has an image associated with it
+
+
 

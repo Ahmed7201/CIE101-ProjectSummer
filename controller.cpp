@@ -20,6 +20,7 @@
 #include "opAddRegularPoly.h"
 #include "opUndo.h"
 #include "opRedo.h"
+#include "opStickImage.h"
 
 
 //Constructor
@@ -74,6 +75,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case Draw_Oval:
 			pOp = new opAddOval(this);
+			break;
+		case STICK_IMAGE:
+			pOp = new opStickImage(this);
 			break;
 		case Select:
 			pOp = new opSelect(this);
