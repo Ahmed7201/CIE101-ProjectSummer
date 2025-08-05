@@ -126,6 +126,8 @@ public:
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo) const;  //Draw a triangle
 	
 	void DrawOval(Point P1, Point P2, GfxInfo OvalGfxInfo) const;
+	void DrawImage_InsideShape(string imagepath, int x, int y, int width, int height)const;
+	void DrawImage(string imagepath, Point p1, Point p2)const;
 
 	
 	

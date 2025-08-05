@@ -534,6 +534,24 @@ void GUI::DrawPolygon(Point center, int radius, int sides, GfxInfo ShpGfxInfo, d
 	delete[] xPoints;
 	delete[] yPoints;
 }
+void GUI::DrawImage_InsideShape(string imagepath, int x, int y, int width, int height) const
+{
+	// Draw an image inside a shape
+	pWind->DrawImage(imagepath, x, y, width, height);
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+void GUI::DrawImage(string imagepath, Point p1,Point p2) const
+{
+	// ???? ????? ??????
+	int width = abs(p2.x - p1.x);
+	int height = abs(p2.y - p1.y);
+
+	// ???? ????? ?? ??? ?? ???????? ??? ?? ?????? ?????? ?????
+	int x = min(p1.x, p2.x);
+	int y = min(p1.y, p2.y);
+
+	pWind->DrawImage(imagepath, x, y, width, height);
+}
 
 
 
