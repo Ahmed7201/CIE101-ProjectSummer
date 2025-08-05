@@ -23,8 +23,9 @@ void opLoad::Execute()
 	Graph* pGraph = pControl->getGraph();
 
 	// Ask user for filename
-	pUI->PrintMessage("Enter filename to save to (without extension):");
+	pUI->PrintMessage("Enter filename to load to (without extension):");
 	string name = pUI->GetSrting();  // or GetString() if that's the correct spelling
+	if (name == "") { pUI->PrintMessage("Load cancelled"); return; }
 	name += ".txt";
 
 	// Open the file for reading
