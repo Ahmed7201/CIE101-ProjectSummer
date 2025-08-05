@@ -17,6 +17,7 @@
 #include "opSendtoBack.h"
 #include "opSave.h"
 #include "opExit.h"
+#include "opAddRegularPoly.h"
 
 
 //Constructor
@@ -48,6 +49,9 @@ operation* controller::createOperation(operationType OpType)
 	{
 		case DRAW_RECT:
 			pOp = new opAddRect(this);
+			break;
+		case Draw_Regular_Polygon:
+			pOp = new opAddRegularPoly(this);
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);

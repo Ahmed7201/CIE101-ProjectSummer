@@ -175,6 +175,11 @@
     </ClCompile>
     <ClCompile Include="opLoad.cpp" />
     <ClCompile Include="opCopy.cpp" />
+    <ClCompile Include="opPaste.cpp" />
+    <ClCompile Include="opSave.cpp" />
+    <ClCompile Include="opSendtoBack.cpp" />
+    <ClCompile Include="opAddRegularPoly.cpp" />
+    <ClCompile Include="RegularPoly.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -313,6 +318,11 @@
     </ClInclude>
     <ClInclude Include="opLoad.h" />
     <ClInclude Include="opCopy.h" />
+    <ClInclude Include="opPaste.h" />
+    <ClInclude Include="opSave.h" />
+    <ClInclude Include="opSendtoBack.h" />
+    <ClInclude Include="opAddRegularPoly.h" />
+    <ClInclude Include="RegularPoly.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

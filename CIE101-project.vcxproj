@@ -172,6 +172,7 @@
     <ClCompile Include="opAddCircle.cpp" />
     <ClCompile Include="opAddLine.cpp" />
     <ClCompile Include="opAddOval.cpp" />
+    <ClCompile Include="opAddRegularPoly.cpp" />
     <ClCompile Include="opAddSquare.cpp" />
     <ClCompile Include="opAddTriangle.cpp" />
     <ClCompile Include="opColorPalete.cpp" />
@@ -188,6 +189,7 @@
     <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="opSendtoBack.cpp" />
     <ClCompile Include="Oval.cpp" />
+    <ClCompile Include="RegularPoly.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
@@ -223,6 +225,7 @@
     <ClInclude Include="opAddCircle.h" />
     <ClInclude Include="opAddLine.h" />
     <ClInclude Include="opAddOval.h" />
+    <ClInclude Include="opAddRegularPoly.h" />
     <ClInclude Include="opAddSquare.h" />
     <ClInclude Include="opAddTriangle.h" />
     <ClInclude Include="opColorPalete.h" />
@@ -240,6 +243,7 @@
     <ClInclude Include="opSelect.h" />
     <ClInclude Include="opSendtoBack.h" />
     <ClInclude Include="Oval.h" />
+    <ClInclude Include="RegularPoly.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Shape.h" />
