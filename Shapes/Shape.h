@@ -9,6 +9,7 @@ class shape
 protected:
 	int ID;		//Each shape has an ID
 	GfxInfo ShpGfxInfo;	//shape graphis info
+	string imagePath; // Path to the image associated with the shape, if any
 	
 	/// Add more parameters if needed.
 
@@ -51,6 +52,10 @@ public:
 
 	virtual void Save(ofstream &OutFile) = 0;	//Save the shape parameters to the file
 	virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
+
+	void SetImagePath(const string& path); 
+	string GetImagePath() const; 
+	bool HasImage() const; 
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
 };
