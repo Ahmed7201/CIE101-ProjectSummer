@@ -21,7 +21,7 @@
 #include "opUndo.h"
 #include "opRedo.h"
 #include "opStickImage.h"
-
+#include "opDrag.h"
 //working testing by me ahmed
 
 //Constructor
@@ -121,7 +121,9 @@ operation* controller::createOperation(operationType OpType)
 		case LOAD:
 			pOp = new opLoad(this);
 			break;
-
+		case DRAG:
+			pOp = new opDrag(this);
+			break;
 		case EXIT:
 		{
 			pOp = new opExit(this);

@@ -82,6 +82,7 @@ void Triangle::Move(int dx, int dy)
 	Corner3.x += dx;
 	Corner3.y += dy;
 }
+
 void Triangle::Save(ofstream& OutFile)
 {
 	

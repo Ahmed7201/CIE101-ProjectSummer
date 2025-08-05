@@ -19,6 +19,8 @@ public:
 	virtual void Save(ofstream& OutFile) override; // Save the line parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the line parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the line
+
+
 };
 
 

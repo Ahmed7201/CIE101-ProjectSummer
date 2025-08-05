@@ -178,6 +178,7 @@
     <ClCompile Include="opColorPalete.cpp" />
     <ClCompile Include="opCopy.cpp" />
     <ClCompile Include="opDelete.cpp" />
+    <ClCompile Include="opDrag.cpp" />
     <ClCompile Include="opDrawColor.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="opExit.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="opColorPalete.h" />
     <ClInclude Include="opCopy.h" />
     <ClInclude Include="opDelete.h" />
+    <ClInclude Include="opDrag.h" />
     <ClInclude Include="opDrawColor.h" />
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\operation.h" />

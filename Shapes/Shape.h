@@ -21,7 +21,8 @@ public:
 	virtual bool isInside(int x, int y) const=0; //check whether a point is inside the shape
 	void SetGfxInfo(GfxInfo gfxInfo);  //set the shape's graphical info
 
-	
+
+
 
 	GfxInfo GetGfxInfo() const; //get the shape's graphical info
 

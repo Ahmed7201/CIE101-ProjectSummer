@@ -45,6 +45,8 @@ void Square::Move(int dx, int dy)
 	Corner2.x += dx;
 	Corner2.y += dy;
 }
+
+
 void Square::Save(ofstream& OutFile)
 {
 	// Save the square parameters to the file

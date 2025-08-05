@@ -25,7 +25,8 @@ enum operationType //The operations supported (you can add more if needed)
 	SEND_BACK,		//Send a shape to the back of all shapes
 	BRNG_FRNT,		//Bring a shape to the front of all shapes
 	SAVE,			//Save the whole graph to a file
-	LOAD,			//Load a graph from a file
+	LOAD,
+	DRAG,
 	COPY,			//Copy a shape(s)
 	PASTE,			//Paste a shape(s) to the drawing area
 	EXIT,
