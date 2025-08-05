@@ -23,7 +23,7 @@ void opStickImage::Execute()
 	pUI->PrintMessage("Enter image file name (e.g., image1.jpg):");
 	string filename = pUI->GetSrting();
 
-	string fullPath = "images\\ShapeImages\\" + filename;
+	string fullPath = "images\\MenuIcons\\" + filename;
 
 	selectedShape->SetImagePath(fullPath);
 
