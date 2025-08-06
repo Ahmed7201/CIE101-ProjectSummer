@@ -24,7 +24,7 @@ void opLoad::Execute()
 
 	// Ask user for filename
 	pUI->PrintMessage("Enter filename to load to (without extension):");
-	string name = pUI->GetSrting();  // or GetString() if that's the correct spelling
+	string name = pUI->GetSrting();  
 	if (name == "") { pUI->PrintMessage("Load cancelled"); return; }
 	name += ".txt";
 

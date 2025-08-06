@@ -35,7 +35,7 @@ void opResize_by_Drag::Execute()
 	
 	// While resizing
 	int currentX = startX, currentY = startY;
-	while (pUI->IsMouseButtonDown())
+	do
 	{
 		int newX, newY;
 		pUI->GetMouseCoord(newX, newY);
@@ -62,6 +62,7 @@ void opResize_by_Drag::Execute()
 			currentY = newY;
 			pControl->UpdateInterface(); // update drawing!
 		}
-	}
+	} while (pUI->IsMouseButtonDown());
+
 	pUI->PrintMessage("Shape resized.");
 }
