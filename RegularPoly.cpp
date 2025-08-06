@@ -189,30 +189,3 @@ void RegularPoly::Resize(double newWidth, double newHeight)
         Vertex.y = Center.y + dy;
     }
 }
-void RegularPoly::Save(ofstream& OutFile)
-{
-    OutFile << "RegularPoly " << Center.x << " " << Center.y << " " << Vertex.x << " " << Vertex.y << " " << NumSides << endl;
-    OutFile << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue << endl;
-    OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue << endl;
-    OutFile << ShpGfxInfo.isFilled << endl;
-    OutFile << Radius << endl;
-}
-void RegularPoly::Load(ifstream& Infile)
-{
-    Infile >> Center.x >> Center.y >> Vertex.x >> Vertex.y >> NumSides;
-  
-    // Explicit casting from int to unsigned char
-    int r, g, b;
-    // Draw Color
-    Infile >> r >> g >> b;
-    ShpGfxInfo.DrawClr.ucRed = static_cast<unsigned char>(r);
-    ShpGfxInfo.DrawClr.ucGreen = static_cast<unsigned char>(g);
-    ShpGfxInfo.DrawClr.ucBlue = static_cast<unsigned char>(b);
-    // Fill Color
-    Infile >> r >> g >> b;
-    ShpGfxInfo.FillClr.ucRed = static_cast<unsigned char>(r);
-    ShpGfxInfo.FillClr.ucGreen = static_cast<unsigned char>(g);
-    ShpGfxInfo.FillClr.ucBlue = static_cast<unsigned char>(b);
-    // Fill flag
-    Infile >> ShpGfxInfo.isFilled;
-}
