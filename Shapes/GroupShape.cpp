@@ -91,6 +91,11 @@ void GroupShape::Scale(double factor)
 	// Empty implementation - not needed
 }
 
+void GroupShape::Resize(double newWidth, double newHeight)
+{
+	// Empty implementation - not needed
+}
+
 void GroupShape::Save(ofstream& OutFile)
 {
 	// Empty implementation - not needed

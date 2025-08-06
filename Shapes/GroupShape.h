@@ -27,6 +27,7 @@ public:
 	virtual void Move(int dx, int dy) override;
 	virtual void Rotate(double degrees) override;
 	virtual void Scale(double factor) override;
+	virtual void Resize(double newWidth, double newHeight) override;
 	virtual void Save(ofstream& OutFile) override;
 	virtual void Load(ifstream& Infile) override;
 }; 
