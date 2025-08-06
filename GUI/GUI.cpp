@@ -22,7 +22,7 @@ GUI::GUI()
 	StatusBarHeight = 50;
 	StatusBarWidth = 0;
 	ToolBarHeight = 50;
-	MenuIconWidth = 50;
+	MenuIconWidth = 47.9;
 
 	DrawColor = DARKGREEN;	//default Drawing color
 	FillColor = YELLOW;	//default Filling color
@@ -115,10 +115,8 @@ operationType GUI::GetUseroperation() const
 		case ICON_RESIZE: return RESIZE;
 		case ICON_RESIZE_by_DRAG: return Resize_by_Drag;
 		case ICON_PASTE: return PASTE;
-		case ICON_GROUP:
-			return GROUP;
-		case ICON_UNGROUP:
-			return UNGROUP;
+		case ICON_GROUP: return GROUP;
+		case ICON_UNGROUP: return UNGROUP;
 		case ICON_DRAG: return DRAG;
 		case ICON_STICK_IMAGE: return STICK_IMAGE;
 		case ICON_SendBack: return SEND_BACK;
@@ -200,7 +198,6 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_FILL_CLR] = "images\\MenuIcons\\Menu_Fill.jpg";
 	MenuIconImages[ICON_SendBack] = "images\\MenuIcons\\Menu_SendBack.jpg";
 	MenuIconImages[ICON_Delete] = "images\\MenuIcons\\Menu_Del.jpg";
-
 	MenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
 	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
 	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
@@ -210,7 +207,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
 	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\Menu_Drag.jpg";
 	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
-	MenuIconImages[ICON_RESIZE_by_DRAG] = "images\\MenuIcons\\Menu_Rect.jpg";
+	MenuIconImages[ICON_RESIZE_by_DRAG] = "images\\MenuIcons\\Menu_RDrag.jpg";
 	MenuIconImages[ICON_STICK_IMAGE] = "images\\MenuIcons\\Menu_Stick.jpg";
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
