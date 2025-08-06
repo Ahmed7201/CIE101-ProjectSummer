@@ -19,6 +19,7 @@ public:
 	virtual void Save(ofstream& OutFile) override; // Save the triangle parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the triangle parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the triangle
+	virtual void Resize(double newWidth, double newHeight) override; // Resize the triangle to new width and height
 
 
 };

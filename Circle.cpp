@@ -135,3 +135,16 @@ Point Circle::Getcenter() const
 	// Calculate the center point of the circle
 	return Center;
 }
+void Circle::Resize(double newWidth, double newHeight)
+{
+	// Resize the circle to new width and height
+	// For a circle, width and height should be equal to maintain the shape
+	if (newWidth != newHeight) {
+		newHeight = newWidth; 
+	}
+	
+	// Update the radius based on the new width/height
+	Radius = newWidth / 2.0; // Assuming newWidth is the diameter
+	Edge_Point.x = Center.x + Radius; // Update edge point accordingly
+	Edge_Point.y = Center.y; // Keep it on the horizontal line from center
+}

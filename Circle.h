@@ -23,6 +23,7 @@ public:
 	virtual void Save(ofstream& OutFile) override; // Save the circle parameters to a file
 	virtual void Load(ifstream& Infile) override; // Load the circle parameters from a file
 	virtual Point Getcenter() const override; // Get the center point of the circle
+	virtual void Resize(double newWidth, double newHeight) override; // Resize the circle to new width and height
    
 
 }; // Add missing semicolon here

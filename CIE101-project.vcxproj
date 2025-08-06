@@ -189,6 +189,7 @@
     <ClCompile Include="opPaste.cpp" />
     <ClCompile Include="opRedo.cpp" />
     <ClCompile Include="opResize.cpp" />
+    <ClCompile Include="opResize_by_Drag.cpp" />
     <ClCompile Include="opRotate_90.cpp" />
     <ClCompile Include="opSave.cpp" />
     <ClCompile Include="opSelect.cpp" />
@@ -250,6 +251,7 @@
     <ClInclude Include="opPaste.h" />
     <ClInclude Include="opRedo.h" />
     <ClInclude Include="opResize.h" />
+    <ClInclude Include="opResize_by_Drag.h" />
     <ClInclude Include="opRotate_90.h" />
     <ClInclude Include="opSave.h" />
     <ClInclude Include="opSelect.h" />

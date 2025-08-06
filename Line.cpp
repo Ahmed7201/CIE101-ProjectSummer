@@ -166,3 +166,19 @@ Point Line::Getcenter() const
     int centerY = (point1.y + point2.y) / 2;
     return Point{ centerX, centerY };
 }
+void Line::Resize(double newWidth, double newHeight)
+{
+    // Resize the line to new width and height
+    // For a line, we can interpret width as the length of the line
+    // and height as the thickness of the line (which is not typically used for lines)
+    
+    // Calculate the current length of the line
+    double currentLength = sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2));
+    
+    // Calculate the scaling factor based on the new width
+    double scaleFactor = newWidth / currentLength;
+    
+    // Scale the line points
+    Scale(scaleFactor);
+}
+

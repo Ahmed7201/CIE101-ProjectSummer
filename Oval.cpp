@@ -133,5 +133,13 @@ Point Oval::Getcenter() const
 	// Calculate the center point of the oval
 	return Center; // The center is already stored in the Center member variable
 }
+void Oval::Resize(double newWidth, double newHeight)
+{
+	// Resize the oval to new width and height
+	// Assuming newWidth and newHeight are the diameters of the oval
+	Radius_Oval = newWidth / 2.0; // Update radius based on new width
+	Edge_Point.x = Center.x + Radius_Oval; // Update edge point based on new radius
+	Edge_Point.y = Center.y; // Keep the y-coordinate same for a horizontal oval
+}
 
 

@@ -21,4 +21,5 @@ public:
     virtual void Save(ofstream& OutFile) override;
     virtual void Load(ifstream& Infile) override;
     virtual Point Getcenter() const override;
+	virtual void Resize(double newWidth, double newHeight) override; // Resize the irregular polygon to new width and height
 };

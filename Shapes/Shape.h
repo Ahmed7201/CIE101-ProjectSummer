@@ -32,7 +32,7 @@ public:
 	
 
 	
-	static double CalcRadius(Point center, Point edge);
+	static double CalcDistance(Point center, Point edge);
 	
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
 	
@@ -47,6 +47,7 @@ public:
 	virtual void Move(int dx, int dy) = 0;	//Move the shape by dx, dy
 	virtual void Rotate(double degrees) = 0;	//Rotate the shape
 	virtual void Scale(double factor) = 0;	//Scale the shape by factor
+	virtual void Resize(double newWidth, double newHeight) = 0;	//Resize the shape to new width and height
 	//virtual void Resize() = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
 

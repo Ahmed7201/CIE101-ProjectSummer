@@ -113,6 +113,7 @@ operationType GUI::GetUseroperation() const
 		case ICON_UNDO: return UNDO;
 		case ICON_REDO: return REDO;
 		case ICON_RESIZE: return RESIZE;
+		case ICON_RESIZE_by_DRAG: return Resize_by_Drag;
 		case ICON_PASTE: return PASTE;
 		case ICON_DRAG: return DRAG;
 		case ICON_STICK_IMAGE: return STICK_IMAGE;
@@ -203,6 +204,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
 	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\Menu_Drag.jpg";
 	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
+	MenuIconImages[ICON_RESIZE_by_DRAG] = "images\\MenuIcons\\Menu_Rect.jpg";
 	MenuIconImages[ICON_STICK_IMAGE] = "images\\MenuIcons\\Menu_Stick.jpg";
 	MenuIconImages[ICON_Select] = "images\\MenuIcons\\Menu_Select.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";

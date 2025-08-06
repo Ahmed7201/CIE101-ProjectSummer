@@ -171,3 +171,21 @@ Point RegularPoly::Getcenter() const
 {
     return Center;
 }
+void RegularPoly::Resize(double newWidth, double newHeight)
+{
+    // Resize is not applicable for regular polygons in the same way as rectangles or squares
+    // We will adjust the radius based on the average of newWidth and newHeight
+    Radius = (newWidth + newHeight) / 4.0; // Average to maintain a regular shape
+    // Update the vertex position accordingly
+    double dx = Vertex.x - Center.x;
+    double dy = Vertex.y - Center.y;
+    double distance = sqrt(dx * dx + dy * dy);
+    
+    if (distance > 0) {
+        // Normalize and scale
+        dx = (dx / distance) * Radius;
+        dy = (dy / distance) * Radius;
+        Vertex.x = Center.x + dx;
+        Vertex.y = Center.y + dy;
+    }
+}

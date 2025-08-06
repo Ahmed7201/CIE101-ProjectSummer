@@ -196,3 +196,26 @@ Point IrregularPoly::Getcenter() const
 {
     return Center;
 }
+void IrregularPoly::Resize(double newWidth, double newHeight)
+{
+    // Calculate the current bounding box
+    int minX = Vertices[0].x, minY = Vertices[0].y;
+    int maxX = Vertices[0].x, maxY = Vertices[0].y;
+    for (int i = 1; i < NumVertices; i++) {
+        minX = min(minX, Vertices[i].x);
+        minY = min(minY, Vertices[i].y);
+        maxX = max(maxX, Vertices[i].x);
+        maxY = max(maxY, Vertices[i].y);
+    }
+    // Calculate current width and height
+    double currentWidth = maxX - minX;
+    double currentHeight = maxY - minY;
+    // Calculate scale factors
+    double widthFactor = newWidth / currentWidth;
+    double heightFactor = newHeight / currentHeight;
+    // Scale each vertex
+    for (int i = 0; i < NumVertices; i++) {
+        Vertices[i].x = Center.x + (Vertices[i].x - Center.x) * widthFactor;
+        Vertices[i].y = Center.y + (Vertices[i].y - Center.y) * heightFactor;
+    }
+}
