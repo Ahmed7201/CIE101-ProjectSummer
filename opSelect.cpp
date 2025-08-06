@@ -18,14 +18,12 @@ void opSelect::Execute() {
     // Get the shape at the clicked point
     shape* clickedShape = pGraph->Getshape(clickedPoint.x, clickedPoint.y);
 
-
     if (clickedShape) {
         // Check if the shape is already selected
         bool isCurrentlySelected = clickedShape->IsSelected();
         if (isCurrentlySelected) {
             // Unselect the shape
             clickedShape->SetSelected(false);
-            pGraph->SetSelectedShape(nullptr);
 			GfxInfo gfxInfo = clickedShape->GetGfxInfo();
 			gfxInfo.DrawClr = pUI->getCrntDrawColor(); // Reset to original color
 			clickedShape->SetGfxInfo(gfxInfo); // Update GfxInfo
@@ -47,8 +45,6 @@ void opSelect::Execute() {
             // Display shape info
             string info = "Selected: " + clickedShape->GetShapeType() +
                 " at (" + to_string(clickedPoint.x) + "," + to_string(clickedPoint.y) +
-                ") Color: (" + to_string(originalColor.ucRed) + "," +
-                to_string(originalColor.ucGreen) + "," + to_string(originalColor.ucBlue) + ")";
             pUI->PrintMessage(info);
         }
     }
