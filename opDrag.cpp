@@ -11,7 +11,7 @@ void opDrag::Execute()
     GUI* pUI = pControl->GetUI();
     Graph* pGraph = pControl->getGraph();
     shape* selected = pGraph->GetSelectedShape();
-
+    pGraph->PushToUndo();
     if (!selected)
     {
         pUI->PrintMessage("Please select a shape first.");
@@ -22,30 +22,25 @@ void opDrag::Execute()
     pUI->GetPointClicked(startX, startY);
     pUI->PrintMessage("Click and hold to drag the shape...");
 
-    // Wait until mouse button is pressed
     while (!pUI->IsMouseButtonDown())
     {
-        // do nothing, just wait
     }
 
-    // While dragging
     int currentX = startX, currentY = startY;
     while (pUI->IsMouseButtonDown())
     {
         int newX, newY;
         pUI->GetMouseCoord(newX, newY);
 
-        // Only move if the cursor has changed position
         if (newX != currentX || newY != currentY)
         {
             int dx = newX - currentX;
             int dy = newY - currentY;
-            selected->Move(dx, dy); // move by delta
+            selected->Move(dx, dy); 
             currentX = newX;
             currentY = newY;
-            pControl->UpdateInterface(); // update drawing!
+            pControl->UpdateInterface(); 
         }
     }
-
     pUI->PrintMessage("Shape released.");
 }

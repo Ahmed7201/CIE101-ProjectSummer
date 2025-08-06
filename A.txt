@@ -1,0 +1,12 @@
+2
+RegularPoly
+RegularPoly 293 381 440 405 5
+0 0 0
+255 0 0
+1
+148.946
+IrregularPoly
+IrregularPoly 5 811 212 1051 357 918 573 704 518 640 303
+0 0 0
+255 0 0
+1

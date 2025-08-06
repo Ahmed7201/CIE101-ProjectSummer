@@ -37,7 +37,7 @@ public:
 	void CopySelectedShape(shape* pShape); // Copy the selected shape
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void load(ifstream& inputfile);	//Load all shapes from a file
-	void RemoveShape(shape* pShape);
+	void RemoveShape(shape* pShape); //Delete shpaes
 	void RotateSelectedShape(shape* pShape); // Rotate the selected shape by a given angle
 	void PasteCopiedShape(Point P1);
 	bool IsSaved() const;

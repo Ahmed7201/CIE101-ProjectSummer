@@ -622,8 +622,8 @@ color GUI::GetHighlightColor()const
 
 void GUI::GetMouseDrag(int& x, int& y) {
 	int d;
-	pWind->WaitMouseClick(d, d); // Wait for user to release mouse
-	pWind->GetMouseCoord(x, y);          // Get final drag point
+	pWind->WaitMouseClick(d, d); 
+	pWind->GetMouseCoord(x, y);          
 }
 void GUI::GetMouseCoord(int& x, int& y) const {
 	pWind->GetMouseCoord(x, y);
@@ -631,8 +631,7 @@ void GUI::GetMouseCoord(int& x, int& y) const {
 
 bool GUI::IsMouseButtonDown() const
 {
-	return (GetAsyncKeyState(VK_LBUTTON) & 0x8000);  // True if left button is held
-}
+	return (GetAsyncKeyState(VK_LBUTTON) & 0x8000);  
 
 
 

@@ -15,14 +15,14 @@ void opPaste::Execute() {
 	shape* clickedShape = pGraph->GetSelectedShape();
 	if (clickedShape) {
 		pUI->PrintMessage("Click at where you want to paste the copied shape : ");
-		pUI->GetPointClicked(clickedPoint.x, clickedPoint.y); // Get the point where the user clicked
-		// Add the cloned shape to the graph
+		pUI->GetPointClicked(clickedPoint.x, clickedPoint.y); 
+		
 		pGraph->PasteCopiedShape(clickedPoint);
 		pUI->PrintMessage("Shape Pasted successfully");
 	}
 	else {
 		pUI->PrintMessage("No shape selected to paste");
 	}
-	pControl->UpdateInterface(); // Refresh the interface to reflect changes
+	pControl->UpdateInterface(); 
 }
 
