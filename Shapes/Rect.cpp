@@ -146,6 +146,20 @@ Point Rect::Getcenter() const
 	center.y = (Corner1.y + Corner2.y) / 2;
 	return center;
 }
+void Rect::Resize(double newWidth, double newHeight)
+{
+	// Calculate the center of the rectangle
+	double centerX = (Corner1.x + Corner2.x) / 2.0;
+	double centerY = (Corner1.y + Corner2.y) / 2.0;
+	// Calculate new corners relative to center
+	double halfWidth = newWidth / 2.0;
+	double halfHeight = newHeight / 2.0;
+	// Update corners
+	Corner1.x = centerX - halfWidth;
+	Corner1.y = centerY - halfHeight;
+	Corner2.x = centerX + halfWidth;
+	Corner2.y = centerY + halfHeight;
+}
 
 
 	

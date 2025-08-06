@@ -23,6 +23,7 @@
 #include "opRedo.h"
 #include "opResize.h"
 #include "opStickImage.h"
+#include "opResize_by_Drag.h"
 #include "opGroup.h"
 #include "opUnGroup.h"
 
@@ -119,6 +120,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case RESIZE:
 			pOp = new opResize(this);
+			break;
+		case Resize_by_Drag:
+			pOp = new opResize_by_Drag(this);
 			break;
 
 		case CHNG_DRAW_CLR:

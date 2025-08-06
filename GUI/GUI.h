@@ -55,6 +55,7 @@ class GUI
 		ICON_UNDO,
 		ICON_REDO,
 		ICON_RESIZE,		//Resize icon in menu
+		ICON_RESIZE_by_DRAG,	//Resize by drag icon in menu
 		ICON_STICK_IMAGE,	//Stick image icon in menu
 		ICON_DRAW_CLR,
 		ICON_FILL_CLR,

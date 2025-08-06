@@ -17,6 +17,7 @@ public:
 	virtual shape* Clone() override ; // Cloning is not implemented for Rect
 	virtual void Move(int dx, int dy) override; // Move the rectangle by dx, dy
 	virtual void Scale(double factor) override; // Scale the rectangle by factor
+	virtual void Resize(double newWidth, double newHeight) override; // Resize the rectangle to new width and height
 	
 
 	virtual void Save(ofstream& OutFile) override; // Save the rectangle parameters to a file
