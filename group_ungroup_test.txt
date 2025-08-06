@@ -1,0 +1,32 @@
+GROUP AND UNGROUP FUNCTIONALITY TEST
+
+The group and ungroup functionality is now fully implemented with the following features:
+
+GROUP FUNCTIONALITY:
+- Select 2 or more shapes (up to 10 maximum)
+- Click the Group button/tool
+- The selected shapes will be grouped together
+- The group will be automatically selected after grouping
+
+UNGROUP FUNCTIONALITY:
+- Select a group (a previously grouped set of shapes)
+- Click the Ungroup button/tool
+- The group will be broken apart into individual shapes
+- All individual shapes will be added back to the drawing area
+
+FEATURES:
+- Minimum 2 shapes required for grouping
+- Maximum 10 shapes per group
+- Groups can be selected, moved, rotated, and scaled as a single unit
+- Groups maintain the individual properties of their component shapes
+- No save/load functionality for groups (as requested)
+
+TESTING STEPS:
+1. Draw multiple shapes (circles, squares, triangles, etc.)
+2. Select multiple shapes by clicking on them
+3. Click the Group button to group them
+4. Verify the shapes are now grouped (they move together)
+5. Select the group and click Ungroup
+6. Verify the shapes are now individual again
+
+The implementation is clean and focused only on group/ungroup functionality without any unnecessary features. 

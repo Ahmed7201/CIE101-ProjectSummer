@@ -59,6 +59,11 @@ public:
 	string GetImagePath() const; 
 	bool HasImage() const; 
 
+	// Group-related methods
+	virtual bool IsGroup() const { return false; }  // Default implementation for regular shapes
+	virtual int GetNumShapes() const { return 0; }  // Default implementation for regular shapes
+	virtual shape* GetShape(int index) const { return nullptr; }  // Default implementation for regular shapes
+
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
 };
 

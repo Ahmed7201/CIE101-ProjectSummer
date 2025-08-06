@@ -31,7 +31,7 @@ void Circle::Draw(GUI* pUI) const
 		pUI->DrawImage_InsideShape(GetImagePath(), x, y, width, height);
 	} else {
 		// Draw the shape normally with fill
-		pUI->DrawCircle(Center, Radius, ShpGfxInfo);
+	pUI->DrawCircle(Center, Radius, ShpGfxInfo);
 	}
 }
 void Circle::SetRadius(int r)

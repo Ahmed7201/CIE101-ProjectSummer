@@ -8,6 +8,7 @@
 #include "../Line.h"
 #include "../RegularPoly.h"
 #include "../IrregularPoly.h"
+#include "GroupShape.h"
 #include <fstream>
 
 Graph::Graph()
@@ -294,13 +295,134 @@ void Graph::PushToUndo() {
 	}
 }
 
-void Graph::ClearShapes() {
-	for (int i = 0; i < shapeCount; ++i) {
+void Graph::ClearShapes()
+{
+	for (int i = 0; i < shapeCount; i++)
+	{
 		delete shapesList[i];
 		shapesList[i] = nullptr;
 	}
 	shapeCount = 0;
+	selectedShape = nullptr;
 }
+
+// Group-related methods implementation
+int Graph::GetSelectedShapesCount() const
+{
+	int count = 0;
+	for (int i = 0; i < shapeCount; i++) {
+		if (shapesList[i] && shapesList[i]->IsSelected()) {
+			count++;
+		}
+	}
+	return count;
+}
+
+shape* Graph::GetSelectedShape(int index) const
+{
+	int currentIndex = 0;
+	for (int i = 0; i < shapeCount; i++) {
+		if (shapesList[i] && shapesList[i]->IsSelected()) {
+			if (currentIndex == index) {
+				return shapesList[i];
+			}
+			currentIndex++;
+		}
+	}
+	return nullptr;
+}
+
+bool Graph::GroupSelectedShapes()
+{
+	int selectedCount = GetSelectedShapesCount();
+	
+	if (selectedCount < 2) {
+		return false;
+	}
+	
+	if (selectedCount > 10) {
+		selectedCount = 10; // Limit to 10 shapes
+	}
+
+	// Create array of selected shapes
+	shape* selectedShapes[10];
+	int count = 0;
+	
+	for (int i = 0; i < shapeCount && count < selectedCount; i++) {
+		if (shapesList[i] && shapesList[i]->IsSelected()) {
+			selectedShapes[count] = shapesList[i];
+			count++;
+		}
+	}
+
+	// Create a new group shape
+	GfxInfo groupGfxInfo;
+	groupGfxInfo.DrawClr = BLACK;
+	groupGfxInfo.FillClr = WHITE;
+	groupGfxInfo.isFilled = false;
+	groupGfxInfo.BorderWdth = 2;
+	groupGfxInfo.isSelected = false;
+
+	GroupShape* groupShape = new GroupShape(selectedShapes, count, groupGfxInfo);
+
+	// Remove the individual shapes from the list
+	for (int i = 0; i < count; i++) {
+		RemoveShape(selectedShapes[i]);
+	}
+
+	// Add the group shape to the list
+	Addshape(groupShape);
+
+	// Select the new group
+	SetSelectedShape(groupShape);
+
+	return true;
+}
+
+bool Graph::UnGroupShape(shape* groupShape)
+{
+	if (!groupShape) {
+		return false;
+	}
+	
+	if (!groupShape->IsGroup()) {
+
+		return false;
+	}
+
+
+	// Get the shapes in the group using virtual methods
+	int numShapes = groupShape->GetNumShapes();
+	
+	if (numShapes <= 0) {
+		return false;
+	}
+
+	// Store the individual shapes before removing the group
+	shape* individualShapes[10];
+	int actualCount = 0;
+	
+	for (int i = 0; i < numShapes && actualCount < 10; i++) {
+		shape* individualShape = groupShape->GetShape(i);
+		if (individualShape) {
+			individualShapes[actualCount] = individualShape;
+			actualCount++;
+		}
+	}
+
+	// Remove the group shape from the list
+	RemoveShape(groupShape);
+
+	// Add back the individual shapes
+	for (int i = 0; i < actualCount; i++) {
+		if (individualShapes[i]) {
+			Addshape(individualShapes[i]);
+		}
+	}
+
+	return true;
+}
+
 void Graph::Undo() {
 	if (undoTop >= 0) {
 		// Save current state to redo stack

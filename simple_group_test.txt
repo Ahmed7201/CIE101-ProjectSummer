@@ -1,0 +1,38 @@
+MULTIPLE SHAPE GROUP AND UNGROUP FUNCTIONALITY TEST
+
+This version supports grouping multiple shapes (2-10 shapes) based on user selections.
+
+To test the group functionality:
+
+1. Build and run the application
+2. Draw multiple shapes (rectangles, circles, squares, etc.)
+3. Select shapes by clicking on them one by one (they should be highlighted)
+4. You can select 2 to 10 shapes
+5. Click on the group icon in the toolbar
+6. All selected shapes should be grouped together
+7. You can now move, rotate, or scale the entire group as one unit
+
+To test the ungroup functionality:
+
+1. Select a group (click on any shape in the group)
+2. Click on the ungroup icon in the toolbar
+3. The group should be broken back into individual shapes
+4. You can now select and manipulate individual shapes again
+
+Features of this version:
+- Groups 2 to 10 shapes at a time
+- Based on user selections
+- No vectors (uses simple arrays)
+- Simple selection mechanism
+- Easy to understand and implement
+- Group manipulation (move, rotate, scale)
+- Group ungrouping
+- Visual feedback for selected shapes
+
+The group functionality allows you to:
+- Select multiple shapes by clicking on them (2-10 shapes)
+- Group them together to manipulate as a single unit
+- Ungroup them back to individual shapes
+- Move, rotate, and scale the entire group
+
+This version is still simple but supports multiple shapes based on user selections. 

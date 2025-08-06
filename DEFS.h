@@ -30,6 +30,8 @@ enum operationType //The operations supported (you can add more if needed)
 	DRAG,
 	COPY,			//Copy a shape(s)
 	PASTE,			//Paste a shape(s) to the drawing area
+	GROUP,			//Group 2 selected shapes
+	UNGROUP,		//Ungroup a shape group
 	EXIT,
 	UNDO,
 	REDO,

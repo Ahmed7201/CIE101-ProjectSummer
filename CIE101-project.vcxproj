@@ -194,12 +194,15 @@
     <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="opSendtoBack.cpp" />
     <ClCompile Include="opStickImage.cpp" />
+    <ClCompile Include="opGroup.cpp" />
+    <ClCompile Include="opUnGroup.cpp" />
     <ClCompile Include="opUndo.cpp" />
     <ClCompile Include="Oval.cpp" />
     <ClCompile Include="RegularPoly.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
+    <ClCompile Include="Shapes\GroupShape.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
@@ -255,6 +258,8 @@
     <ClInclude Include="opSelect.h" />
     <ClInclude Include="opSendtoBack.h" />
     <ClInclude Include="opStickImage.h" />
+    <ClInclude Include="opGroup.h" />
+    <ClInclude Include="opUnGroup.h" />
     <ClInclude Include="opUndo.h" />
     <ClInclude Include="Oval.h" />
     <ClInclude Include="RegularPoly.h" />
@@ -262,6 +267,7 @@
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Shape.h" />
     <ClInclude Include="Shapes\Rect.h" />
+    <ClInclude Include="Shapes\GroupShape.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>

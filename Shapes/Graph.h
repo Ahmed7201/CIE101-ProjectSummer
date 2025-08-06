@@ -49,4 +49,10 @@ public:
 	void Undo();
 	void Redo();
 	void ClearShapes();
+	
+	// Group-related methods
+	int GetSelectedShapesCount() const;  // Count how many shapes are selected
+	shape* GetSelectedShape(int index) const;  // Get selected shape at index
+	bool GroupSelectedShapes();  // Group all selected shapes
+	bool UnGroupShape(shape* groupShape);  // Ungroup a shape group
 };

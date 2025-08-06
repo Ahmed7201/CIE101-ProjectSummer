@@ -49,6 +49,8 @@ class GUI
 		ICON_ROTATE,		//Rotate icon in menu
 		ICON_COPY,		//Copy icon in menu
 		ICON_PASTE,
+		ICON_GROUP,		//Group icon in menu
+		ICON_UNGROUP,	//Ungroup icon in menu
 		ICON_DRAG,
 		ICON_UNDO,
 		ICON_REDO,

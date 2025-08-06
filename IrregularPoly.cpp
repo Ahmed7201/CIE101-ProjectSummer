@@ -57,7 +57,7 @@ void IrregularPoly::Draw(GUI* pUI) const
 	} else {
 		// Draw the shape normally with fill
 		pUI->DrawIrregularPoly(Vertices, NumVertices, ShpGfxInfo);
-	}
+    }
 }
 
 bool IrregularPoly::isInside(int x, int y) const

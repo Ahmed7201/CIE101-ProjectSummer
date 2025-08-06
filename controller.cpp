@@ -23,6 +23,8 @@
 #include "opRedo.h"
 #include "opResize.h"
 #include "opStickImage.h"
+#include "opGroup.h"
+#include "opUnGroup.h"
 
 //working testing by me ahmedd
 #include "opDrag.h"
@@ -86,6 +88,12 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case STICK_IMAGE:
 			pOp = new opStickImage(this);
+			break;
+		case GROUP:
+			pOp = new opGroup(this);
+			break;
+		case UNGROUP:
+			pOp = new opUnGroup(this);
 			break;
 		case Select:
 			pOp = new opSelect(this);

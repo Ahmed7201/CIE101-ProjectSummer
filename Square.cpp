@@ -34,7 +34,7 @@ void Square::Draw(GUI* pUI) const
 		pUI->DrawImage_InsideShape(GetImagePath(), x, y, side, side);
 	} else {
 		// Draw the shape normally with fill
-		pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
 	}
 }
 bool Square::isInside(int x, int y) const

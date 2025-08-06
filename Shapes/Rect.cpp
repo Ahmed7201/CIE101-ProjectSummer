@@ -33,7 +33,7 @@ void Rect::Draw(GUI* pUI) const
 		pUI->DrawImage_InsideShape(GetImagePath(), x, y, width, height);
 	} else {
 		// Draw the shape normally with fill
-		pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
+	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
 	}
 }
 bool Rect::isInside(int x, int y) const
