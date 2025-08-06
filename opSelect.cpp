@@ -12,6 +12,8 @@ void opSelect::Execute() {
     GUI* pUI = pControl->GetUI();
     Graph* pGraph = pControl->getGraph();
 
+	pUI->PrintMessage("Click on a shape to select or unselect it");
+
     // Get the point clicked by the user
     pUI->GetPointClicked(clickedPoint.x, clickedPoint.y);
 
